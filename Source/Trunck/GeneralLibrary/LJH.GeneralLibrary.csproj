@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B4CB506B-1C5A-493A-8437-0BCEC14A2DB4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LJH.GeneralLibrary</RootNamespace>
+    <AssemblyName>LJH.GeneralLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Debug\LJH.GeneralLibrary.xml</DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.MSCommLib">
+      <HintPath>..\Reference\Interop.MSCommLib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.SpeechLib">
+      <HintPath>..\Reference\Interop.SpeechLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.WIA">
+      <HintPath>..\Reference\Interop.WIA.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.ZSTLib">
+      <HintPath>..\Reference\Interop.ZSTLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BCDConverter.cs" />
+    <Compile Include="CardReader\CardOperationResultCode.cs" />
+    <Compile Include="CardReader\MUR200CardReader.cs" />
+    <Compile Include="CardReader\ReadCardResult.cs" />
+    <Compile Include="CardReader\ZSTReader.cs" />
+    <Compile Include="CardReader\ZSTReaderEventArgs.cs" />
+    <Compile Include="CommandLineArgs.cs" />
+    <Compile Include="LED\BX4KCRCCalculator.cs" />
+    <Compile Include="HexStringConverter.cs" />
+    <Compile Include="LED\BX4KDisplayMode.cs" />
+    <Compile Include="LED\BX4KDynamicArea.cs" />
+    <Compile Include="LED\BX4KLEDControler.cs" />
+    <Compile Include="LED\BX4KLEDPacket.cs" />
+    <Compile Include="LOG\FileLog.cs" />
+    <Compile Include="Printer\BarCodePrinter.cs" />
+    <Compile Include="Printer\EpsonMT532.cs" />
+    <Compile Include="Printer\APMBillInfo.cs" />
+    <Compile Include="Printer\PrinterStatusChangedEventArgs.cs" />
+    <Compile Include="Printer\X56TicketPrinter.cs" />
+    <Compile Include="Resources\Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SEBinaryConverter.cs" />
+    <Compile Include="CardReader\YangChengTongPacket.cs" />
+    <Compile Include="DeviceClasses.cs" />
+    <Compile Include="DeviceInfo.cs" />
+    <Compile Include="Net\IPConverter.cs" />
+    <Compile Include="LED\IParkingLed.cs" />
+    <Compile Include="LED\YanseDesktopLed.cs" />
+    <Compile Include="LED\ZhongZhiLed.cs" />
+    <Compile Include="Printer\BillInfo.cs" />
+    <Compile Include="Printer\EpsonmodePrinter.cs" />
+    <Compile Include="LED\ParkFullLed.cs" />
+    <Compile Include="Printer\PrintMode.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SoftDog\DTEncrypt.cs" />
+    <Compile Include="SoftDog\KeyCreator.cs" />
+    <Compile Include="Speech\TTSSpeech.cs" />
+    <Compile Include="Printer\KPM150BarCodePrinter.cs" />
+    <Compile Include="CardReader\BarCodeReader.cs" />
+    <Compile Include="Printer\Justification.cs" />
+    <Compile Include="Printer\PrinterStatus.cs" />
+    <Compile Include="CardReader\CardReaderManager.cs" />
+    <Compile Include="CardReader\ICardReader.cs" />
+    <Compile Include="CardReader\MUR100CardReader.cs" />
+    <Compile Include="CardReader\ReaderState.cs" />
+    <Compile Include="CardReader\WengenCardReader.cs" />
+    <Compile Include="CommPort.cs" />
+    <Compile Include="LED\ZhongKuangLed.cs" />
+    <Compile Include="SoftDog\DSEncrypt.cs" />
+    <Compile Include="ExceptionHandling\ExceptionPolicy.cs" />
+    <Compile Include="ImageHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoftDog\SoftDogInfo.cs" />
+    <Compile Include="SoftDog\SoftDogReader.cs" />
+    <Compile Include="StringHelper.cs" />
+    <Compile Include="Printer\TicketInfo.cs" />
+    <Compile Include="TempFolderManager.cs" />
+    <Compile Include="WCF\BindingFactory.cs" />
+    <Compile Include="SingleInstance.cs" />
+    <Compile Include="Net\NetTool.cs" />
+    <Compile Include="CardReader\YangChengTongOperationResult.cs" />
+    <Compile Include="CardReader\YangChengTongCardInfo.cs" />
+    <Compile Include="CardReader\YangChengTongReader.cs" />
+    <Compile Include="WinformControl\ComPortCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformControl\ComPortCombobox.designer.cs">
+      <DependentUpon>ComPortCombobox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\CustomDataGridview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformControl\CustomDataGridview.designer.cs">
+      <DependentUpon>CustomDataGridview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\DataGridViewExporter.cs" />
+    <Compile Include="WinformControl\DBCTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformControl\DBCTextBox.Designer.cs">
+      <DependentUpon>DBCTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\DecimalTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformControl\DecimalTextBox.designer.cs">
+      <DependentUpon>DecimalTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\AddressCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformControl\AddressCombobox.designer.cs">
+      <DependentUpon>AddressCombobox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\FormHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinformControl\FormHeader.Designer.cs">
+      <DependentUpon>FormHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\FormPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinformControl\FormPanel.Designer.cs">
+      <DependentUpon>FormPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\IntergerTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformControl\IntergerTextBox.designer.cs">
+      <DependentUpon>IntergerTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\Scaner.cs" />
+    <Compile Include="WinformControl\UCDateTimeInterval.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinformControl\UCDateTimeInterval.designer.cs">
+      <DependentUpon>UCDateTimeInterval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\UCFormView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinformControl\UCFormView.designer.cs">
+      <DependentUpon>UCFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinformControl\UCIPTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinformControl\UCIPTextBox.designer.cs">
+      <DependentUpon>UCIPTextBox.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource1.en.resx" />
+    <EmbeddedResource Include="Resources\Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource1.zh-Hant.resx" />
+    <EmbeddedResource Include="WinformControl\FormHeader.resx">
+      <DependentUpon>FormHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinformControl\FormPanel.resx">
+      <DependentUpon>FormPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinformControl\UCDateTimeInterval.resx">
+      <DependentUpon>UCDateTimeInterval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinformControl\UCFormView.resx">
+      <DependentUpon>UCFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinformControl\UCIPTextBox.resx">
+      <DependentUpon>UCIPTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
