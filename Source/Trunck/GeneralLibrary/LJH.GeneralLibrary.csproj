@@ -178,6 +178,12 @@
     <Compile Include="CardReader\YangChengTongOperationResult.cs" />
     <Compile Include="CardReader\YangChengTongCardInfo.cs" />
     <Compile Include="CardReader\YangChengTongReader.cs" />
+    <Compile Include="WinformControl\MyToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformControl\MyToolStrip.Designer.cs">
+      <DependentUpon>MyToolStrip.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinformControl\ComPortCombobox.cs">
       <SubType>Component</SubType>
     </Compile>
