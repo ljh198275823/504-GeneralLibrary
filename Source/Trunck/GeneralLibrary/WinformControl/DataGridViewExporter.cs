@@ -31,7 +31,10 @@ namespace LJH.GeneralLibrary.WinformControl
                         StringBuilder header = new StringBuilder();
                         for (int i = 0; i < view.Columns.Count; i++)
                         {
-                            header.Append(view.Columns[i].HeaderText + "\t");
+                            if (view.Columns[i].Visible || exportHidden)
+                            {
+                                header.Append(view.Columns[i].HeaderText + "\t");
+                            }
                         }
                         writer.WriteLine(header.ToString());
                         foreach (DataGridViewRow row in view.Rows)
@@ -41,13 +44,16 @@ namespace LJH.GeneralLibrary.WinformControl
                                 StringBuilder rowText = new StringBuilder();
                                 for (int i = 0; i < view.Columns.Count; i++)
                                 {
-                                    if (row.Cells[i].Value != null)
+                                    if (view.Columns[i].Visible || exportHidden)
                                     {
-                                        rowText.Append(row.Cells[i].Value.ToString() + "\t");
-                                    }
-                                    else
-                                    {
-                                        rowText.Append(string.Empty + "\t");
+                                        if (row.Cells[i].Value != null)
+                                        {
+                                            rowText.Append(row.Cells[i].Value.ToString() + "\t");
+                                        }
+                                        else
+                                        {
+                                            rowText.Append(string.Empty + "\t");
+                                        }
                                     }
                                 }
                                 writer.WriteLine(rowText.ToString());
