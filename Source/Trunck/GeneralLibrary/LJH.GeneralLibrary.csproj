@@ -233,6 +233,12 @@
     <Compile Include="WinformControl\IntergerTextBox.designer.cs">
       <DependentUpon>IntergerTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinformControl\PercentageProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformControl\PercentageProgressBar.designer.cs">
+      <DependentUpon>PercentageProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinformControl\Scaner.cs" />
     <Compile Include="WinformControl\UCDateTimeInterval.cs">
       <SubType>UserControl</SubType>

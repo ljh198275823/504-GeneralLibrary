@@ -69,5 +69,9 @@ namespace LJH.GeneralLibrary.SoftDog
         /// 进销存软件
         /// </summary>
         TYPE_Inventory = 1,
+        /// <summary>
+        /// 考勤软件
+        /// </summary>
+        TYPE_TA = 2,
     }
 }
