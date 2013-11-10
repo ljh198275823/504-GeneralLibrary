@@ -115,6 +115,7 @@
     <Compile Include="CardReader\ZSTReader.cs" />
     <Compile Include="CardReader\ZSTReaderEventArgs.cs" />
     <Compile Include="CommandLineArgs.cs" />
+    <Compile Include="DecimalHelper.cs" />
     <Compile Include="LED\BX4KCRCCalculator.cs" />
     <Compile Include="HexStringConverter.cs" />
     <Compile Include="LED\BX4KDisplayMode.cs" />
