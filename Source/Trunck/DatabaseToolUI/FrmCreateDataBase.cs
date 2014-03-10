@@ -37,8 +37,8 @@ namespace DatabaseToolUI
         {
             if (!string.IsNullOrEmpty(this.txtDataBase.Text))
             {
-                this.txtDataPath.Text = System.IO.Path.Combine(_Path, txtDataBase.Text + ".mdf");
-                this.txtLogPath.Text = System.IO.Path.Combine(_Path, txtDataBase.Text + "_log.ldf");
+                this.txtDataPath.Text = System.IO.Path.Combine(_Path, txtDataBase.Text.Trim() + ".mdf");
+                this.txtLogPath.Text = System.IO.Path.Combine(_Path, txtDataBase.Text.Trim() + "_log.ldf");
             }
         }
 
@@ -64,11 +64,11 @@ namespace DatabaseToolUI
 
         private void btnLogPath_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.FileName = this.txtLogPath .Text;
+            saveFileDialog1.FileName = this.txtLogPath.Text;
             saveFileDialog1.Filter = "ldf文件|*.ldf";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                this.txtLogPath .Text = saveFileDialog1.FileName;
+                this.txtLogPath.Text = saveFileDialog1.FileName;
             }
         }
 
@@ -87,12 +87,12 @@ namespace DatabaseToolUI
             if (File.Exists(txtSqlPath.Text) == false)
             {
                 MessageBox.Show("指定的SQL文件不存在!");
-                return false; 
+                return false;
             }
             if (string.IsNullOrEmpty(txtDataPath.Text))
             {
                 MessageBox.Show("数据库文件不能为空!");
-                return false; 
+                return false;
             }
             if (string.IsNullOrEmpty(txtLogPath.Text))
             {
@@ -104,7 +104,7 @@ namespace DatabaseToolUI
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            string msg=DBClient.CreateDataBase(txtDataBase.Text, txtSqlPath.Text, txtDataPath.Text, txtLogPath.Text);
+            string msg = DBClient.CreateDataBase(txtDataBase.Text.Trim(), txtSqlPath.Text, txtDataPath.Text, txtLogPath.Text);
             if (string.IsNullOrEmpty(msg))
             {
                 MessageBox.Show("创建数据库成功!");
@@ -115,7 +115,5 @@ namespace DatabaseToolUI
                 MessageBox.Show(msg);
             }
         }
-
-
     }
 }
