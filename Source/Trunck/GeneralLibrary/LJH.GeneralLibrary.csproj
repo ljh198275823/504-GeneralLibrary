@@ -95,11 +95,6 @@
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Interop.MSCommLib">
-      <HintPath>..\Reference\Interop.MSCommLib.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Interop.SpeechLib">
       <HintPath>..\Reference\Interop.SpeechLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
