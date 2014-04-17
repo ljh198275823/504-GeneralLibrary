@@ -141,6 +141,15 @@
     <Compile Include="CardReader\ZSTReader.cs" />
     <Compile Include="CardReader\ZSTReaderEventArgs.cs" />
     <Compile Include="CommandLineArgs.cs" />
+    <Compile Include="DAL\CommandResult.cs" />
+    <Compile Include="DAL\DataContextFactory.cs" />
+    <Compile Include="DAL\IProvider.cs" />
+    <Compile Include="DAL\IUnitWork.cs" />
+    <Compile Include="DAL\ProviderBase.cs" />
+    <Compile Include="DAL\QueryResult.cs" />
+    <Compile Include="DAL\QueryResultList.cs" />
+    <Compile Include="DAL\ResultCode.cs" />
+    <Compile Include="DAL\SearchCondition.cs" />
     <Compile Include="DecimalHelper.cs" />
     <Compile Include="LED\BX4KCRCCalculator.cs" />
     <Compile Include="HexStringConverter.cs" />
@@ -204,6 +213,27 @@
     <Compile Include="StringHelper.cs" />
     <Compile Include="Printer\TicketInfo.cs" />
     <Compile Include="TempFolderManager.cs" />
+    <Compile Include="UI\FrmColumnSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmColumnSelection.designer.cs">
+      <DependentUpon>FrmColumnSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmDetailBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmDetailBase.designer.cs">
+      <DependentUpon>FrmDetailBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmMasterBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmMasterBase.designer.cs">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ItemAddedEventArgs.cs" />
+    <Compile Include="UI\ItemUpdatedEventArgs.cs" />
+    <Compile Include="UI\RowChangeEventArgs.cs" />
     <Compile Include="WCF\BindingFactory.cs" />
     <Compile Include="SingleInstance.cs" />
     <Compile Include="Net\NetTool.cs" />
@@ -313,6 +343,15 @@
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource1.zh-Hant.resx" />
+    <EmbeddedResource Include="UI\FrmColumnSelection.resx">
+      <DependentUpon>FrmColumnSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmDetailBase.resx">
+      <DependentUpon>FrmDetailBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmMasterBase.resx">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinformControl\FormHeader.resx">
       <DependentUpon>FormHeader.cs</DependentUpon>
     </EmbeddedResource>
@@ -349,7 +388,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
