@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.IO;
+using System.Xml.Serialization;
 using System.Text;
 using System.Windows.Forms;
 using LJH.GeneralLibrary.DAL;
@@ -59,7 +61,9 @@ namespace LJH.GeneralLibrary.UI
                 return _PnlLeft;
             }
         }
-        #endregion
+
+        private string _ColumnsConfig = System.IO.Path.Combine(Application.StartupPath, "ColumnsConf.xml");
+        #endregion.
 
         #region 私有方法
         private void InitToolbar()
@@ -116,7 +120,28 @@ namespace LJH.GeneralLibrary.UI
         {
             DataGridView grid = this.GridView;
             if (grid == null) return;
-            string temp = null;// AppSettings.Current.GetConfigContent(string.Format("{0}_Columns", this.GetType().Name));
+            string temp = null;
+            if (File.Exists(_ColumnsConfig))
+            {
+                try
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
+                    using (FileStream fs = new FileStream(_ColumnsConfig, FileMode.Open, FileAccess.Read))
+                    {
+                        List<MyKeyValuePair> items = ser.Deserialize(fs) as List<MyKeyValuePair>;
+                        if (items != null && items.Count > 0)
+                        {
+                            string key = string.Format("{0}_Columns", this.GetType().Name);
+                            MyKeyValuePair kv = items.SingleOrDefault(it => it.Key == key);
+                            temp = kv != null ? kv.Value : null;  //如果能从集合中获取到，则KeyValuePair的key不为空
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                }
+            }
             if (string.IsNullOrEmpty(temp)) return;
             string[] cols = temp.Split(',');
 
@@ -269,7 +294,7 @@ namespace LJH.GeneralLibrary.UI
             }
         }
         /// <summary>
-        /// 刷新数据
+        /// 从数据库重新获取数据并刷新数据显示
         /// </summary>
         protected virtual void ReFreshData()
         {
@@ -329,7 +354,37 @@ namespace LJH.GeneralLibrary.UI
                 if (cols != null && cols.Length > 0)
                 {
                     string temp = string.Join(",", cols);
-                    //AppSettings.Current.SaveConfig(string.Format("{0}_Columns", this.GetType().Name), temp);
+                    try
+                    {
+                        XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
+                        List<MyKeyValuePair> items = null;
+                        if (File.Exists(_ColumnsConfig))
+                        {
+                            using (FileStream fs = new FileStream(_ColumnsConfig, FileMode.Open, FileAccess.Read))
+                            {
+                                items = ser.Deserialize(fs) as List<MyKeyValuePair>;
+                            }
+                        }
+                        if (items == null) items = new List<MyKeyValuePair>();
+                        string key = string.Format("{0}_Columns", this.GetType().Name);
+                        for (int i = 0; i < items.Count; i++)
+                        {
+                            if (items[i].Key == key)
+                            {
+                                items.RemoveAt(i);
+                                break;
+                            }
+                        }
+                        items.Add(new MyKeyValuePair { Key = key, Value = temp });
+                        using (FileStream fs = new FileStream(_ColumnsConfig, FileMode.Create, FileAccess.Write))
+                        {
+                            ser.Serialize(fs, items);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                    }
                     InitGridViewColumns();
                 }
             }
@@ -686,5 +741,12 @@ namespace LJH.GeneralLibrary.UI
             Filter(keyword);
         }
         #endregion
+    }
+
+    public class MyKeyValuePair
+    {
+        public string Key { get; set; }
+
+        public string Value { get; set; }
     }
 }
