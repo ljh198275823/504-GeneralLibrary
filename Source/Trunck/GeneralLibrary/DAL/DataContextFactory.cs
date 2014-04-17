@@ -11,14 +11,12 @@ namespace LJH.GeneralLibrary.DAL
         /// </summary>
         /// <param name="connStr"></param>
         /// <returns></returns>
-        public static DataContext CreateDataContext(string connStr, string resourceUri)
+        public static DataContext CreateDataContext(string connStr, MappingSource ms, bool Log = false)
         {
             System.Diagnostics.Debug.Assert(!string.IsNullOrEmpty(connStr), "没有找到有效的数据库连接!");
-            Stream stream = typeof(DataContextFactory).Assembly.GetManifestResourceStream(resourceUri);
-            MappingSource mappingSource = XmlMappingSource.FromStream(stream);
-            DataContext inventory = new DataContext(connStr, mappingSource);
-            inventory.Log = System.Console.Out;
-            return inventory;
+            DataContext dc = new DataContext(connStr, ms);
+            if (Log) dc.Log = System.Console.Out;
+            return dc;
         }
     }
 }

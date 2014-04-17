@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Data.Linq;
 using System.Data.SqlClient;
+using System.Data.Linq.Mapping;
+using System.Data.Linq;
 using System.Collections.Generic;
 using LJH.GeneralLibrary.ExceptionHandling;
 
@@ -15,14 +17,16 @@ namespace LJH.GeneralLibrary.DAL
     public abstract class ProviderBase<TInfo, TID> : IProvider<TInfo, TID> where TInfo : class, new()
     {
         #region 构造函数
-        public ProviderBase(string conStr)
+        public ProviderBase(string conStr, MappingSource ms)
         {
             this.ConnectStr = conStr;
+            _MappingResource = ms;
         }
         #endregion
 
         #region 私有字段
         protected readonly string successMsg = "ok";
+        protected MappingSource _MappingResource = null;
         #endregion
 
         #region 公共属性
@@ -41,7 +45,7 @@ namespace LJH.GeneralLibrary.DAL
             QueryResult<TInfo> result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, "LJH.Inventory.DAL.LinqProvider.Inventory.xml");
+                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
                 TInfo info = GetingItemByID(id, dc);
                 if (info != null)
                 {
@@ -69,7 +73,7 @@ namespace LJH.GeneralLibrary.DAL
             QueryResultList<TInfo> result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, "LJH.Inventory.DAL.LinqProvider.Inventory.xml");
+                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
                 List<TInfo> infoes;
                 infoes = GetingItems(dc, search);
                 result = new QueryResultList<TInfo>(ResultCode.Successful, successMsg, infoes);
@@ -91,7 +95,7 @@ namespace LJH.GeneralLibrary.DAL
             CommandResult result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, "LJH.Inventory.DAL.LinqProvider.Inventory.xml");
+                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
                 InsertingItem(info, dc);
                 dc.SubmitChanges();
                 result = new CommandResult(ResultCode.Successful, successMsg);
@@ -114,7 +118,7 @@ namespace LJH.GeneralLibrary.DAL
             CommandResult result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, "LJH.Inventory.DAL.LinqProvider.Inventory.xml");
+                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
                 UpdatingItem(newVal, original, dc);
                 dc.SubmitChanges();
                 result = new CommandResult(ResultCode.Successful, successMsg);
@@ -136,7 +140,7 @@ namespace LJH.GeneralLibrary.DAL
             CommandResult result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, "LJH.Inventory.DAL.LinqProvider.Inventory.xml");
+                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
                 DeletingItem(info, dc);
                 dc.SubmitChanges();
                 result = new CommandResult(ResultCode.Successful, successMsg);
