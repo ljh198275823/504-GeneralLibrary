@@ -692,7 +692,10 @@ namespace LJH.GeneralLibrary.UI
         private void FrmMasterBase_Load(object sender, EventArgs e)
         {
             Init();
-            btnFresh_Click(null, null);
+            if (GridView != null) //这一行不能少，如果没有这一行，窗体在设计时会出错
+            {
+                btnFresh_Click(null, null);
+            }
         }
 
         private void GridView_Sorted(object sender, EventArgs e)
