@@ -63,6 +63,7 @@
             this.Name = "FrmMasterBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMasterBase";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMasterBase_FormClosed);
             this.Load += new System.EventHandler(this.FrmMasterBase_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

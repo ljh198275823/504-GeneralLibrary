@@ -63,6 +63,7 @@ namespace LJH.GeneralLibrary.UI
         }
 
         private string _ColumnsConfig = System.IO.Path.Combine(Application.StartupPath, "ColumnsConf.xml");
+        private string _PnlLeftWidthConfig = System.IO.Path.Combine(Application.StartupPath, "PnlLeftWidthConf.xml");
         #endregion.
 
         #region 私有方法
@@ -236,6 +237,45 @@ namespace LJH.GeneralLibrary.UI
                 Button b = sender as Button;
                 b.BackColor = SystemColors.ControlDark;
                 ShowItemsOnGrid(b.Tag as List<object>);
+            }
+        }
+
+        private void InitPnlLeft()
+        {
+            if (PnlLeft != null)
+            {
+                foreach (Control ctrl in PnlLeft.Controls)
+                {
+                    if (ctrl is Button)
+                    {
+                        (ctrl as Button).Click += btnLeftPanelButton_Click;
+                    }
+                }
+                if (File.Exists(_PnlLeftWidthConfig))
+                {
+                    try
+                    {
+                        XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
+                        using (FileStream fs = new FileStream(_PnlLeftWidthConfig, FileMode.Open, FileAccess.Read))
+                        {
+                            List<MyKeyValuePair> items = ser.Deserialize(fs) as List<MyKeyValuePair>;
+                            if (items != null && items.Count > 0)
+                            {
+                                string key = string.Format("{0}_PnlLeftWidth", this.GetType().Name);
+                                MyKeyValuePair kv = items.SingleOrDefault(it => it.Key == key);
+                                int temp = 0;
+                                if (kv != null && int.TryParse(kv.Value, out temp) && temp > 0)
+                                {
+                                    PnlLeft.Width = temp;
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                    }
+                }
             }
         }
         #endregion
@@ -609,6 +649,7 @@ namespace LJH.GeneralLibrary.UI
         {
             InitToolbar();
             InitGridView();
+            InitPnlLeft();
             InitGridViewColumns();
         }
         /// <summary>
@@ -651,20 +692,7 @@ namespace LJH.GeneralLibrary.UI
         private void FrmMasterBase_Load(object sender, EventArgs e)
         {
             Init();
-            if (PnlLeft != null)
-            {
-                foreach (Control ctrl in PnlLeft.Controls)
-                {
-                    if (ctrl is Button)
-                    {
-                        (ctrl as Button).Click += btnLeftPanelButton_Click;
-                    }
-                }
-            }
-            if (GridView != null)
-            {
-                btnFresh_Click(null, null);
-            }
+            btnFresh_Click(null, null);
         }
 
         private void GridView_Sorted(object sender, EventArgs e)
@@ -677,7 +705,7 @@ namespace LJH.GeneralLibrary.UI
             PerformAddData();
         }
 
-        private  void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             PerformDeleteData();
         }
@@ -739,6 +767,44 @@ namespace LJH.GeneralLibrary.UI
                 keyword = (sender as ToolStripTextBox).Text;
             }
             Filter(keyword);
+        }
+
+        private void FrmMasterBase_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (PnlLeft != null)
+            {
+                try
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
+                    List<MyKeyValuePair> items = null;
+                    if (File.Exists(_PnlLeftWidthConfig))
+                    {
+                        using (FileStream fs = new FileStream(_PnlLeftWidthConfig, FileMode.Open, FileAccess.Read))
+                        {
+                            items = ser.Deserialize(fs) as List<MyKeyValuePair>;
+                        }
+                    }
+                    if (items == null) items = new List<MyKeyValuePair>();
+                    string key = string.Format("{0}_PnlLeftWidth", this.GetType().Name);
+                    MyKeyValuePair kv = items.SingleOrDefault(it => it.Key == key);
+                    if (kv != null)
+                    {
+                        kv.Value = PnlLeft.Width.ToString();
+                    }
+                    else
+                    {
+                        items.Add(new MyKeyValuePair { Key = key, Value = PnlLeft.Width.ToString() });
+                    }
+                    using (FileStream fs = new FileStream(_PnlLeftWidthConfig, FileMode.Create, FileAccess.Write))
+                    {
+                        ser.Serialize(fs, items);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                }
+            }
         }
         #endregion
     }
