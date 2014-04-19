@@ -121,31 +121,9 @@ namespace LJH.GeneralLibrary.UI
         {
             DataGridView grid = this.GridView;
             if (grid == null) return;
-            string temp = null;
-            if (File.Exists(_ColumnsConfig))
-            {
-                try
-                {
-                    XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
-                    using (FileStream fs = new FileStream(_ColumnsConfig, FileMode.Open, FileAccess.Read))
-                    {
-                        List<MyKeyValuePair> items = ser.Deserialize(fs) as List<MyKeyValuePair>;
-                        if (items != null && items.Count > 0)
-                        {
-                            string key = string.Format("{0}_Columns", this.GetType().Name);
-                            MyKeyValuePair kv = items.SingleOrDefault(it => it.Key == key);
-                            temp = kv != null ? kv.Value : null;  //如果能从集合中获取到，则KeyValuePair的key不为空
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
-                }
-            }
+            string temp = GetConfig(_ColumnsConfig, string.Format("{0}_Columns", this.GetType().Name));
             if (string.IsNullOrEmpty(temp)) return;
             string[] cols = temp.Split(',');
-
             for (int i = 0; i < cols.Length; i++)
             {
                 string[] col_Temp = cols[i].Split(':');
@@ -253,28 +231,9 @@ namespace LJH.GeneralLibrary.UI
                 }
                 if (File.Exists(_PnlLeftWidthConfig))
                 {
-                    try
-                    {
-                        XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
-                        using (FileStream fs = new FileStream(_PnlLeftWidthConfig, FileMode.Open, FileAccess.Read))
-                        {
-                            List<MyKeyValuePair> items = ser.Deserialize(fs) as List<MyKeyValuePair>;
-                            if (items != null && items.Count > 0)
-                            {
-                                string key = string.Format("{0}_PnlLeftWidth", this.GetType().Name);
-                                MyKeyValuePair kv = items.SingleOrDefault(it => it.Key == key);
-                                int temp = 0;
-                                if (kv != null && int.TryParse(kv.Value, out temp) && temp > 0)
-                                {
-                                    PnlLeft.Width = temp;
-                                }
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
-                    }
+                    int temp = 0;
+                    string value = GetConfig(_PnlLeftWidthConfig, string.Format("{0}_PnlLeftWidth", this.GetType().Name));
+                    if (!string.IsNullOrEmpty(value) && int.TryParse(value, out temp) && temp > 0) PnlLeft.Width = temp;
                 }
             }
         }
@@ -394,37 +353,7 @@ namespace LJH.GeneralLibrary.UI
                 if (cols != null && cols.Length > 0)
                 {
                     string temp = string.Join(",", cols);
-                    try
-                    {
-                        XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
-                        List<MyKeyValuePair> items = null;
-                        if (File.Exists(_ColumnsConfig))
-                        {
-                            using (FileStream fs = new FileStream(_ColumnsConfig, FileMode.Open, FileAccess.Read))
-                            {
-                                items = ser.Deserialize(fs) as List<MyKeyValuePair>;
-                            }
-                        }
-                        if (items == null) items = new List<MyKeyValuePair>();
-                        string key = string.Format("{0}_Columns", this.GetType().Name);
-                        for (int i = 0; i < items.Count; i++)
-                        {
-                            if (items[i].Key == key)
-                            {
-                                items.RemoveAt(i);
-                                break;
-                            }
-                        }
-                        items.Add(new MyKeyValuePair { Key = key, Value = temp });
-                        using (FileStream fs = new FileStream(_ColumnsConfig, FileMode.Create, FileAccess.Write))
-                        {
-                            ser.Serialize(fs, items);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
-                    }
+                    SaveConfig(_ColumnsConfig, string.Format("{0}_Columns", this.GetType().Name), temp);
                     InitGridViewColumns();
                 }
             }
@@ -639,6 +568,76 @@ namespace LJH.GeneralLibrary.UI
                 e.UpdatingItem = GridView.SelectedRows[0].Tag;
             }
         }
+        /// <summary>
+        /// 从某个配置文件中读取键为key的项的值
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        protected string GetConfig(string file, string key)
+        {
+            string ret = null;
+            if (File.Exists(file))
+            {
+                try
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
+                    using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read))
+                    {
+                        List<MyKeyValuePair> items = ser.Deserialize(fs) as List<MyKeyValuePair>;
+                        if (items != null && items.Count > 0)
+                        {
+                            MyKeyValuePair kv = items.SingleOrDefault(it => it.Key == key);
+                            ret = kv != null ? kv.Value : null;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                }
+            }
+            return ret;
+        }
+        /// <summary>
+        /// 将某个配置保存到某个配置文件中
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        protected void SaveConfig(string file, string key, string value)
+        {
+            try
+            {
+                XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
+                List<MyKeyValuePair> items = null;
+                if (File.Exists(file))
+                {
+                    using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read))
+                    {
+                        items = ser.Deserialize(fs) as List<MyKeyValuePair>;
+                    }
+                }
+                if (items == null) items = new List<MyKeyValuePair>();
+                MyKeyValuePair kv = items.SingleOrDefault(it => it.Key == key);
+                if (kv != null)
+                {
+                    kv.Value = value;
+                }
+                else
+                {
+                    items.Add(new MyKeyValuePair { Key = key, Value = value });
+                }
+                using (FileStream fs = new FileStream(file, FileMode.Create, FileAccess.Write))
+                {
+                    ser.Serialize(fs, items);
+                }
+            }
+            catch (Exception ex)
+            {
+                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+            }
+        }
         #endregion
 
         #region 子类要重写的方法
@@ -776,37 +775,7 @@ namespace LJH.GeneralLibrary.UI
         {
             if (PnlLeft != null)
             {
-                try
-                {
-                    XmlSerializer ser = new XmlSerializer(typeof(List<MyKeyValuePair>));
-                    List<MyKeyValuePair> items = null;
-                    if (File.Exists(_PnlLeftWidthConfig))
-                    {
-                        using (FileStream fs = new FileStream(_PnlLeftWidthConfig, FileMode.Open, FileAccess.Read))
-                        {
-                            items = ser.Deserialize(fs) as List<MyKeyValuePair>;
-                        }
-                    }
-                    if (items == null) items = new List<MyKeyValuePair>();
-                    string key = string.Format("{0}_PnlLeftWidth", this.GetType().Name);
-                    MyKeyValuePair kv = items.SingleOrDefault(it => it.Key == key);
-                    if (kv != null)
-                    {
-                        kv.Value = PnlLeft.Width.ToString();
-                    }
-                    else
-                    {
-                        items.Add(new MyKeyValuePair { Key = key, Value = PnlLeft.Width.ToString() });
-                    }
-                    using (FileStream fs = new FileStream(_PnlLeftWidthConfig, FileMode.Create, FileAccess.Write))
-                    {
-                        ser.Serialize(fs, items);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
-                }
+                SaveConfig(_PnlLeftWidthConfig, string.Format("{0}_PnlLeftWidth", this.GetType().Name), PnlLeft.Width.ToString());
             }
         }
         #endregion
