@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LJH.GeneralLibrary.DAL
+namespace LJH.GeneralLibrary.Core.DAL
 {
     /// <summary>
     /// 查询或执行操作的结果枚举

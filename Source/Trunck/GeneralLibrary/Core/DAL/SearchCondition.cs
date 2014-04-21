@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LJH.GeneralLibrary.DAL
+namespace LJH.GeneralLibrary.Core.DAL
 {
     /// <summary>
     /// 表示数据库查询条件

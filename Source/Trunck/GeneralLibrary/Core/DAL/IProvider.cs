@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LJH.GeneralLibrary.DAL
+namespace LJH.GeneralLibrary.Core.DAL
 {
-    public interface  IProvider<TInfo,TID>
+    public interface IProvider<TInfo, TID> where TInfo : class,IEntity<TID>
     {
         /// <summary>
         /// 通过ID获取对像
@@ -44,7 +44,7 @@ namespace LJH.GeneralLibrary.DAL
         /// <param name="t"></param>
         /// <param name="unitWork"></param>
         /// <returns></returns>
-        void Insert(TInfo t, IUnitWork unitWork); 
+        void Insert(TInfo t, IUnitWork unitWork);
         /// <summary>
         /// 更新对象,这个操作属于一个单元操作的一部分
         /// </summary>

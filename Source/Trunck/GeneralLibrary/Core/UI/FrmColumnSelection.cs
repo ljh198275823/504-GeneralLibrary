@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LJH.GeneralLibrary.UI
+namespace LJH.GeneralLibrary.Core.UI
 {
     public partial class FrmColumnSelection : Form
     {

@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LJH.GeneralLibrary.DAL
+namespace LJH.GeneralLibrary.Core.DAL
 {
     /// <summary>
-    /// 查询数据返回单个对象时的查询结果
+    /// 查询数据返回结果集合
     /// </summary>
-    public class QueryResult<T>
+    /// <typeparam name="T"></typeparam>
+    [Serializable()]
+    public class QueryResultList<T>
     {
-#region 构造函数
-        public QueryResult()
+        #region 构造函数
+        public QueryResultList()
         {
         }
 
-        public QueryResult(ResultCode code, string msg, T obj)
+        public QueryResultList(ResultCode code, string msg, List<T> list)
         {
-            this.Result  = code;
-            this.Message  = msg;
-            this.QueryObject = obj;
+            this.Result = code;
+            this.Message = msg;
+            this.QueryObjects = list;
         }
-#endregion
+        #endregion
 
-        #region 公共属性
+        #region IQueryResultList<T> 成员
+
         /// <summary>
         ///获取或设置执行结果
         /// </summary>
@@ -35,7 +38,7 @@ namespace LJH.GeneralLibrary.DAL
         /// <summary>
         /// 获取或设置返回的查询对象
         /// </summary>
-        public T QueryObject { get; set; }
+        public List<T> QueryObjects { get; set; }
         #endregion
     }
 }

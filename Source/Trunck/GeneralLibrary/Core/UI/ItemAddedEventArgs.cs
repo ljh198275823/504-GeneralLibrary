@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LJH.GeneralLibrary.UI
+namespace LJH.GeneralLibrary.Core.UI
 {
     public class ItemAddedEventArgs : EventArgs
     {

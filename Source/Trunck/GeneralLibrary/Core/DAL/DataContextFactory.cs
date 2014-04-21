@@ -2,7 +2,7 @@
 using System.Data.Linq.Mapping;
 using System.Data.Linq;
 
-namespace LJH.GeneralLibrary.DAL
+namespace LJH.GeneralLibrary.Core.DAL
 {
     public class DataContextFactory
     {

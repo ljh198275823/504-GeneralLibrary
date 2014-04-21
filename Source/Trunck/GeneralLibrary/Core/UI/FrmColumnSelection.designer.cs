@@ -1,4 +1,4 @@
-﻿namespace LJH.GeneralLibrary.UI
+﻿namespace LJH.GeneralLibrary.Core.UI
 {
     partial class FrmColumnSelection
     {

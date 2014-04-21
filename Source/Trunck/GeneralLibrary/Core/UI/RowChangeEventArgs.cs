@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LJH.GeneralLibrary.UI
+namespace LJH.GeneralLibrary.Core.UI
 {
-    public  class RowChangeEventArgs:EventArgs
+    public class RowChangeEventArgs : EventArgs
     {
         #region 构造函数
         public RowChangeEventArgs()

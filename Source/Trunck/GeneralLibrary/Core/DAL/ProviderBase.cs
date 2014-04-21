@@ -3,18 +3,17 @@ using System.Linq;
 using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Data.Linq.Mapping;
-using System.Data.Linq;
 using System.Collections.Generic;
 using LJH.GeneralLibrary.ExceptionHandling;
 
-namespace LJH.GeneralLibrary.DAL
+namespace LJH.GeneralLibrary.Core.DAL
 {
     /// <summary>
     /// 表示所有数据提供者的基类
     /// </summary>
     /// <typeparam name="TInfo"></typeparam>
     /// <typeparam name="TID"></typeparam>
-    public abstract class ProviderBase<TInfo, TID> : IProvider<TInfo, TID> where TInfo : class, new()
+    public abstract class ProviderBase<TInfo, TID> : IProvider<TInfo, TID> where TInfo : class,IEntity<TID>, new()
     {
         #region 构造函数
         public ProviderBase(string conStr, MappingSource ms)
@@ -159,12 +158,15 @@ namespace LJH.GeneralLibrary.DAL
         /// <param name="unitWork"></param>
         public void Insert(TInfo info, IUnitWork unitWork)
         {
-            if (unitWork == null)
+            if (unitWork != null && unitWork is ILinqUnitWork)
+            {
+                DataContext dc = (unitWork as ILinqUnitWork).DataContext;
+                InsertingItem(info, dc);
+            }
+            else
             {
                 throw new NullReferenceException("参数unitWork为空!");
             }
-            DataContext dc = unitWork.DataContext;
-            InsertingItem(info, dc);
         }
         /// <summary>
         /// 通过工作单元更新实体对象，实际更新发生在工作单元提交时
@@ -174,12 +176,15 @@ namespace LJH.GeneralLibrary.DAL
         /// <param name="unitWork"></param>
         public void Update(TInfo newVal, TInfo originalVal, IUnitWork unitWork)
         {
-            if (unitWork == null)
+            if (unitWork != null && unitWork is ILinqUnitWork)
+            {
+                DataContext dc = (unitWork as ILinqUnitWork).DataContext;
+                UpdatingItem(newVal, originalVal, dc);
+            }
+            else
             {
                 throw new NullReferenceException("参数unitWork为空!");
             }
-            DataContext dc = unitWork.DataContext;
-            UpdatingItem(newVal, originalVal, dc);
         }
         /// <summary>
         /// 通过工作单元删除实体对象，实际删除发生在工作单元提交时
@@ -188,12 +193,15 @@ namespace LJH.GeneralLibrary.DAL
         /// <param name="unitWork"></param>
         public void Delete(TInfo info, IUnitWork unitWork)
         {
-            if (unitWork == null)
+            if (unitWork != null && unitWork is ILinqUnitWork)
+            {
+                DataContext dc = (unitWork as ILinqUnitWork).DataContext;
+                DeletingItem(info, dc);
+            }
+            else
             {
                 throw new NullReferenceException("参数unitWork为空!");
             }
-            DataContext dc = unitWork.DataContext;
-            DeletingItem(info, dc);
         }
         #endregion
 
