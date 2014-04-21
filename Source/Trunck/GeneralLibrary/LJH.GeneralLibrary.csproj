@@ -146,7 +146,6 @@
     <Compile Include="Core\DAL\IProvider.cs" />
     <Compile Include="Core\DAL\IUnitWork.cs" />
     <Compile Include="Core\DAL\ProviderBase.cs" />
-    <Compile Include="Core\DAL\IProviderFactory.cs" />
     <Compile Include="Core\DAL\ILinqUnitWork.cs" />
     <Compile Include="Core\DAL\QueryResult.cs" />
     <Compile Include="Core\DAL\QueryResultList.cs" />
