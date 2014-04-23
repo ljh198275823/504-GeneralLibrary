@@ -206,11 +206,8 @@ namespace LJH.GeneralLibrary.Core.DAL
         #endregion
 
         #region 模板方法
-        protected virtual TInfo GetingItemByID(TID id, DataContext dc)
-        {
-            //每一个子类都要重写这个方法
-            throw new Exception("子类没有重写GetingItemByID方法!");
-        }
+        protected abstract TInfo GetingItemByID(TID id, DataContext dc);
+
         protected virtual List<TInfo> GetingItems(DataContext dc, SearchCondition search)
         {
             //如果要实现这个功能,子类一定要重写这个方法
