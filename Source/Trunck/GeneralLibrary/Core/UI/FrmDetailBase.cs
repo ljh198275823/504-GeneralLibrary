@@ -84,7 +84,7 @@ namespace LJH.GeneralLibrary.Core.UI
         /// <summary>
         /// 显示操作的权限
         /// </summary>
-        public void ShowOperatorRights()
+        public virtual void ShowOperatorRights()
         {
             
         }
