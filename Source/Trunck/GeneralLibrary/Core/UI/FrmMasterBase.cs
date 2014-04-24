@@ -13,7 +13,7 @@ using LJH.GeneralLibrary.Core.DAL;
 
 namespace LJH.GeneralLibrary.Core.UI
 {
-    public partial class FrmMasterBase : Form
+    public partial class FrmMasterBase : Form, IOperatorRender
     {
         public FrmMasterBase()
         {
@@ -646,6 +646,7 @@ namespace LJH.GeneralLibrary.Core.UI
         /// </summary>
         protected virtual void Init()
         {
+            ShowOperatorRights();
             InitToolbar();
             InitGridView();
             InitPnlLeft();
@@ -684,6 +685,11 @@ namespace LJH.GeneralLibrary.Core.UI
         protected virtual bool DeletingItem(object item)
         {
             return false;
+        }
+
+        public virtual void ShowOperatorRights()
+        {
+
         }
         #endregion
 

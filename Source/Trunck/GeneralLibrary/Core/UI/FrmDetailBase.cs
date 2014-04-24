@@ -10,7 +10,7 @@ using LJH.GeneralLibrary.Core.DAL;
 
 namespace LJH.GeneralLibrary.Core.UI
 {
-    public partial class FrmDetailBase : Form
+    public partial class FrmDetailBase : Form, IOperatorRender
     {
         public FrmDetailBase()
         {
@@ -49,6 +49,7 @@ namespace LJH.GeneralLibrary.Core.UI
             {
                 btnOk.Enabled = false;
             }
+            ShowOperatorRights();
         }
 
         protected virtual void ItemShowing()
@@ -81,9 +82,9 @@ namespace LJH.GeneralLibrary.Core.UI
             if (this.ItemAdded != null) ItemAdded(this, e);
         }
 
-        protected virtual void ShowButtonState()
+        public void ShowOperatorRights()
         {
-
+            throw new NotImplementedException();
         }
         #endregion
 
