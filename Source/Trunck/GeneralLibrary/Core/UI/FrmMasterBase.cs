@@ -686,7 +686,9 @@ namespace LJH.GeneralLibrary.Core.UI
         {
             return false;
         }
-
+        /// <summary>
+        /// 显示操作的权限
+        /// </summary>
         public virtual void ShowOperatorRights()
         {
 

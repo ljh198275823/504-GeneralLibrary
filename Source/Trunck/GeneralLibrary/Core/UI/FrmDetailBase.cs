@@ -81,10 +81,12 @@ namespace LJH.GeneralLibrary.Core.UI
         {
             if (this.ItemAdded != null) ItemAdded(this, e);
         }
-
+        /// <summary>
+        /// 显示操作的权限
+        /// </summary>
         public void ShowOperatorRights()
         {
-            throw new NotImplementedException();
+            
         }
         #endregion
 
