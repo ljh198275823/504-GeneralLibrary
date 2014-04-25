@@ -142,30 +142,6 @@ namespace LJH.GeneralLibrary.Core.UI
             }
         }
 
-        private DataGridViewRow Add_A_Row(object item, bool forNewItem)
-        {
-            int row = GridView.Rows.Add();
-            ShowItemInGridViewRow(GridView.Rows[row], item);
-            GridView.Rows[row].Tag = item;
-            if (forNewItem)
-            {
-                if (this.GridView.SelectedRows.Count > 0)
-                {
-                    foreach (DataGridViewRow r in GridView.SelectedRows)
-                    {
-                        r.Selected = false;
-                    }
-                }
-                GridView.Rows[row].Selected = true;
-                if (row > GridView.DisplayedColumnCount(false))
-                {
-                    GridView.FirstDisplayedScrollingRowIndex = row - GridView.DisplayedColumnCount(false) + 1;
-                }
-            }
-            this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);
-            return GridView.Rows[row];
-        }
-
         private string[] GetAllVisiableColumns()
         {
             if (GridView != null)
@@ -267,7 +243,9 @@ namespace LJH.GeneralLibrary.Core.UI
             {
                 foreach (object item in items)
                 {
-                    DataGridViewRow row = Add_A_Row(item, false);
+                    int row = GridView.Rows.Add();
+                    ShowItemInGridViewRow(GridView.Rows[row], item);
+                    GridView.Rows[row].Tag = item;
                 }
             }
             if (this.GridView.Rows.Count > 0)
@@ -276,6 +254,31 @@ namespace LJH.GeneralLibrary.Core.UI
                 this.GridView.Rows[0].Selected = false;
                 this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);
             }
+        }
+        /// <summary>
+        /// 增加并显示一行
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        protected DataGridViewRow Add_And_Show_Row(object item)
+        {
+            int row = GridView.Rows.Add();
+            ShowItemInGridViewRow(GridView.Rows[row], item);
+            GridView.Rows[row].Tag = item;
+            if (this.GridView.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow r in GridView.SelectedRows)
+                {
+                    r.Selected = false;
+                }
+            }
+            GridView.Rows[row].Selected = true;
+            if (row > GridView.DisplayedColumnCount(false))
+            {
+                GridView.FirstDisplayedScrollingRowIndex = row - GridView.DisplayedColumnCount(false) + 1;
+            }
+            this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);
+            return GridView.Rows[row];
         }
         /// <summary>
         /// 显示数据行的颜色
@@ -454,7 +457,7 @@ namespace LJH.GeneralLibrary.Core.UI
                     DataGridViewRow row = null;
                     detailForm.ItemAdded += delegate(object obj, ItemAddedEventArgs args)
                     {
-                        row = Add_A_Row(args.AddedItem, true);
+                        row = Add_And_Show_Row(args.AddedItem);
                     };
                     detailForm.ItemUpdated += delegate(object obj, ItemUpdatedEventArgs args)
                     {
@@ -471,7 +474,7 @@ namespace LJH.GeneralLibrary.Core.UI
         /// <summary>
         /// 进行修改数据操作
         /// </summary>
-        private void PerformUpdateData()
+        protected virtual void PerformUpdateData()
         {
             if (this.GridView != null && this.GridView.SelectedRows != null && this.GridView.SelectedRows.Count > 0)
             {
