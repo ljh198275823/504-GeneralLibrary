@@ -61,6 +61,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMasterBase";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMasterBase";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMasterBase_FormClosed);

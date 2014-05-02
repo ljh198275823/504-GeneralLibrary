@@ -67,6 +67,7 @@
             this.Controls.Add(this.btnOk);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDetailBase";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmDetailBase";
             this.Load += new System.EventHandler(this.FrmDetailBase_Load);
