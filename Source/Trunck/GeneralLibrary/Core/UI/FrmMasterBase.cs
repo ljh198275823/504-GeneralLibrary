@@ -155,64 +155,6 @@ namespace LJH.GeneralLibrary.Core.UI
             }
             return null;
         }
-
-        private Button GetActiveButtonOnLeftPanel()
-        {
-            Button b = null;
-            if (PnlLeft != null)
-            {
-                foreach (Control ctrl in PnlLeft.Controls)
-                {
-                    if (ctrl is Button)
-                    {
-                        if (b == null) b = ctrl as Button; //先将第一个按钮设置成活动按钮
-                        if ((ctrl as Button).BackColor == SystemColors.ControlDark)
-                        {
-                            b = ctrl as Button;
-                            break;
-                        }
-                    }
-                }
-            }
-            return b;
-        }
-
-        private void btnLeftPanelButton_Click(object sender, EventArgs e)
-        {
-            if (sender is Button)
-            {
-                foreach (Control ctrl in PnlLeft.Controls)
-                {
-                    if (ctrl is Button)
-                    {
-                        (ctrl as Button).BackColor = SystemColors.Control;
-                    }
-                }
-                Button b = sender as Button;
-                b.BackColor = SystemColors.ControlDark;
-                ShowItemsOnGrid(b.Tag as List<object>);
-            }
-        }
-
-        private void InitPnlLeft()
-        {
-            if (PnlLeft != null)
-            {
-                foreach (Control ctrl in PnlLeft.Controls)
-                {
-                    if (ctrl is Button)
-                    {
-                        (ctrl as Button).Click += btnLeftPanelButton_Click;
-                    }
-                }
-                if (File.Exists(_PnlLeftWidthConfig))
-                {
-                    int temp = 0;
-                    string value = GetConfig(_PnlLeftWidthConfig, string.Format("{0}_PnlLeftWidth", this.GetType().Name));
-                    if (!string.IsNullOrEmpty(value) && int.TryParse(value, out temp) && temp > 0) PnlLeft.Width = temp;
-                }
-            }
-        }
         #endregion
 
         #region 公共属性
@@ -301,15 +243,7 @@ namespace LJH.GeneralLibrary.Core.UI
         protected virtual void ReFreshData()
         {
             List<object> datasource = GetDataSource();
-            Button b = GetActiveButtonOnLeftPanel();
-            if (b != null)
-            {
-                b.PerformClick();
-            }
-            else
-            {
-                ShowItemsOnGrid(datasource);
-            }
+            ShowItemsOnGrid(datasource);
         }
         /// <summary>
         /// 导出数据
@@ -652,7 +586,6 @@ namespace LJH.GeneralLibrary.Core.UI
             ShowOperatorRights();
             InitToolbar();
             InitGridView();
-            InitPnlLeft();
             InitGridViewColumns();
         }
         /// <summary>
