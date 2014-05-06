@@ -124,12 +124,14 @@ namespace LJH.GeneralLibrary.Core.UI
             string temp = GetConfig(_ColumnsConfig, string.Format("{0}_Columns", this.GetType().Name));
             if (string.IsNullOrEmpty(temp)) return;
             string[] cols = temp.Split(',');
+            int displayIndex = 0;
             for (int i = 0; i < cols.Length; i++)
             {
                 string[] col_Temp = cols[i].Split(':');
                 if (col_Temp.Length >= 1 && grid.Columns.Contains(col_Temp[0]))
                 {
-                    grid.Columns[col_Temp[0]].DisplayIndex = i;
+                    grid.Columns[col_Temp[0]].DisplayIndex = displayIndex;
+                    displayIndex++;
                     if (col_Temp.Length >= 2 && col_Temp[1].Trim() == "0")
                     {
                         grid.Columns[col_Temp[0]].Visible = false;
