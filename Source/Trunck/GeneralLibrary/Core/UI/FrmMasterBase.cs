@@ -157,6 +157,19 @@ namespace LJH.GeneralLibrary.Core.UI
             }
             return null;
         }
+
+        private void InitPnlLeft()
+        {
+            if (PnlLeft != null)
+            {
+                if (File.Exists(_PnlLeftWidthConfig))
+                {
+                    int temp = 0;
+                    string value = GetConfig(_PnlLeftWidthConfig, string.Format("{0}_PnlLeftWidth", this.GetType().Name));
+                    if (!string.IsNullOrEmpty(value) && int.TryParse(value, out temp) && temp > 0) PnlLeft.Width = temp;
+                }
+            }
+        }
         #endregion
 
         #region 公共属性
@@ -589,6 +602,7 @@ namespace LJH.GeneralLibrary.Core.UI
             InitToolbar();
             InitGridView();
             InitGridViewColumns();
+            InitPnlLeft();
         }
         /// <summary>
         /// 获取明细窗体
