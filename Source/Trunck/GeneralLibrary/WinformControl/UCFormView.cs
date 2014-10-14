@@ -202,8 +202,6 @@ namespace LJH.GeneralLibrary.WinformControl
             RemoveForm(sender as Form );
         }
 
-        
-        #endregion
 
         private void pHeader_DragEnter(object sender, DragEventArgs e)
         {
@@ -234,5 +232,6 @@ namespace LJH.GeneralLibrary.WinformControl
                 }
             }
         }
+        #endregion
     }
 }
