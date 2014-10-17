@@ -72,7 +72,7 @@ namespace LJH.GeneralLibrary.SQLHelper
                         }
                     }
                 }
-                if (!string.IsNullOrEmpty(sql))  //
+                if (!string.IsNullOrEmpty(sql.Trim()))  //
                 {
                     if (ret == null) ret = new List<string>();
                     ret.Add(sql);
