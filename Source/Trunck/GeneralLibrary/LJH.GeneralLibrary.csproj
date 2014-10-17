@@ -219,6 +219,7 @@
     <Compile Include="SQLHelper\DatabaseTable.cs" />
     <Compile Include="SQLHelper\InitialCatalog.cs" />
     <Compile Include="SQLHelper\SqlClient.cs" />
+    <Compile Include="SQLHelper\SQLStringExtractor.cs" />
     <Compile Include="StringHelper.cs" />
     <Compile Include="Printer\TicketInfo.cs" />
     <Compile Include="TempFolderManager.cs" />

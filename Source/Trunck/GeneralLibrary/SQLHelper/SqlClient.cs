@@ -198,42 +198,12 @@ namespace LJH.GeneralLibrary.SQLHelper
         /// <returns></returns>
         public void ExecuteSQLFile(string sqlFile)
         {
-            string sql = string.Empty;
-            System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex(@"\s*\b[Gg][Oo]\b\s*");  //用于匹配有GO的行
-            System.Text.RegularExpressions.Regex comment = new System.Text.RegularExpressions.Regex(@"/\*.*\*/"); //用于匹配注释/*...*/
-
-            using (FileStream stream = new FileStream(sqlFile, FileMode.Open, FileAccess.Read))
+            List<string> commands = (new SQLStringExtractor()).ExtractFromFile(sqlFile);
+            if (commands != null && commands.Count > 0)
             {
-                using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.Default))
+                foreach (string command in commands)
                 {
-                    while (!reader.EndOfStream)
-                    {
-                        string line = reader.ReadLine();
-                        if (reg.IsMatch(line))  //如果本行是GO,则执行GO之前的语句
-                        {
-                            if (!string.IsNullOrEmpty(sql))
-                            {
-                                //如果有"/*...*/"的注释,把注释内容换成一个空格
-                                sql = comment.Replace(sql, " ");
-                                ExecuteNoQuery(sql);
-                                sql = string.Empty;
-                            }
-                        }
-                        else
-                        {
-                            //如果有"--"注释,把注释内容换成一个空格
-                            int ind = line.IndexOf("--");
-                            if (ind >= 0)
-                            {
-                                line = line.Substring(0, ind) + " ";
-                            }
-                            sql += line + " ";
-                        }
-                    }
-                    if (!string.IsNullOrEmpty(sql))
-                    {
-                        ExecuteNoQuery(sql);
-                    }
+                    ExecuteNoQuery(command);
                 }
             }
         }
