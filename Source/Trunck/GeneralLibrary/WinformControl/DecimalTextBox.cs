@@ -36,7 +36,7 @@ namespace LJH.GeneralLibrary.WinformControl
             this._PreText = "0.00";
             this.MinValue = decimal.MinValue;
             this.MaxValue = decimal.MaxValue;
-            this.PointCount = 2;
+            this.PointCount = -1;
         }
         #endregion
 
@@ -52,7 +52,7 @@ namespace LJH.GeneralLibrary.WinformControl
         public decimal MaxValue { get; set; }
 
         /// <summary>
-        /// 获取或设置显示成文字时的小位点后位数
+        /// 获取或设置显示成文字时的小位点后位数,如果指定为-1则表示不强制显示小数点
         /// </summary>
         public int PointCount { get; set; }
 
@@ -74,7 +74,14 @@ namespace LJH.GeneralLibrary.WinformControl
             }
             set
             {
-                this.Text = value.ToString("F" + PointCount);
+                if (PointCount >= 0)
+                {
+                    this.Text = value.ToString("F" + PointCount);
+                }
+                else
+                {
+                    this.Text = value.ToString();
+                }
             }
         }
         #endregion
