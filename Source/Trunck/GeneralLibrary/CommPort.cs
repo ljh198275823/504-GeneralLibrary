@@ -73,6 +73,21 @@ namespace LJH.GeneralLibrary
                 return _PortNum;
             }
         }
+
+        /// <summary>
+        /// 获取或设置一个值，该值在串行通信过程中启用数据终端就绪 (DTR) 信号。
+        /// </summary>
+        public bool DtrEnable
+        {
+            get
+            {
+                return _Port.DtrEnable;
+            }
+            set
+            {
+                _Port.DtrEnable = value;
+            }
+        }
         #endregion 属性
 
         #region 事件
@@ -105,7 +120,6 @@ namespace LJH.GeneralLibrary
         #endregion 私有方法
 
         #region 公开方法
-
         /// <summary>
         /// 打开串口
         /// </summary>
