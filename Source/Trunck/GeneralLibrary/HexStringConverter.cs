@@ -44,16 +44,21 @@ namespace LJH.GeneralLibrary
         /// </summary>
         /// <param name="hexs"></param>
         /// <returns></returns>
-        public static string HexToString(byte[] hexs)
+        public static string HexToString(byte[] hexs, string split)
         {
-            string ret = string.Empty;
-
+            StringBuilder sb = new StringBuilder();
             foreach (byte hex in hexs)
             {
-                ret += hex.ToString("X2");
+                if (!string.IsNullOrEmpty(split))
+                {
+                    sb.Append(hex.ToString("X2") + split);
+                }
+                else
+                {
+                    sb.Append(hex.ToString("X2"));
+                }
             }
-
-            return ret;
+            return sb.ToString();
         }
 
         /// <summary>
