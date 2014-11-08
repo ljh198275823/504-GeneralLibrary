@@ -209,8 +209,15 @@ namespace LJH.GeneralLibrary.Core.UI
             {
                 ShowRowBackColor();
                 this.GridView.Rows[0].Selected = false;
-                this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);
+                FreshStatusBar();
             }
+        }
+        /// <summary>
+        /// 刷新状态栏
+        /// </summary>
+        protected virtual void FreshStatusBar()
+        {
+            this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);
         }
         /// <summary>
         /// 增加并显示一行
@@ -234,7 +241,7 @@ namespace LJH.GeneralLibrary.Core.UI
             {
                 GridView.FirstDisplayedScrollingRowIndex = row - GridView.DisplayedColumnCount(false) + 1;
             }
-            this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);
+            FreshStatusBar();
             return GridView.Rows[row];
         }
         /// <summary>
@@ -347,7 +354,7 @@ namespace LJH.GeneralLibrary.Core.UI
                 row.Visible = visible;
             }
             ShowRowBackColor();
-            this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", count);
+            FreshStatusBar();
         }
         /// <summary>
         /// 进行删除数据操作
@@ -379,7 +386,7 @@ namespace LJH.GeneralLibrary.Core.UI
                         {
                             GridView.Rows.Remove(row);
                         }
-                        this.toolStripStatusLabel1.Text = string.Format("总共 {0} 项", GridView.Rows.Count);
+                        FreshStatusBar();
                     }
                 }
                 else
