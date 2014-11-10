@@ -235,11 +235,11 @@
     <Compile Include="Core\UI\FrmDetailBase.designer.cs">
       <DependentUpon>FrmDetailBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\UI\FrmMasterBase1.cs">
+    <Compile Include="Core\UI\FrmMasterBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Core\UI\FrmMasterBase1.designer.cs">
-      <DependentUpon>FrmMasterBase1.cs</DependentUpon>
+    <Compile Include="Core\UI\FrmMasterBase.designer.cs">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\UI\ItemAddedEventArgs.cs" />
     <Compile Include="Core\UI\ItemUpdatedEventArgs.cs" />
@@ -359,8 +359,8 @@
     <EmbeddedResource Include="Core\UI\FrmDetailBase.resx">
       <DependentUpon>FrmDetailBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Core\UI\FrmMasterBase1.resx">
-      <DependentUpon>FrmMasterBase1.cs</DependentUpon>
+    <EmbeddedResource Include="Core\UI\FrmMasterBase.resx">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinformControl\FormHeader.resx">
       <DependentUpon>FormHeader.cs</DependentUpon>
