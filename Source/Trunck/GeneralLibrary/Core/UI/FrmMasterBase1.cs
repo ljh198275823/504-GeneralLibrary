@@ -13,9 +13,9 @@ using LJH.GeneralLibrary.Core.DAL;
 
 namespace LJH.GeneralLibrary.Core.UI
 {
-    public partial class FrmMasterBase : Form, IOperatorRender
+    public partial class FrmMasterBase1 : Form, IOperatorRender
     {
-        public FrmMasterBase()
+        public FrmMasterBase1()
         {
             InitializeComponent();
         }
