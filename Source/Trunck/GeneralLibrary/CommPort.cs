@@ -73,7 +73,14 @@ namespace LJH.GeneralLibrary
                 return _PortNum;
             }
         }
-
+        /// <summary>
+        /// 获取或设置串口的波特率
+        /// </summary>
+        public int BaudRate
+        {
+            get { return _Port.BaudRate; }
+            set { _Port.BaudRate = value; }
+        }
         /// <summary>
         /// 获取或设置一个值，该值在串行通信过程中启用数据终端就绪 (DTR) 信号。
         /// </summary>

@@ -32,6 +32,13 @@ namespace LJH.GeneralLibrary.Core.DAL
         public string ConnectStr { get; set; }
         #endregion
 
+        #region 公共方法
+        public DataContext CreateDataContext()
+        {
+            return DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
+        }
+        #endregion
+
         #region IProvider <TInfo> 成员
         /// <summary>
         /// 通过ID获取实体对象
@@ -44,7 +51,7 @@ namespace LJH.GeneralLibrary.Core.DAL
             QueryResult<TInfo> result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
+                DataContext dc = CreateDataContext();
                 TInfo info = GetingItemByID(id, dc);
                 if (info != null)
                 {
@@ -72,7 +79,7 @@ namespace LJH.GeneralLibrary.Core.DAL
             QueryResultList<TInfo> result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
+                DataContext dc = CreateDataContext();
                 List<TInfo> infoes;
                 infoes = GetingItems(dc, search);
                 result = new QueryResultList<TInfo>(ResultCode.Successful, successMsg, infoes);
@@ -94,7 +101,7 @@ namespace LJH.GeneralLibrary.Core.DAL
             CommandResult result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
+                DataContext dc = CreateDataContext();
                 InsertingItem(info, dc);
                 dc.SubmitChanges();
                 result = new CommandResult(ResultCode.Successful, successMsg);
@@ -117,7 +124,7 @@ namespace LJH.GeneralLibrary.Core.DAL
             CommandResult result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
+                DataContext dc = CreateDataContext();
                 UpdatingItem(newVal, original, dc);
                 dc.SubmitChanges();
                 result = new CommandResult(ResultCode.Successful, successMsg);
@@ -139,7 +146,7 @@ namespace LJH.GeneralLibrary.Core.DAL
             CommandResult result;
             try
             {
-                DataContext dc = DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
+                DataContext dc = CreateDataContext();
                 DeletingItem(info, dc);
                 dc.SubmitChanges();
                 result = new CommandResult(ResultCode.Successful, successMsg);
