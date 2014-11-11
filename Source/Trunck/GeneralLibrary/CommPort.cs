@@ -3,6 +3,7 @@ using System.Windows .Forms ;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading ;
 using System.IO.Ports;
 
 namespace LJH.GeneralLibrary
@@ -25,31 +26,12 @@ namespace LJH.GeneralLibrary
             _PortNum = portNum;
             InitCommPort(portNum, baud);
         }
-
-        private void _Port_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            try
-            {
-                if (_Port.BytesToRead > 0 && this.OnDataArrivedEvent != null)
-                {
-                    byte[] _buffer = new byte[_Port.BytesToRead];
-                    _Port.Read(_buffer, 0, _buffer.Length);
-                    if (this.OnDataArrivedEvent != null)
-                    {
-                        this.OnDataArrivedEvent(this, _buffer);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
-            }
-        }
         #endregion
 
         #region 成员变量
         private SerialPort _Port;
         private byte _PortNum;
+        private Thread _ReadDataTread = null;
         #endregion 成员变量
 
         #region 属性
@@ -116,8 +98,53 @@ namespace LJH.GeneralLibrary
             try
             {
                 _Port = new SerialPort("COM" + portNum, baud);
-                _Port.ReceivedBytesThreshold = 1;
-                _Port.DataReceived += new SerialDataReceivedEventHandler(_Port_DataReceived);
+            }
+            catch (Exception ex)
+            {
+                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+            }
+        }
+
+        private void _Port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                if (_Port.BytesToRead > 0 && this.OnDataArrivedEvent != null)
+                {
+                    byte[] _buffer = new byte[_Port.BytesToRead];
+                    _Port.Read(_buffer, 0, _buffer.Length);
+                    if (this.OnDataArrivedEvent != null)
+                    {
+                        this.OnDataArrivedEvent(this, _buffer);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+            }
+        }
+
+        private void ReadDataTask()
+        {
+            try
+            {
+                while (true)
+                {
+                    if (_Port.BytesToRead > 0)
+                    {
+                        byte[] _buffer = new byte[_Port.BytesToRead];
+                        _Port.Read(_buffer, 0, _buffer.Length);
+                        if (this.OnDataArrivedEvent != null)
+                        {
+                            this.OnDataArrivedEvent(this, _buffer);
+                        }
+                    }
+                    Thread.Sleep(100); 
+                }
+            }
+            catch (ThreadAbortException ex)
+            {
             }
             catch (Exception ex)
             {
@@ -138,6 +165,12 @@ namespace LJH.GeneralLibrary
                 if (!this._Port.IsOpen)
                 {
                     _Port.Open();
+                    if (_Port.IsOpen)
+                    {
+                        _ReadDataTread = new Thread(new ThreadStart(ReadDataTask));
+                        _ReadDataTread.IsBackground = true;
+                        _ReadDataTread.Start();
+                    }
                 }
             }
             catch(Exception ex)
@@ -154,6 +187,11 @@ namespace LJH.GeneralLibrary
             try
             {
                 _Port.Close();
+                if (_ReadDataTread != null)
+                {
+                    _ReadDataTread.Abort();
+                    _ReadDataTread = null;
+                }
             }
             catch (Exception ex)
             {
