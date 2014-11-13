@@ -23,14 +23,20 @@ namespace LJH.GeneralLibrary
         /// <param name="baud">波特率</param>
         public CommPort(byte portNum, int baud)
         {
-            _PortNum = portNum;
-            InitCommPort(portNum, baud);
+            _PortName = "COM" + portNum;
+            InitCommPort(_PortName , baud);
+        }
+
+        public CommPort(string portName, int baud)
+        {
+            _PortName = portName;
+            InitCommPort(_PortName, baud);
         }
         #endregion
 
         #region 成员变量
         private SerialPort _Port;
-        private byte _PortNum;
+        private string _PortName;
         private Thread _ReadDataTread = null;
         #endregion 成员变量
 
@@ -52,7 +58,10 @@ namespace LJH.GeneralLibrary
         {
             get
             {
-                return _PortNum;
+                string temp = _PortName.Replace("COM", string.Empty);
+                byte ret = 0;
+                if (byte.TryParse(temp, out ret)) return ret;
+                return ret;
             }
         }
         /// <summary>
@@ -93,11 +102,11 @@ namespace LJH.GeneralLibrary
         /// <param name="_portNum">端口号</param>
         /// <param name="_settings">通信参数</param>
         /// <param name="_rThreshold">触发事件阀值</param>
-        private void InitCommPort(short portNum, int baud)
+        private void InitCommPort(string portName, int baud)
         {
             try
             {
-                _Port = new SerialPort("COM" + portNum, baud);
+                _Port = new SerialPort(portName, baud);
             }
             catch (Exception ex)
             {
