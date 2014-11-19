@@ -293,12 +293,6 @@
     <Compile Include="WinformControl\FormHeader.Designer.cs">
       <DependentUpon>FormHeader.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\FormPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WinformControl\FormPanel.Designer.cs">
-      <DependentUpon>FormPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="WinformControl\IntergerTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -365,9 +359,6 @@
     <EmbeddedResource Include="WinformControl\FormHeader.resx">
       <DependentUpon>FormHeader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinformControl\FormPanel.resx">
-      <DependentUpon>FormPanel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WinformControl\UCDateTimeInterval.resx">
       <DependentUpon>UCDateTimeInterval.cs</DependentUpon>
     </EmbeddedResource>
@@ -404,7 +395,9 @@
   <ItemGroup>
     <None Include="Resources\down.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\button_grey_close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

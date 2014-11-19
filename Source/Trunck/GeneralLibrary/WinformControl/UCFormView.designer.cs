@@ -36,21 +36,21 @@
             // 
             this.pBody.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.pBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pBody.Location = new System.Drawing.Point(0, 25);
+            this.pBody.Location = new System.Drawing.Point(0, 32);
             this.pBody.Margin = new System.Windows.Forms.Padding(0);
             this.pBody.Name = "pBody";
-            this.pBody.Size = new System.Drawing.Size(391, 212);
+            this.pBody.Size = new System.Drawing.Size(391, 205);
             this.pBody.TabIndex = 1;
             this.pBody.Resize += new System.EventHandler(this.pBody_Resize);
             // 
             // pHeader
             // 
             this.pHeader.AllowDrop = true;
-            this.pHeader.BackColor = System.Drawing.Color.Navy;
+            this.pHeader.BackColor = System.Drawing.Color.RoyalBlue;
             this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHeader.Location = new System.Drawing.Point(0, 0);
             this.pHeader.Name = "pHeader";
-            this.pHeader.Size = new System.Drawing.Size(391, 25);
+            this.pHeader.Size = new System.Drawing.Size(391, 32);
             this.pHeader.TabIndex = 0;
             this.pHeader.DragDrop += new System.Windows.Forms.DragEventHandler(this.pHeader_DragDrop);
             this.pHeader.DragEnter += new System.Windows.Forms.DragEventHandler(this.pHeader_DragEnter);

@@ -29,17 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHeader));
-            this.btnClose = new System.Windows.Forms.Label();
             this.lblCaption = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnClose
-            // 
-            resources.ApplyResources(this.btnClose, "btnClose");
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
-            this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
             // 
             // lblCaption
             // 
@@ -50,11 +42,21 @@
             this.lblCaption.MouseEnter += new System.EventHandler(this.lblCaption_MouseEnter);
             this.lblCaption.MouseLeave += new System.EventHandler(this.lblCaption_MouseLeave);
             // 
+            // btnClose
+            // 
+            resources.ApplyResources(this.btnClose, "btnClose");
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
+            this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
+            // 
             // FormHeader
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.lblCaption);
             this.Controls.Add(this.btnClose);
             this.Name = "FormHeader";
@@ -64,7 +66,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label btnClose;
+        private System.Windows.Forms.Label   btnClose;
         private System.Windows.Forms.Label lblCaption;
     }
 }

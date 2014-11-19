@@ -22,7 +22,6 @@ namespace LJH.GeneralLibrary.WinformControl
 
         #region 私有变量
         private List<FormHeader> _Headers = new List<FormHeader>();
-        private readonly int _YOffset = 5;
         private object _Locker = new object();
         private FormHeader _ActiveHeader;
         #endregion
@@ -68,7 +67,7 @@ namespace LJH.GeneralLibrary.WinformControl
                 }
                 foreach (FormHeader header in _Headers)
                 {
-                    header.Location = new Point(x, _YOffset);
+                    header.Location = new Point(x, this.pHeader.Height - header.Height);
                     header.Width = width;
                     header.Fresh();
                     x += header.Width;
@@ -104,8 +103,16 @@ namespace LJH.GeneralLibrary.WinformControl
             _Headers.Add(header);
             header.Click -= new EventHandler(header_Click);
             header.Click += new EventHandler(header_Click);
+            header.MouseHover -= new EventHandler(header_MouseHover);
+            header.MouseHover += new EventHandler(header_MouseHover);
             HighLightForm(header);
             FreshHeader();
+        }
+
+        private void header_MouseHover(object sender, EventArgs e)
+        {
+            Control ctrl = sender as Control;
+            ctrl.BackColor = Color.Gray;
         }
 
         /// <summary>
