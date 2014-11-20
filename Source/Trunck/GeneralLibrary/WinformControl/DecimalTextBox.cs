@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace LJH.GeneralLibrary.WinformControl
 {
-    public partial class DecimalTextBox:TextBox
+    public partial class DecimalTextBox : TextBox
     {
         #region 构造函数
         public DecimalTextBox()
@@ -25,15 +25,15 @@ namespace LJH.GeneralLibrary.WinformControl
             this.ImeMode = ImeMode.OnHalf;
             Init();
         }
-        #endregion 
+        #endregion
 
         #region 私有变量
         private string _PreText; //用于保存输入框内容改变之前的输入框中的内容
 
         private void Init()
         {
-            this.Text = "0.00";
-            this._PreText = "0.00";
+            this.Text = "0";
+            this._PreText = "0";
             this.MinValue = decimal.MinValue;
             this.MaxValue = decimal.MaxValue;
             this.PointCount = -1;
@@ -74,14 +74,10 @@ namespace LJH.GeneralLibrary.WinformControl
             }
             set
             {
-                if (PointCount >= 0)
-                {
-                    this.Text = value.ToString("F" + PointCount);
-                }
-                else
-                {
-                    this.Text = value.ToString();
-                }
+                string temp = value.ToString();
+                if (PointCount == 0 && temp.IndexOf('.') >= 0) temp = temp.Substring(0, temp.IndexOf('.'));
+                if (PointCount > 0 && temp.IndexOf('.') >= 0 && (temp.Trim().Length - temp.IndexOf('.') - 1) > PointCount) temp = temp.Substring(0, temp.IndexOf('.') + PointCount + 1);
+                this.Text = temp;
             }
         }
         #endregion
@@ -103,33 +99,37 @@ namespace LJH.GeneralLibrary.WinformControl
             int position = this.SelectionStart;
             if (!string.IsNullOrEmpty(text.Trim()))
             {
-                if (text.Trim() == "-")
+                if (text.Trim().IndexOf('-') == 0 && this.MinValue >= 0) //不显示非负数
                 {
-                    if (this.MinValue >= 0)
-                    {
-                        this.Text = _PreText;
-                        this.SelectionStart = this.Text.Length;
-                        return;
-                    }
+                    this.Text = _PreText;
+                    this.SelectionStart = this.Text.Length;
+                    return;
                 }
-                else
+
+                decimal value;
+                if (!decimal.TryParse(text, out value)) //不能转换成实数
                 {
-                    decimal value;
-                    if (!decimal.TryParse(text, out value))
-                    {
-                        this.Text = _PreText;
-                        this.SelectionStart = this.Text.Length;
-                        return;
-                    }
-                    else
-                    {
-                        if (value > MaxValue || value < MinValue)
-                        {
-                            this.Text = _PreText;
-                            this.SelectionStart = this.Text.Length;
-                            return;
-                        }
-                    }
+                    this.Text = _PreText;
+                    this.SelectionStart = this.Text.Length;
+                    return;
+                }
+                if (value > MaxValue || value < MinValue) //超出范围
+                {
+                    this.Text = _PreText;
+                    this.SelectionStart = this.Text.Length;
+                    return;
+                }
+                if (PointCount == 0 && this.Text.Trim().IndexOf('.') >= 0)
+                {
+                    this.Text = _PreText;
+                    this.SelectionStart = this.Text.Length;
+                    return;
+                }
+                if (PointCount > 0 && this.Text.Trim().IndexOf('.') > 0 && (this.Text.Trim().Length - this.Text.Trim().IndexOf('.') - 1) > PointCount) //数值的小数位不正确
+                {
+                    this.Text = _PreText;
+                    this.SelectionStart = this.Text.Length;
+                    return;
                 }
             }
             this.Text = text;
