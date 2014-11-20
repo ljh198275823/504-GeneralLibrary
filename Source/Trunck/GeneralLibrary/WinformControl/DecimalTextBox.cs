@@ -105,31 +105,33 @@ namespace LJH.GeneralLibrary.WinformControl
                     this.SelectionStart = this.Text.Length;
                     return;
                 }
-
-                decimal value;
-                if (!decimal.TryParse(text, out value)) //不能转换成实数
+                if (text.Trim() != "-")
                 {
-                    this.Text = _PreText;
-                    this.SelectionStart = this.Text.Length;
-                    return;
-                }
-                if (value > MaxValue || value < MinValue) //超出范围
-                {
-                    this.Text = _PreText;
-                    this.SelectionStart = this.Text.Length;
-                    return;
-                }
-                if (PointCount == 0 && this.Text.Trim().IndexOf('.') >= 0)
-                {
-                    this.Text = _PreText;
-                    this.SelectionStart = this.Text.Length;
-                    return;
-                }
-                if (PointCount > 0 && this.Text.Trim().IndexOf('.') > 0 && (this.Text.Trim().Length - this.Text.Trim().IndexOf('.') - 1) > PointCount) //数值的小数位不正确
-                {
-                    this.Text = _PreText;
-                    this.SelectionStart = this.Text.Length;
-                    return;
+                    decimal value;
+                    if (!decimal.TryParse(text, out value)) //不能转换成实数
+                    {
+                        this.Text = _PreText;
+                        this.SelectionStart = this.Text.Length;
+                        return;
+                    }
+                    if (value > MaxValue || value < MinValue) //超出范围
+                    {
+                        this.Text = _PreText;
+                        this.SelectionStart = this.Text.Length;
+                        return;
+                    }
+                    if (PointCount == 0 && this.Text.Trim().IndexOf('.') >= 0)
+                    {
+                        this.Text = _PreText;
+                        this.SelectionStart = this.Text.Length;
+                        return;
+                    }
+                    if (PointCount > 0 && this.Text.Trim().IndexOf('.') > 0 && (this.Text.Trim().Length - this.Text.Trim().IndexOf('.') - 1) > PointCount) //数值的小数位不正确
+                    {
+                        this.Text = _PreText;
+                        this.SelectionStart = this.Text.Length;
+                        return;
+                    }
                 }
             }
             this.Text = text;
