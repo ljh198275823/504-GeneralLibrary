@@ -24,6 +24,7 @@ namespace LJH.GeneralLibrary.WinformControl
         private List<FormHeader> _Headers = new List<FormHeader>();
         private object _Locker = new object();
         private FormHeader _ActiveHeader;
+        private bool _HideHeader = false; 
         #endregion
 
         #region 私有方法
@@ -81,6 +82,21 @@ namespace LJH.GeneralLibrary.WinformControl
         /// 获取或设置每个窗体标题栏的长度
         /// </summary>
         public int FormHeaderLength { get; set; }
+        /// <summary>
+        /// 获取或设置是否隐藏窗体头
+        /// </summary>
+        public bool HideHeader
+        {
+            get
+            {
+                return _HideHeader;
+            }
+            set
+            {
+                _HideHeader = value;
+                pHeader.Visible = !HideHeader;
+            }
+        }
         #endregion
 
         #region 公共方法
@@ -175,6 +191,11 @@ namespace LJH.GeneralLibrary.WinformControl
         #endregion
 
         #region 事件处理函数
+        private void UCFormView_Load(object sender, EventArgs e)
+        {
+            pHeader.Visible = !HideHeader;
+        }
+
         private void pBody_Resize(object sender, EventArgs e)
         {
             if (this.Width > 0)
@@ -240,5 +261,7 @@ namespace LJH.GeneralLibrary.WinformControl
             }
         }
         #endregion
+
+        
     }
 }

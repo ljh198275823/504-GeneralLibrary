@@ -64,6 +64,7 @@
             this.Controls.Add(this.pHeader);
             this.Name = "UCFormView";
             this.Size = new System.Drawing.Size(391, 237);
+            this.Load += new System.EventHandler(this.UCFormView_Load);
             this.ResumeLayout(false);
 
         }
