@@ -18,12 +18,8 @@ namespace LJH.GeneralLibrary
             //去掉数字两头的0，如果是整数，把小数点也去掉
             if (temp.IndexOf('.') > 0)
             {
-                temp = temp.Trim('0');
+                temp = temp.TrimEnd('0');
                 temp = temp.Trim('.');
-            }
-            if (d < 1)
-            {
-                temp = "0." + temp;
             }
             decimal ret = 0;
             decimal.TryParse(temp, out ret);

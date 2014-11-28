@@ -95,7 +95,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GeneralLibrary\LJH.GeneralLibrary.csproj">
       <Project>{B4CB506B-1C5A-493A-8437-0BCEC14A2DB4}</Project>
-      <Name>Ralid.GeneralLibrary</Name>
+      <Name>LJH.GeneralLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

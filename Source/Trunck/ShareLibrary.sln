@@ -23,7 +23,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseToolUI", "DatabaseT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowControlTest", "WindowControlTest\WindowControlTest.csproj", "{014BF685-312A-47EF-8579-4EEAE1E4050B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{BAA558DB-5163-40AC-8B31-3A38C3748D55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A0DB564-2506-48B0-BEAF-46CD3DA8159C}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		ShareLibrary.vsmdi = ShareLibrary.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ShareLibrary.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -143,6 +155,16 @@ Global
 		{014BF685-312A-47EF-8579-4EEAE1E4050B}.Release|Mixed Platforms.Build.0 = Release|x86
 		{014BF685-312A-47EF-8579-4EEAE1E4050B}.Release|x86.ActiveCfg = Release|x86
 		{014BF685-312A-47EF-8579-4EEAE1E4050B}.Release|x86.Build.0 = Release|x86
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BAA558DB-5163-40AC-8B31-3A38C3748D55}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
