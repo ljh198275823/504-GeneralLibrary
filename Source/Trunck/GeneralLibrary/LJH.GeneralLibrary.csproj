@@ -196,6 +196,7 @@
     </Compile>
     <Compile Include="SoftDog\DTEncrypt.cs" />
     <Compile Include="SoftDog\KeyCreator.cs" />
+    <Compile Include="SoftDog\SoftDogReader.cs" />
     <Compile Include="Speech\TTSSpeech.cs" />
     <Compile Include="Printer\KPM150BarCodePrinter.cs" />
     <Compile Include="CardReader\BarCodeReader.cs" />
@@ -213,7 +214,7 @@
     <Compile Include="ImageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoftDog\SoftDogInfo.cs" />
-    <Compile Include="SoftDog\SoftDogReader.cs" />
+    <Compile Include="SoftDog\SoftDogReader_RLD.cs" />
     <Compile Include="SQLHelper\DatabaseColumn.cs" />
     <Compile Include="SQLHelper\DatabaseObject.cs" />
     <Compile Include="SQLHelper\DatabaseTable.cs" />

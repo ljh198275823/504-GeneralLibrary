@@ -11,41 +11,21 @@ namespace LJH.GeneralLibrary.SoftDog
     public class SoftDogInfo
     {
         /// <summary>
-        /// ID
-        /// </summary>
-        public int logID { get; set; }
-        /// <summary>
-        /// 写入日期
-        /// </summary>
-        public DateTime WriteDateTime { get; set; }
-        /// <summary>
         /// 项目编号
         /// </summary>
         public int ProjectNo { get; set; }
         /// <summary>
-        /// 项目名称
-        /// </summary>
-        public string ProjectName { get; set; }
-        /// <summary>
         /// 软件列表
         /// </summary>
-        public SoftwareType  SoftwareList { get; set; }
+        public SoftwareType SoftwareList { get; set; }
         /// <summary>
         /// 软件试用开始时间
         /// </summary>
-        public DateTime TryPeriodStartDate { get; set; }
+        public DateTime StartDate { get; set; }
         /// <summary>
         /// 软件试用第一次时长(天)
         /// </summary>
-        public int TryPeriodDays1 { get; set; }
-        /// <summary>
-        /// 软件试用第二次时长(天)目前暂不用,为0
-        /// </summary>
-        public int TryPeriodDays2 { get; set; }
-        /// <summary>
-        /// 消费系统消费点数量
-        /// </summary>
-        public int PayPointQuantity { get; set; }
+        public int Days { get; set; }
         /// <summary>
         /// 过期日期
         /// </summary>
@@ -53,10 +33,14 @@ namespace LJH.GeneralLibrary.SoftDog
         {
             get
             {
-                return TryPeriodStartDate.AddDays(TryPeriodDays1);
+                return StartDate.AddDays(Days);
+            }
+            set
+            {
+                TimeSpan ts = new TimeSpan(value.Ticks - StartDate.Ticks);
+                Days = (int)(Math.Floor(ts.TotalDays));
             }
         }
-
     }
 
     /// <summary>
@@ -66,12 +50,24 @@ namespace LJH.GeneralLibrary.SoftDog
     public enum SoftwareType
     {
         /// <summary>
+        /// 
+        /// </summary>
+        None=0,
+        /// <summary>
         /// 进销存软件
         /// </summary>
-        TYPE_Inventory = 1,
+        TYPE_Inventory = 0x01,
         /// <summary>
         /// 考勤软件
         /// </summary>
-        TYPE_TA = 2,
+        TYPE_TA = 0x02,
+        /// <summary>
+        /// 门禁软件
+        /// </summary>
+        TYPE_ACS=0x04,
+        /// <summary>
+        /// 中考/体质测试软件
+        /// </summary>
+        TYPE_ZHONGKAO = 0x08
     }
 }
