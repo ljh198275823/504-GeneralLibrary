@@ -31,14 +31,23 @@ namespace SoftDogWrite
         private const int CHECKPOSITON = 70;
         private const string CHECKSTRING = "Ljh198275823";
         private DSEncrypt MydsEncrypt = new DSEncrypt("Ljh198275823@163.com");
+        private Random _myRandom = new Random();
         #endregion
 
         #region 私有方法
         private void WriteDog()
         {
             int ret = -1;
-            byte[] data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(CHECKSTRING));
-            ret = DogWrite(data.Length, CHECKPOSITON, data);
+            byte[] rdDate = new byte[100];
+            _myRandom.NextBytes(rdDate);
+            ret = DogWrite(rdDate.Length, 0, rdDate);
+
+            byte[] data = null;
+            if (ret == 0)
+            {
+                data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(CHECKSTRING));
+                ret = DogWrite(data.Length, CHECKPOSITON, data);
+            }
 
             if (ret == 0)
             {

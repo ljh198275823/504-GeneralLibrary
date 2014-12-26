@@ -163,7 +163,7 @@
             this.txtProjectID.Name = "txtProjectID";
             this.txtProjectID.Size = new System.Drawing.Size(140, 21);
             this.txtProjectID.TabIndex = 4;
-            this.txtProjectID.Text = "0";
+            this.txtProjectID.Text = "1000";
             // 
             // Form1
             // 
