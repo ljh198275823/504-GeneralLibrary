@@ -109,14 +109,14 @@ namespace LJH.GeneralLibrary.SoftDog
             byte[] data = new byte[len];
             int ret = -1;
             if (string.IsNullOrEmpty(_SystemBits)) _SystemBits = Distinguish64or32System();
-            if (_SystemBits == "64")
-            {
-                ret = DogRead_64(len, addr, data);
-            }
-            else
-            {
+            //if (_SystemBits == "64")
+            //{
+            //    ret = DogRead_64(len, addr, data);
+            //}
+            //else
+            //{
                 ret = DogRead_32(len, addr, data);
-            }
+            //}
             if (ret == 0)
             {
                 return data;
@@ -128,14 +128,14 @@ namespace LJH.GeneralLibrary.SoftDog
         {
             int ret = -1;
             if (string.IsNullOrEmpty(_SystemBits)) _SystemBits = Distinguish64or32System();
-            if (_SystemBits == "64")
-            {
-                ret = DogWrite_64(data.Length, addr, data);
-            }
-            else
-            {
+            //if (_SystemBits == "64")
+            //{
+            //    ret = DogWrite_64(data.Length, addr, data);
+            //}
+            //else
+            //{
                 ret = DogWrite_32(data.Length, addr, data);
-            }
+            //}
             return ret;
         }
 
