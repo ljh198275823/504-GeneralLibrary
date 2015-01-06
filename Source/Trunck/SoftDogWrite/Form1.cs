@@ -20,10 +20,11 @@ namespace SoftDogWrite
         }
 
         #region 私有变量
-        private SoftDogReader _Writer = new SoftDogReader("Ljh198275823@163.com");
+        private const string  _Key = "Ljh198275823@163.com";
+        private SoftDogReader _Writer = new SoftDogReader(new DTEncrypt().Encrypt(_Key));
         private const int CHECKPOSITON = 70;
         private const string CHECKSTRING = "Ljh198275823";
-        private DSEncrypt MydsEncrypt = new DSEncrypt("Ljh198275823@163.com");
+        private DSEncrypt MydsEncrypt = new DSEncrypt(_Key);
         private Random _myRandom = new Random();
         #endregion
 
@@ -33,19 +34,19 @@ namespace SoftDogWrite
             int ret = -1;
             byte[] rdDate = new byte[100];
             _myRandom.NextBytes(rdDate);
-            ret = _Writer.WriteData(0, rdDate);
+            ret = _Writer.WriteData(0, rdDate, _Key);
 
             byte[] data = null;
             if (ret == 0)
             {
                 data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(CHECKSTRING));
-                ret = _Writer.WriteData(CHECKPOSITON, data);
+                ret = _Writer.WriteData(CHECKPOSITON, data, _Key);
             }
 
             if (ret == 0)
             {
                 data = SEBinaryConverter.IntToBytes(txtProjectID.IntergerValue);
-                ret = _Writer.WriteData(61, data);
+                ret = _Writer.WriteData(61, data, _Key);
             }
 
             if (ret == 0)
@@ -56,19 +57,19 @@ namespace SoftDogWrite
                 if (chkTA.Checked) sl |= SoftwareType.TYPE_TA;
                 if (chkZhongkao.Checked) sl |= SoftwareType.TYPE_ZHONGKAO;
                 data = SEBinaryConverter.IntToBytes((int)sl);
-                ret = _Writer.WriteData(31, data);
+                ret = _Writer.WriteData(31, data, _Key);
             }
 
             if (ret == 0)
             {
                 data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(dtStart.Value.Date.ToString("yyMMdd")));
-                ret = _Writer.WriteData(17, data);
+                ret = _Writer.WriteData(17, data, _Key);
             }
 
             if (ret == 0)
             {
                 data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(dtEnd.Value.Date.ToString("yyMMdd")));
-                ret = _Writer.WriteData(5, data);
+                ret = _Writer.WriteData(5, data, _Key);
             }
             if (ret != 0) throw new InvalidOperationException("写狗失败 errorcode=" + ret.ToString());
         }

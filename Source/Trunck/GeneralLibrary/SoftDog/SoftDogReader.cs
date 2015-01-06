@@ -22,26 +22,19 @@ namespace LJH.GeneralLibrary.SoftDog
         #endregion
 
         #region 构造函数
-        public SoftDogReader()
-            : this(string.Empty)
-        {
-
-        }
-
         public SoftDogReader(string encriptFactor)
         {
             if (!string.IsNullOrEmpty(encriptFactor))
             {
-                MydsEncrypt = new DSEncrypt(encriptFactor);
-            }
-            else
-            {
-                MydsEncrypt = new DSEncrypt();
+                _key = encriptFactor;
+                string temp = new DTEncrypt().DSEncrypt(encriptFactor);
+                MydsEncrypt = new DSEncrypt(temp);
             }
         }
         #endregion
 
         #region 私有变量
+        private string _key = null;
         private const int CHECKPOSITON = 70;
         private const string CHECKSTRING = "Ljh198275823";
         private DSEncrypt MydsEncrypt = null;
@@ -108,15 +101,8 @@ namespace LJH.GeneralLibrary.SoftDog
         {
             byte[] data = new byte[len];
             int ret = -1;
-            if (string.IsNullOrEmpty(_SystemBits)) _SystemBits = Distinguish64or32System();
-            //if (_SystemBits == "64")
-            //{
-            //    ret = DogRead_64(len, addr, data);
-            //}
-            //else
-            //{
-                ret = DogRead_32(len, addr, data);
-            //}
+            //if (string.IsNullOrEmpty(_SystemBits)) _SystemBits = Distinguish64or32System();
+            ret = DogRead_32(len, addr, data);
             if (ret == 0)
             {
                 return data;
@@ -124,18 +110,14 @@ namespace LJH.GeneralLibrary.SoftDog
             throw new InvalidOperationException("访问加密狗错误，请插入正确的加密狗重试！");
         }
 
-        public int WriteData(int addr, byte[] data)
+        public int WriteData(int addr, byte[] data, string key)
         {
             int ret = -1;
-            if (string.IsNullOrEmpty(_SystemBits)) _SystemBits = Distinguish64or32System();
-            //if (_SystemBits == "64")
-            //{
-            //    ret = DogWrite_64(data.Length, addr, data);
-            //}
-            //else
-            //{
+            if (!string.IsNullOrEmpty(_key) && new DTEncrypt().DSEncrypt(_key) == key)
+            {
+                //if (string.IsNullOrEmpty(_SystemBits)) _SystemBits = Distinguish64or32System();
                 ret = DogWrite_32(data.Length, addr, data);
-            //}
+            }
             return ret;
         }
 
@@ -157,11 +139,6 @@ namespace LJH.GeneralLibrary.SoftDog
             d = MydsEncrypt.Encrypt(ReadString(5, 6));
             info.ExpiredDate = DateTime.Parse("20" + d.Substring(0, 2) + "-" + d.Substring(2, 2) + "-" + d.Substring(4, 2));
             return info;
-        }
-
-        internal void WriteDog(SoftDogInfo info)
-        {
-
         }
         #endregion
     }

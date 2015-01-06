@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLConnectionTest", "SQLCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ralid.Park.ZSTTool", "Ralid.Park.ZSTTool\Ralid.Park.ZSTTool.csproj", "{188D3D00-D2B4-4997-B890-821F45CF80D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftDogReaderTest", "SoftDogReader\SoftDogReaderTest.csproj", "{D3325B25-374B-4609-8FB0-1B64EA3F2D42}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormViewTest", "FormViewTest\FormViewTest.csproj", "{4538E83C-FBC7-4670-B2F3-0DA9C1AF5C15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseToolUI", "DatabaseToolUI\DatabaseToolUI.csproj", "{3E44798A-D2CA-4C7E-B6C5-467F7C260042}"
@@ -119,16 +117,6 @@ Global
 		{188D3D00-D2B4-4997-B890-821F45CF80D4}.Release|Mixed Platforms.Build.0 = Release|x86
 		{188D3D00-D2B4-4997-B890-821F45CF80D4}.Release|x86.ActiveCfg = Release|x86
 		{188D3D00-D2B4-4997-B890-821F45CF80D4}.Release|x86.Build.0 = Release|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Debug|x86.ActiveCfg = Debug|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Debug|x86.Build.0 = Debug|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Release|Any CPU.ActiveCfg = Release|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Release|Mixed Platforms.Build.0 = Release|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Release|x86.ActiveCfg = Release|x86
-		{D3325B25-374B-4609-8FB0-1B64EA3F2D42}.Release|x86.Build.0 = Release|x86
 		{4538E83C-FBC7-4670-B2F3-0DA9C1AF5C15}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{4538E83C-FBC7-4670-B2F3-0DA9C1AF5C15}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{4538E83C-FBC7-4670-B2F3-0DA9C1AF5C15}.Debug|Mixed Platforms.Build.0 = Debug|x86
