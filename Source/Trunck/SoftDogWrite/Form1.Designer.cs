@@ -87,10 +87,13 @@
             this.chkInventory.TabIndex = 7;
             this.chkInventory.Text = "进销存";
             this.chkInventory.UseVisualStyleBackColor = true;
+            this.chkInventory.Visible = false;
             // 
             // chkZhongkao
             // 
             this.chkZhongkao.AutoSize = true;
+            this.chkZhongkao.Checked = true;
+            this.chkZhongkao.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkZhongkao.Location = new System.Drawing.Point(120, 62);
             this.chkZhongkao.Name = "chkZhongkao";
             this.chkZhongkao.Size = new System.Drawing.Size(102, 16);
@@ -107,6 +110,7 @@
             this.chkACS.TabIndex = 10;
             this.chkACS.Text = "门禁";
             this.chkACS.UseVisualStyleBackColor = true;
+            this.chkACS.Visible = false;
             // 
             // chkTA
             // 
@@ -117,6 +121,7 @@
             this.chkTA.TabIndex = 11;
             this.chkTA.Text = "考勤";
             this.chkTA.UseVisualStyleBackColor = true;
+            this.chkTA.Visible = false;
             // 
             // btnWrite
             // 
@@ -144,6 +149,7 @@
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.Size = new System.Drawing.Size(140, 21);
             this.dtEnd.TabIndex = 15;
+            this.dtEnd.Value = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
             // 
             // label4
             // 
