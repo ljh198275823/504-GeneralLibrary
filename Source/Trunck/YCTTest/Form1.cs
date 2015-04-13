@@ -36,7 +36,7 @@ namespace YCTTest
         private void Form1_Load(object sender, EventArgs e)
         {
             this.comAddress.Init();
-            this.comPort.Init();
+            this.comPort.Init(true);
         }
 
         private void btnReadCurCard_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.IO.Ports;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -22,14 +23,23 @@ namespace LJH.GeneralLibrary.WinformControl
 
             InitializeComponent();
         }
-        public void Init()
+        public void Init(bool onlyExists = true)
         {
             this.Items.Clear();
             this.DropDownStyle = ComboBoxStyle.DropDownList;
             this.Items.Add(string.Empty);
-            for (int i = 1; i < 31; i++)
+            if (onlyExists)
             {
-                this.Items.Add("COM" + i.ToString());
+                string[] ports = SerialPort.GetPortNames();
+                Array.Sort(ports);
+                this.Items.AddRange(ports);
+            }
+            else
+            {
+                for (int i = 1; i < 31; i++)
+                {
+                    this.Items.Add("COM" + i.ToString());
+                }
             }
         }
 
@@ -52,7 +62,7 @@ namespace LJH.GeneralLibrary.WinformControl
             {
                 foreach (object o in this.Items)
                 {
-                    if (o.ToString() == "COM" + value)
+                    if (o.ToString().ToUpper() == "COM" + value)
                     {
                         this.SelectedItem = o;
                     }
