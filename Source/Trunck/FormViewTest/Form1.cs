@@ -31,5 +31,12 @@ namespace FormViewTest
             frm.SetText(string.Format("这是第{0}个窗体", count++));
             this.ucFormView2.AddAForm(frm);
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form2 frm = new Form2();
+            frm.SetText(string.Format("这是第{0}个窗体", count++));
+            this.ucFormView2.AddAForm(frm,false);
+        }
     }
 }

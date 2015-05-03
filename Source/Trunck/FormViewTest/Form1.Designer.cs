@@ -39,6 +39,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.ucFormView2 = new LJH.GeneralLibrary.WinformControl.UCFormView();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.myToolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -107,6 +108,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.ucFormView2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -127,15 +129,25 @@
             // 
             // ucFormView2
             // 
-            this.ucFormView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucFormView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ucFormView2.FormHeaderLength = 135;
             this.ucFormView2.HideHeader = false;
             this.ucFormView2.Location = new System.Drawing.Point(10, 48);
             this.ucFormView2.Name = "ucFormView2";
             this.ucFormView2.Size = new System.Drawing.Size(519, 350);
             this.ucFormView2.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(205, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "打开一个窗体(隐藏头)";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
@@ -168,6 +180,7 @@
         private LJH.GeneralLibrary.WinformControl.MyToolStrip myToolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
