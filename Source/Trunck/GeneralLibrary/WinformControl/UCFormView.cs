@@ -266,7 +266,5 @@ namespace LJH.GeneralLibrary.WinformControl
             }
         }
         #endregion
-
-        
     }
 }
