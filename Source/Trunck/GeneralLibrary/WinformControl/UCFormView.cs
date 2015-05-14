@@ -68,10 +68,13 @@ namespace LJH.GeneralLibrary.WinformControl
                 }
                 foreach (FormHeader header in _Headers)
                 {
-                    header.Location = new Point(x, this.pHeader.Height - header.Height);
-                    header.Width = width;
-                    header.Fresh();
-                    x += header.Width;
+                    if (header.Visible)
+                    {
+                        header.Location = new Point(x, this.pHeader.Height - header.Height);
+                        header.Width = width;
+                        header.Fresh();
+                        x += header.Width;
+                    }
                 }
             }
         }
@@ -104,7 +107,7 @@ namespace LJH.GeneralLibrary.WinformControl
         /// 增加一个窗体
         /// </summary>
         /// <param name="frm"></param>
-        public void AddAForm(Form frm)
+        public void AddAForm(Form frm,bool showHeader=true)
         {
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.ShowInTaskbar = false ;
@@ -121,6 +124,8 @@ namespace LJH.GeneralLibrary.WinformControl
             header.Click += new EventHandler(header_Click);
             header.MouseHover -= new EventHandler(header_MouseHover);
             header.MouseHover += new EventHandler(header_MouseHover);
+            header.BorderStyle = BorderStyle.None;
+            header.Visible = showHeader;
             HighLightForm(header);
             FreshHeader();
         }
@@ -261,7 +266,5 @@ namespace LJH.GeneralLibrary.WinformControl
             }
         }
         #endregion
-
-        
     }
 }
