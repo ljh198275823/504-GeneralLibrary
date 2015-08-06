@@ -142,6 +142,7 @@
   <ItemGroup>
     <Compile Include="BCDConverter.cs" />
     <Compile Include="CardReader\CardOperationResultCode.cs" />
+    <Compile Include="CardReader\IDR210Reader.cs" />
     <Compile Include="CardReader\MUR200CardReader.cs" />
     <Compile Include="CardReader\ReadCardResult.cs" />
     <Compile Include="CardReader\ZSTReader.cs" />
