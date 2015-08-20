@@ -168,6 +168,7 @@
     <Compile Include="LED\BX4KLEDControler.cs" />
     <Compile Include="LED\BX4KLEDPacket.cs" />
     <Compile Include="LOG\FileLog.cs" />
+    <Compile Include="Net\LJHSocket.cs" />
     <Compile Include="Printer\BarCodePrinter.cs" />
     <Compile Include="Printer\EpsonMT532.cs" />
     <Compile Include="Printer\APMBillInfo.cs" />
