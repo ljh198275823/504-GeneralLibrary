@@ -17,20 +17,14 @@ namespace LJH.GeneralLibrary.LOG
 
         private static object GetLocker(string logName)
         {
-            object locker = _Lockers.SingleOrDefault(kv => kv.Key == logName);
-            if (locker == null)
+            lock (_FileLocker)
             {
-                lock (_FileLocker)
+                if (!_Lockers.ContainsKey(logName))
                 {
-                    locker = _Lockers.SingleOrDefault(kv => kv.Key == logName);
-                    if (locker == null)
-                    {
-                        locker = new object();
-                        _Lockers.Add(logName, locker);
-                    }
+                    _Lockers.Add(logName, new object());
                 }
+                return _Lockers[logName];
             }
-            return locker;
         }
         /// <summary>
         /// 把内容content记录到日志名称为name的日志中

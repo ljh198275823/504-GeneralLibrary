@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessBarTest", "ProcessBa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDR210Test", "IDR210Test\IDR210Test.csproj", "{6B9EBB0E-2B05-47B1-8C7C-F83C55C57F48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{D2341E5D-8C50-4B3F-959E-5E5F8709080D}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ShareLibrary.vsmdi
@@ -189,6 +191,16 @@ Global
 		{6B9EBB0E-2B05-47B1-8C7C-F83C55C57F48}.Release|Mixed Platforms.Build.0 = Release|x86
 		{6B9EBB0E-2B05-47B1-8C7C-F83C55C57F48}.Release|x86.ActiveCfg = Release|x86
 		{6B9EBB0E-2B05-47B1-8C7C-F83C55C57F48}.Release|x86.Build.0 = Release|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Debug|x86.ActiveCfg = Debug|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Debug|x86.Build.0 = Debug|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Release|Any CPU.ActiveCfg = Release|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Release|Mixed Platforms.Build.0 = Release|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Release|x86.ActiveCfg = Release|x86
+		{D2341E5D-8C50-4B3F-959E-5E5F8709080D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
