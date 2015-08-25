@@ -6,7 +6,7 @@ using System.Data.Linq.Mapping;
 using System.Collections.Generic;
 using LJH.GeneralLibrary.ExceptionHandling;
 
-namespace LJH.GeneralLibrary.Core.DAL
+namespace LJH.GeneralLibrary.Core.DAL.Linq
 {
     /// <summary>
     /// 表示所有数据提供者的基类
@@ -18,7 +18,7 @@ namespace LJH.GeneralLibrary.Core.DAL
         #region 构造函数
         public ProviderBase(string conStr, MappingSource ms)
         {
-            this.ConnectStr = conStr;
+            if (!string.IsNullOrEmpty(conStr)) SqlURI = new SQLConnectionURI(conStr);
             _MappingResource = ms;
         }
         #endregion
@@ -29,13 +29,28 @@ namespace LJH.GeneralLibrary.Core.DAL
         #endregion
 
         #region 公共属性
-        public string ConnectStr { get; set; }
+        /// <summary>
+        /// 获取或设置SQL数据库URI
+        /// </summary>
+        public SQLConnectionURI SqlURI { get; set; }
         #endregion
 
         #region 公共方法
+        /// <summary>
+        /// 创建一个数据库上下文
+        /// </summary>
+        /// <returns></returns>
         public DataContext CreateDataContext()
         {
-            return DataContextFactory.CreateDataContext(ConnectStr, _MappingResource);
+            return DataContextFactory.CreateDataContext(SqlURI, _MappingResource);
+        }
+        /// <summary>
+        /// 创建一个单元操作对象
+        /// </summary>
+        /// <returns></returns>
+        public IUnitWork CreateUnitWork()
+        {
+            return new LinqUnitWork(SqlURI, _MappingResource);
         }
         #endregion
 
@@ -165,9 +180,9 @@ namespace LJH.GeneralLibrary.Core.DAL
         /// <param name="unitWork"></param>
         public void Insert(TInfo info, IUnitWork unitWork)
         {
-            if (unitWork != null && unitWork is ILinqUnitWork)
+            if (unitWork != null && unitWork is LinqUnitWork)
             {
-                DataContext dc = (unitWork as ILinqUnitWork).DataContext;
+                DataContext dc = (unitWork as LinqUnitWork).DataContext;
                 InsertingItem(info, dc);
             }
             else
@@ -183,9 +198,9 @@ namespace LJH.GeneralLibrary.Core.DAL
         /// <param name="unitWork"></param>
         public void Update(TInfo newVal, TInfo originalVal, IUnitWork unitWork)
         {
-            if (unitWork != null && unitWork is ILinqUnitWork)
+            if (unitWork != null && unitWork is LinqUnitWork)
             {
-                DataContext dc = (unitWork as ILinqUnitWork).DataContext;
+                DataContext dc = (unitWork as LinqUnitWork).DataContext;
                 UpdatingItem(newVal, originalVal, dc);
             }
             else
@@ -200,9 +215,9 @@ namespace LJH.GeneralLibrary.Core.DAL
         /// <param name="unitWork"></param>
         public void Delete(TInfo info, IUnitWork unitWork)
         {
-            if (unitWork != null && unitWork is ILinqUnitWork)
+            if (unitWork != null && unitWork is LinqUnitWork)
             {
-                DataContext dc = (unitWork as ILinqUnitWork).DataContext;
+                DataContext dc = (unitWork as LinqUnitWork).DataContext;
                 DeletingItem(info, dc);
             }
             else

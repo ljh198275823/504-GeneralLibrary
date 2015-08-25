@@ -39,6 +39,11 @@ namespace LJH.GeneralLibrary.Core.DAL
         /// <returns></returns>
         CommandResult Delete(TInfo t);
         /// <summary>
+        /// 创建操作单元
+        /// </summary>
+        /// <returns></returns>
+        IUnitWork CreateUnitWork();
+        /// <summary>
         /// 插入对象,这个操作属于一个单元操作的一部分
         /// </summary>
         /// <param name="t"></param>
