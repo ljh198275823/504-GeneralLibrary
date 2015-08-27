@@ -161,7 +161,7 @@
     <Compile Include="Core\DAL\SQLConnectionURI.cs" />
     <Compile Include="Core\DAL\Linq\LinqUnitWork.cs" />
     <Compile Include="Core\UI\IOperatorRender.cs" />
-    <Compile Include="DecimalHelper.cs" />
+    <Compile Include="DecimalExtention.cs" />
     <Compile Include="LED\BX4KCRCCalculator.cs" />
     <Compile Include="HexStringConverter.cs" />
     <Compile Include="LED\BX4KDisplayMode.cs" />
