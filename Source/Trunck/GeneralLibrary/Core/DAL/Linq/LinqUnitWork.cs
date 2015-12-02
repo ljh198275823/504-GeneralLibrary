@@ -15,7 +15,7 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
     public class LinqUnitWork : IUnitWork
     {
         #region 构造函数
-        public LinqUnitWork(SQLConnectionURI connStr, MappingSource ms)
+        internal LinqUnitWork(SQLConnectionURI connStr, MappingSource ms)
         {
             _DataContext = DataContextFactory.CreateDataContext(connStr, ms);
         }
