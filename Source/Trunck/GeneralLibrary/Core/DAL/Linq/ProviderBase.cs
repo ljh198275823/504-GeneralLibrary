@@ -18,7 +18,7 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
         #region 构造函数
         public ProviderBase(string conStr, MappingSource ms)
         {
-            if (!string.IsNullOrEmpty(conStr)) SqlURI = new SQLConnectionURI(conStr);
+            SqlURI = conStr;
             _MappingResource = ms;
         }
         #endregion
@@ -32,7 +32,7 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
         /// <summary>
         /// 获取或设置SQL数据库URI
         /// </summary>
-        public SQLConnectionURI SqlURI { get; set; }
+        public string SqlURI { get; set; }
         #endregion
 
         #region 公共方法
@@ -50,7 +50,7 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
         /// <returns></returns>
         public IUnitWork CreateUnitWork()
         {
-            return new LinqUnitWork(SqlURI, _MappingResource);
+            return new LinqUnitWork(new SQLConnectionURI(SqlURI), _MappingResource);
         }
         #endregion
 
