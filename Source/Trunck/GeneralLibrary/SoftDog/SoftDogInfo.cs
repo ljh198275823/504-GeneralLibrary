@@ -68,6 +68,10 @@ namespace LJH.GeneralLibrary.SoftDog
         /// <summary>
         /// 中考/体质测试软件
         /// </summary>
-        TYPE_ZHONGKAO = 0x08
+        TYPE_ZHONGKAO = 0x08,
+        /// <summary>
+        /// 停车场
+        /// </summary>
+        TYPE_PARK=0x10
     }
 }

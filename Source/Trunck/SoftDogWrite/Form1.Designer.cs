@@ -34,7 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dtStart = new System.Windows.Forms.DateTimePicker();
             this.chkInventory = new System.Windows.Forms.CheckBox();
-            this.chkZhongkao = new System.Windows.Forms.CheckBox();
             this.chkACS = new System.Windows.Forms.CheckBox();
             this.chkTA = new System.Windows.Forms.CheckBox();
             this.btnWrite = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtProjectID = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
+            this.chkPark = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +81,7 @@
             // chkInventory
             // 
             this.chkInventory.AutoSize = true;
-            this.chkInventory.Location = new System.Drawing.Point(204, 94);
+            this.chkInventory.Location = new System.Drawing.Point(120, 62);
             this.chkInventory.Name = "chkInventory";
             this.chkInventory.Size = new System.Drawing.Size(60, 16);
             this.chkInventory.TabIndex = 7;
@@ -89,22 +89,10 @@
             this.chkInventory.UseVisualStyleBackColor = true;
             this.chkInventory.Visible = false;
             // 
-            // chkZhongkao
-            // 
-            this.chkZhongkao.AutoSize = true;
-            this.chkZhongkao.Checked = true;
-            this.chkZhongkao.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkZhongkao.Location = new System.Drawing.Point(120, 62);
-            this.chkZhongkao.Name = "chkZhongkao";
-            this.chkZhongkao.Size = new System.Drawing.Size(102, 16);
-            this.chkZhongkao.TabIndex = 9;
-            this.chkZhongkao.Text = "中考/体质测试";
-            this.chkZhongkao.UseVisualStyleBackColor = true;
-            // 
             // chkACS
             // 
             this.chkACS.AutoSize = true;
-            this.chkACS.Location = new System.Drawing.Point(120, 94);
+            this.chkACS.Location = new System.Drawing.Point(197, 62);
             this.chkACS.Name = "chkACS";
             this.chkACS.Size = new System.Drawing.Size(48, 16);
             this.chkACS.TabIndex = 10;
@@ -115,7 +103,7 @@
             // chkTA
             // 
             this.chkTA.AutoSize = true;
-            this.chkTA.Location = new System.Drawing.Point(286, 94);
+            this.chkTA.Location = new System.Drawing.Point(269, 62);
             this.chkTA.Name = "chkTA";
             this.chkTA.Size = new System.Drawing.Size(48, 16);
             this.chkTA.TabIndex = 11;
@@ -171,18 +159,29 @@
             this.txtProjectID.TabIndex = 4;
             this.txtProjectID.Text = "1000";
             // 
+            // chkPark
+            // 
+            this.chkPark.AutoSize = true;
+            this.chkPark.Location = new System.Drawing.Point(120, 90);
+            this.chkPark.Name = "chkPark";
+            this.chkPark.Size = new System.Drawing.Size(60, 16);
+            this.chkPark.TabIndex = 16;
+            this.chkPark.Text = "停车场";
+            this.chkPark.UseVisualStyleBackColor = true;
+            this.chkPark.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 296);
+            this.Controls.Add(this.chkPark);
             this.Controls.Add(this.dtEnd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.btnWrite);
             this.Controls.Add(this.chkTA);
             this.Controls.Add(this.chkACS);
-            this.Controls.Add(this.chkZhongkao);
             this.Controls.Add(this.chkInventory);
             this.Controls.Add(this.dtStart);
             this.Controls.Add(this.txtProjectID);
@@ -204,13 +203,13 @@
         private LJH.GeneralLibrary.WinformControl.IntergerTextBox txtProjectID;
         private System.Windows.Forms.DateTimePicker dtStart;
         private System.Windows.Forms.CheckBox chkInventory;
-        private System.Windows.Forms.CheckBox chkZhongkao;
         private System.Windows.Forms.CheckBox chkACS;
         private System.Windows.Forms.CheckBox chkTA;
         private System.Windows.Forms.Button btnWrite;
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.DateTimePicker dtEnd;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox chkPark;
     }
 }
 

@@ -55,7 +55,7 @@ namespace SoftDogWrite
                 if (chkACS.Checked) sl |= SoftwareType.TYPE_ACS;
                 if (chkInventory.Checked) sl |= SoftwareType.TYPE_Inventory;
                 if (chkTA.Checked) sl |= SoftwareType.TYPE_TA;
-                if (chkZhongkao.Checked) sl |= SoftwareType.TYPE_ZHONGKAO;
+                if (chkPark.Checked) sl |= SoftwareType.TYPE_PARK;
                 data = SEBinaryConverter.IntToBytes((int)sl);
                 ret = _Writer.WriteData(31, data, _Key);
             }
@@ -81,10 +81,10 @@ namespace SoftDogWrite
             {
                 SoftDogInfo info = _Writer.ReadDog();
                 txtProjectID.IntergerValue = info.ProjectNo;
-                chkZhongkao.Checked = (info.SoftwareList & SoftwareType.TYPE_ZHONGKAO) == SoftwareType.TYPE_ZHONGKAO;
                 chkInventory.Checked = (info.SoftwareList & SoftwareType.TYPE_Inventory) == SoftwareType.TYPE_Inventory;
                 chkACS.Checked = (info.SoftwareList & SoftwareType.TYPE_ACS) == SoftwareType.TYPE_ACS;
                 chkTA.Checked = (info.SoftwareList & SoftwareType.TYPE_TA) == SoftwareType.TYPE_TA;
+                chkPark.Checked = (info.SoftwareList & SoftwareType.TYPE_PARK) == SoftwareType.TYPE_PARK;
                 dtStart.Value = info.StartDate;
                 dtEnd.Value = info.ExpiredDate;
                 MessageBox.Show("读狗成功");
@@ -102,7 +102,7 @@ namespace SoftDogWrite
                 MessageBox.Show("项目编号不正确");
                 return;
             }
-            if (!chkACS.Checked && !chkInventory.Checked && !chkTA.Checked && !chkZhongkao.Checked)
+            if (!chkACS.Checked && !chkInventory.Checked && !chkTA.Checked && !chkPark.Checked)
             {
                 MessageBox.Show("请至少选择一种软件类型");
                 return;
