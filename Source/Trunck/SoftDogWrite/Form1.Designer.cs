@@ -87,7 +87,6 @@
             this.chkInventory.TabIndex = 7;
             this.chkInventory.Text = "进销存";
             this.chkInventory.UseVisualStyleBackColor = true;
-            this.chkInventory.Visible = false;
             // 
             // chkACS
             // 
@@ -98,7 +97,6 @@
             this.chkACS.TabIndex = 10;
             this.chkACS.Text = "门禁";
             this.chkACS.UseVisualStyleBackColor = true;
-            this.chkACS.Visible = false;
             // 
             // chkTA
             // 
@@ -109,7 +107,6 @@
             this.chkTA.TabIndex = 11;
             this.chkTA.Text = "考勤";
             this.chkTA.UseVisualStyleBackColor = true;
-            this.chkTA.Visible = false;
             // 
             // btnWrite
             // 
@@ -168,7 +165,6 @@
             this.chkPark.TabIndex = 16;
             this.chkPark.Text = "停车场";
             this.chkPark.UseVisualStyleBackColor = true;
-            this.chkPark.Visible = false;
             // 
             // Form1
             // 
