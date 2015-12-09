@@ -42,6 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtProjectID = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.chkPark = new System.Windows.Forms.CheckBox();
+            this.chkHost = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -166,11 +167,23 @@
             this.chkPark.Text = "停车场";
             this.chkPark.UseVisualStyleBackColor = true;
             // 
+            // chkHost
+            // 
+            this.chkHost.AutoSize = true;
+            this.chkHost.ForeColor = System.Drawing.Color.Red;
+            this.chkHost.Location = new System.Drawing.Point(120, 193);
+            this.chkHost.Name = "chkHost";
+            this.chkHost.Size = new System.Drawing.Size(84, 16);
+            this.chkHost.TabIndex = 17;
+            this.chkHost.Text = "主机加密狗";
+            this.chkHost.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 296);
+            this.Controls.Add(this.chkHost);
             this.Controls.Add(this.chkPark);
             this.Controls.Add(this.dtEnd);
             this.Controls.Add(this.label4);
@@ -206,6 +219,7 @@
         private System.Windows.Forms.DateTimePicker dtEnd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkPark;
+        private System.Windows.Forms.CheckBox chkHost;
     }
 }
 

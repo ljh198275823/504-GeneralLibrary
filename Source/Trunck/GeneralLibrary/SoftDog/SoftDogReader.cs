@@ -138,6 +138,8 @@ namespace LJH.GeneralLibrary.SoftDog
             info.StartDate = DateTime.Parse("20" + d.Substring(0, 2) + "-" + d.Substring(2, 2) + "-" + d.Substring(4, 2));
             d = MydsEncrypt.Encrypt(ReadString(5, 6));
             info.ExpiredDate = DateTime.Parse("20" + d.Substring(0, 2) + "-" + d.Substring(2, 2) + "-" + d.Substring(4, 2));
+            //是否是主机加密狗
+            info.IsHost = ReadInteger(37, 1) == 1;
             return info;
         }
         #endregion

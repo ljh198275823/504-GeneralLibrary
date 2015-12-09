@@ -41,6 +41,10 @@ namespace LJH.GeneralLibrary.SoftDog
                 Days = (int)(Math.Floor(ts.TotalDays));
             }
         }
+        /// <summary>
+        /// 获取或设置是否是主机加密狗
+        /// </summary>
+        public bool IsHost { get; set; }
     }
 
     /// <summary>

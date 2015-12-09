@@ -71,6 +71,10 @@ namespace SoftDogWrite
                 data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(dtEnd.Value.Date.ToString("yyMMdd")));
                 ret = _Writer.WriteData(5, data, _Key);
             }
+            if (ret == 0)
+            {
+                ret = _Writer.WriteData(37, new byte[] { (byte)(chkHost.Checked ? 1 : 0) }, _Key);
+            }
             if (ret != 0) throw new InvalidOperationException("写狗失败 errorcode=" + ret.ToString());
         }
         #endregion
@@ -87,6 +91,7 @@ namespace SoftDogWrite
                 chkPark.Checked = (info.SoftwareList & SoftwareType.TYPE_PARK) == SoftwareType.TYPE_PARK;
                 dtStart.Value = info.StartDate;
                 dtEnd.Value = info.ExpiredDate;
+                chkHost.Checked = info.IsHost;
                 MessageBox.Show("读狗成功");
             }
             catch (Exception ex)
