@@ -45,6 +45,14 @@ namespace LJH.GeneralLibrary.SoftDog
         /// 获取或设置是否是主机加密狗
         /// </summary>
         public bool IsHost { get; set; }
+        /// <summary>
+        /// 获取或设置数据库用户名
+        /// </summary>
+        public string DBUser { get; set; }
+        /// <summary>
+        /// 获取或设置数据库密码
+        /// </summary>
+        public string DBPassword { get; set; }
     }
 
     /// <summary>

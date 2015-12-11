@@ -140,6 +140,10 @@ namespace LJH.GeneralLibrary.SoftDog
             info.ExpiredDate = DateTime.Parse("20" + d.Substring(0, 2) + "-" + d.Substring(2, 2) + "-" + d.Substring(4, 2));
             //是否是主机加密狗
             info.IsHost = ReadInteger(37, 1) == 1;
+            string temp = ReadString(40, 10).Trim();
+            if (!string.IsNullOrEmpty(temp)) info.DBUser = MydsEncrypt.Encrypt(temp);
+            temp = ReadString(50, 10).Trim();
+            if (!string.IsNullOrEmpty(temp)) info.DBPassword = MydsEncrypt.Encrypt(temp);
             return info;
         }
         #endregion
