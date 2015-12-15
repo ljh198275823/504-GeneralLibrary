@@ -75,6 +75,30 @@ namespace SoftDogWrite
             {
                 ret = _Writer.WriteData(37, new byte[] { (byte)(chkHost.Checked ? 1 : 0) }, _Key);
             }
+            if (ret == 0 && !string.IsNullOrEmpty(txtUser.Text.Trim()))
+            {
+                data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(txtUser.Text.Trim()));
+                if (data.Length < 10) ;
+                byte[] temp = new byte[10];
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    if (i < data.Length) temp[i] = data[i];
+                    else temp[i] = 0x20;
+                }
+                ret = _Writer.WriteData(40, temp, _Key);
+            }
+            if (ret == 0 && !string.IsNullOrEmpty(txtPassword.Text.Trim()))
+            {
+                data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(txtPassword.Text.Trim()));
+                if (data.Length < 10) ;
+                byte[] temp = new byte[10];
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    if (i < data.Length) temp[i] = data[i];
+                    else temp[i] = 0x20;
+                }
+                ret = _Writer.WriteData(50, temp, _Key);
+            }
             if (ret != 0) throw new InvalidOperationException("写狗失败 errorcode=" + ret.ToString());
         }
         #endregion
@@ -92,6 +116,8 @@ namespace SoftDogWrite
                 dtStart.Value = info.StartDate;
                 dtEnd.Value = info.ExpiredDate;
                 chkHost.Checked = info.IsHost;
+                txtUser.Text = info.DBUser;
+                txtPassword.Text = info.DBPassword;
                 MessageBox.Show("读狗成功");
             }
             catch (Exception ex)

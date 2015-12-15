@@ -43,6 +43,10 @@
             this.txtProjectID = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.chkPark = new System.Windows.Forms.CheckBox();
             this.chkHost = new System.Windows.Forms.CheckBox();
+            this.txtUser = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtPassword = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -66,15 +70,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 128);
+            this.label3.Location = new System.Drawing.Point(53, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 2;
-            this.label3.Text = "开始日期";
+            this.label3.Text = "有效期限";
             // 
             // dtStart
             // 
-            this.dtStart.Location = new System.Drawing.Point(120, 124);
+            this.dtStart.Location = new System.Drawing.Point(120, 93);
             this.dtStart.Name = "dtStart";
             this.dtStart.Size = new System.Drawing.Size(140, 21);
             this.dtStart.TabIndex = 5;
@@ -82,7 +86,7 @@
             // chkInventory
             // 
             this.chkInventory.AutoSize = true;
-            this.chkInventory.Location = new System.Drawing.Point(120, 62);
+            this.chkInventory.Location = new System.Drawing.Point(120, 61);
             this.chkInventory.Name = "chkInventory";
             this.chkInventory.Size = new System.Drawing.Size(60, 16);
             this.chkInventory.TabIndex = 7;
@@ -92,7 +96,7 @@
             // chkACS
             // 
             this.chkACS.AutoSize = true;
-            this.chkACS.Location = new System.Drawing.Point(197, 62);
+            this.chkACS.Location = new System.Drawing.Point(197, 61);
             this.chkACS.Name = "chkACS";
             this.chkACS.Size = new System.Drawing.Size(48, 16);
             this.chkACS.TabIndex = 10;
@@ -102,7 +106,7 @@
             // chkTA
             // 
             this.chkTA.AutoSize = true;
-            this.chkTA.Location = new System.Drawing.Point(269, 62);
+            this.chkTA.Location = new System.Drawing.Point(269, 61);
             this.chkTA.Name = "chkTA";
             this.chkTA.Size = new System.Drawing.Size(48, 16);
             this.chkTA.TabIndex = 11;
@@ -111,7 +115,8 @@
             // 
             // btnWrite
             // 
-            this.btnWrite.Location = new System.Drawing.Point(197, 236);
+            this.btnWrite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnWrite.Location = new System.Drawing.Point(350, 194);
             this.btnWrite.Name = "btnWrite";
             this.btnWrite.Size = new System.Drawing.Size(101, 33);
             this.btnWrite.TabIndex = 12;
@@ -121,7 +126,8 @@
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(67, 236);
+            this.btnRead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRead.Location = new System.Drawing.Point(220, 194);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(101, 33);
             this.btnRead.TabIndex = 13;
@@ -131,7 +137,7 @@
             // 
             // dtEnd
             // 
-            this.dtEnd.Location = new System.Drawing.Point(120, 157);
+            this.dtEnd.Location = new System.Drawing.Point(311, 93);
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.Size = new System.Drawing.Size(140, 21);
             this.dtEnd.TabIndex = 15;
@@ -140,11 +146,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 161);
+            this.label4.Location = new System.Drawing.Point(276, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(17, 12);
             this.label4.TabIndex = 14;
-            this.label4.Text = "结束日期";
+            this.label4.Text = "--";
             // 
             // txtProjectID
             // 
@@ -160,7 +166,7 @@
             // chkPark
             // 
             this.chkPark.AutoSize = true;
-            this.chkPark.Location = new System.Drawing.Point(120, 90);
+            this.chkPark.Location = new System.Drawing.Point(334, 61);
             this.chkPark.Name = "chkPark";
             this.chkPark.Size = new System.Drawing.Size(60, 16);
             this.chkPark.TabIndex = 16;
@@ -171,18 +177,58 @@
             // 
             this.chkHost.AutoSize = true;
             this.chkHost.ForeColor = System.Drawing.Color.Red;
-            this.chkHost.Location = new System.Drawing.Point(120, 193);
+            this.chkHost.Location = new System.Drawing.Point(272, 24);
             this.chkHost.Name = "chkHost";
             this.chkHost.Size = new System.Drawing.Size(84, 16);
             this.chkHost.TabIndex = 17;
             this.chkHost.Text = "主机加密狗";
             this.chkHost.UseVisualStyleBackColor = true;
             // 
+            // txtUser
+            // 
+            this.txtUser.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtUser.Location = new System.Drawing.Point(120, 131);
+            this.txtUser.MaxLength = 10;
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(140, 21);
+            this.txtUser.TabIndex = 18;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtPassword.Location = new System.Drawing.Point(313, 131);
+            this.txtPassword.MaxLength = 10;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(140, 21);
+            this.txtPassword.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(65, 135);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "用户名";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(278, 135);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "密码";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 296);
+            this.ClientSize = new System.Drawing.Size(483, 253);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUser);
             this.Controls.Add(this.chkHost);
             this.Controls.Add(this.chkPark);
             this.Controls.Add(this.dtEnd);
@@ -220,6 +266,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkPark;
         private System.Windows.Forms.CheckBox chkHost;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtUser;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtPassword;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 
