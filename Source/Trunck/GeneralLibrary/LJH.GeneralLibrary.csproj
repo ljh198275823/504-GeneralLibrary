@@ -160,6 +160,10 @@
     <Compile Include="Core\DAL\IEntity.cs" />
     <Compile Include="Core\DAL\SQLConnectionURI.cs" />
     <Compile Include="Core\DAL\Linq\LinqUnitWork.cs" />
+    <Compile Include="Core\UI\FrmReportBase.cs" />
+    <Compile Include="Core\UI\FrmReportBase.designer.cs">
+      <DependentUpon>FrmReportBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\UI\IOperatorRender.cs" />
     <Compile Include="DecimalExtention.cs" />
     <Compile Include="LED\BX4KCRCCalculator.cs" />
@@ -340,6 +344,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Core\UI\FrmReportBase.resx">
+      <DependentUpon>FrmReportBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
