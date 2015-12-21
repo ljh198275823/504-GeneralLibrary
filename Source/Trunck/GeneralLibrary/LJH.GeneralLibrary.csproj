@@ -160,7 +160,9 @@
     <Compile Include="Core\DAL\IEntity.cs" />
     <Compile Include="Core\DAL\SQLConnectionURI.cs" />
     <Compile Include="Core\DAL\Linq\LinqUnitWork.cs" />
-    <Compile Include="Core\UI\FrmReportBase.cs" />
+    <Compile Include="Core\UI\FrmReportBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Core\UI\FrmReportBase.designer.cs">
       <DependentUpon>FrmReportBase.cs</DependentUpon>
     </Compile>

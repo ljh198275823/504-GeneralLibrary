@@ -23,7 +23,7 @@ namespace LJH.GeneralLibrary.Core.UI
         #region 私有变量
         private DataGridView _gridView;
 
-        private DataGridView GridView
+        protected virtual DataGridView GridView
         {
             get
             {
