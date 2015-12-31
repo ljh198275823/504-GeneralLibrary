@@ -260,6 +260,12 @@
     <Compile Include="CardReader\YangChengTongOperationResult.cs" />
     <Compile Include="CardReader\YangChengTongCardInfo.cs" />
     <Compile Include="CardReader\YangChengTongReader.cs" />
+    <Compile Include="WinformControl\FrmProcessing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinformControl\FrmProcessing.designer.cs">
+      <DependentUpon>FrmProcessing.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinformControl\MyToolStrip.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -371,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinformControl\FormHeader.resx">
       <DependentUpon>FormHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinformControl\FrmProcessing.resx">
+      <DependentUpon>FrmProcessing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinformControl\UCDateTimeInterval.resx">
       <DependentUpon>UCDateTimeInterval.cs</DependentUpon>
