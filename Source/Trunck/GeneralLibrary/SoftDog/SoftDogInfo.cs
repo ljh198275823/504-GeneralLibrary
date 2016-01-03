@@ -46,6 +46,10 @@ namespace LJH.GeneralLibrary.SoftDog
         /// </summary>
         public bool IsHost { get; set; }
         /// <summary>
+        /// 获取或设置数据库名称
+        /// </summary>
+        public string DBName { get; set; }
+        /// <summary>
         /// 获取或设置数据库用户名
         /// </summary>
         public string DBUser { get; set; }

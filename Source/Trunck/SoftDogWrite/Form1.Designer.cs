@@ -40,13 +40,17 @@
             this.btnRead = new System.Windows.Forms.Button();
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtProjectID = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.chkPark = new System.Windows.Forms.CheckBox();
             this.chkHost = new System.Windows.Forms.CheckBox();
-            this.txtUser = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
-            this.txtPassword = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnReadLic = new System.Windows.Forms.Button();
+            this.btnWriteLic = new System.Windows.Forms.Button();
+            this.txtPassword = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtUser = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtProjectID = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDBName = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -116,7 +120,7 @@
             // btnWrite
             // 
             this.btnWrite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnWrite.Location = new System.Drawing.Point(350, 194);
+            this.btnWrite.Location = new System.Drawing.Point(367, 212);
             this.btnWrite.Name = "btnWrite";
             this.btnWrite.Size = new System.Drawing.Size(101, 33);
             this.btnWrite.TabIndex = 12;
@@ -127,7 +131,7 @@
             // btnRead
             // 
             this.btnRead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRead.Location = new System.Drawing.Point(220, 194);
+            this.btnRead.Location = new System.Drawing.Point(253, 212);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(101, 33);
             this.btnRead.TabIndex = 13;
@@ -152,17 +156,6 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "--";
             // 
-            // txtProjectID
-            // 
-            this.txtProjectID.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtProjectID.Location = new System.Drawing.Point(120, 22);
-            this.txtProjectID.MaxValue = 2147483647;
-            this.txtProjectID.MinValue = 0;
-            this.txtProjectID.Name = "txtProjectID";
-            this.txtProjectID.Size = new System.Drawing.Size(140, 21);
-            this.txtProjectID.TabIndex = 4;
-            this.txtProjectID.Text = "1000";
-            // 
             // chkPark
             // 
             this.chkPark.AutoSize = true;
@@ -184,24 +177,6 @@
             this.chkHost.Text = "主机加密狗";
             this.chkHost.UseVisualStyleBackColor = true;
             // 
-            // txtUser
-            // 
-            this.txtUser.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtUser.Location = new System.Drawing.Point(120, 131);
-            this.txtUser.MaxLength = 10;
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(140, 21);
-            this.txtUser.TabIndex = 18;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtPassword.Location = new System.Drawing.Point(313, 131);
-            this.txtPassword.MaxLength = 10;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(140, 21);
-            this.txtPassword.TabIndex = 19;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -220,11 +195,84 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "密码";
             // 
+            // btnReadLic
+            // 
+            this.btnReadLic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnReadLic.Location = new System.Drawing.Point(13, 212);
+            this.btnReadLic.Name = "btnReadLic";
+            this.btnReadLic.Size = new System.Drawing.Size(101, 33);
+            this.btnReadLic.TabIndex = 22;
+            this.btnReadLic.Text = "读LIC";
+            this.btnReadLic.UseVisualStyleBackColor = true;
+            this.btnReadLic.Click += new System.EventHandler(this.btnReadLic_Click);
+            // 
+            // btnWriteLic
+            // 
+            this.btnWriteLic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnWriteLic.Location = new System.Drawing.Point(122, 212);
+            this.btnWriteLic.Name = "btnWriteLic";
+            this.btnWriteLic.Size = new System.Drawing.Size(101, 33);
+            this.btnWriteLic.TabIndex = 23;
+            this.btnWriteLic.Text = "写LIC";
+            this.btnWriteLic.UseVisualStyleBackColor = true;
+            this.btnWriteLic.Click += new System.EventHandler(this.btnWriteLic_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtPassword.Location = new System.Drawing.Point(313, 131);
+            this.txtPassword.MaxLength = 10;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(140, 21);
+            this.txtPassword.TabIndex = 19;
+            // 
+            // txtUser
+            // 
+            this.txtUser.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtUser.Location = new System.Drawing.Point(120, 131);
+            this.txtUser.MaxLength = 10;
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(140, 21);
+            this.txtUser.TabIndex = 18;
+            // 
+            // txtProjectID
+            // 
+            this.txtProjectID.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtProjectID.Location = new System.Drawing.Point(120, 22);
+            this.txtProjectID.MaxValue = 2147483647;
+            this.txtProjectID.MinValue = 0;
+            this.txtProjectID.Name = "txtProjectID";
+            this.txtProjectID.Size = new System.Drawing.Size(140, 21);
+            this.txtProjectID.TabIndex = 4;
+            this.txtProjectID.Text = "1000";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(65, 168);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "数据库";
+            // 
+            // txtDBName
+            // 
+            this.txtDBName.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtDBName.Location = new System.Drawing.Point(120, 165);
+            this.txtDBName.MaxLength = 10;
+            this.txtDBName.Name = "txtDBName";
+            this.txtDBName.Size = new System.Drawing.Size(140, 21);
+            this.txtDBName.TabIndex = 25;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 253);
+            this.ClientSize = new System.Drawing.Size(483, 271);
+            this.Controls.Add(this.txtDBName);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnWriteLic);
+            this.Controls.Add(this.btnReadLic);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPassword);
@@ -270,6 +318,10 @@
         private LJH.GeneralLibrary.WinformControl.DBCTextBox txtPassword;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnReadLic;
+        private System.Windows.Forms.Button btnWriteLic;
+        private System.Windows.Forms.Label label7;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtDBName;
     }
 }
 
