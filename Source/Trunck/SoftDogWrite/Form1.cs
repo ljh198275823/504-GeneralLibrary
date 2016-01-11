@@ -60,7 +60,7 @@ namespace SoftDogWrite
             if (chkTA.Checked) dog.SoftwareList |= SoftwareType.TYPE_TA;
             if (chkPark.Checked) dog.SoftwareList |= SoftwareType.TYPE_PARK;
             dog.StartDate = dtStart.Value.Date;
-            dog.ExpiredDate = dtEnd.Value.AddDays(1).Date;
+            dog.ExpiredDate = dtEnd.Value.Date;
             dog.IsHost = chkHost.Checked;
             dog.DBName = txtDBName.Text.Trim();
             dog.DBUser = txtUser.Text.Trim();
@@ -180,6 +180,7 @@ namespace SoftDogWrite
             dtStart.Value = info.StartDate;
             dtEnd.Value = info.ExpiredDate;
             chkHost.Checked = info.IsHost;
+            txtDBName.Text = info.DBName;
             txtUser.Text = info.DBUser;
             txtPassword.Text = info.DBPassword;
         }
