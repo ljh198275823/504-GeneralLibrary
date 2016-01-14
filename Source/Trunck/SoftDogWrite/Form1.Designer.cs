@@ -259,7 +259,7 @@
             // 
             this.txtDBName.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtDBName.Location = new System.Drawing.Point(120, 165);
-            this.txtDBName.MaxLength = 10;
+            this.txtDBName.MaxLength = 50;
             this.txtDBName.Name = "txtDBName";
             this.txtDBName.Size = new System.Drawing.Size(140, 21);
             this.txtDBName.TabIndex = 25;
