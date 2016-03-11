@@ -33,6 +33,23 @@ namespace LJH.GeneralLibrary.Net
             return null;
         }
 
+        public static IPAddress[] GetLocalIPS()
+        {
+            try
+            {
+                IPHostEntry ipe = Dns.GetHostEntry(Dns.GetHostName());
+                if (ipe.AddressList != null)
+                {
+                    return ipe.AddressList.Where(it => it.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).ToArray();
+                }
+            }
+            catch (Exception ex)
+            {
+                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+            }
+            return null;
+        }
+
         /// <summary>
         /// 获取本机的MAC地址,如果有多个网卡，返回第一个网卡的MAC地址
         /// </summary>

@@ -267,6 +267,12 @@
     <Compile Include="WinformControl\FrmProcessing.designer.cs">
       <DependentUpon>FrmProcessing.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinformControl\HexTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformControl\HexTextBox.Designer.cs">
+      <DependentUpon>HexTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinformControl\MyToolStrip.cs">
       <SubType>Component</SubType>
     </Compile>
