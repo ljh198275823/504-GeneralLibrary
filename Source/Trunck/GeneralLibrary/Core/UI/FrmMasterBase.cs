@@ -209,8 +209,8 @@ namespace LJH.GeneralLibrary.Core.UI
             {
                 ShowRowBackColor();
                 this.GridView.Rows[0].Selected = false;
-                FreshStatusBar();
             }
+            FreshStatusBar();
         }
         /// <summary>
         /// 刷新状态栏
