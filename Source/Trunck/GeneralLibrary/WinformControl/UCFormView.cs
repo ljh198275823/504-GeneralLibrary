@@ -27,6 +27,11 @@ namespace LJH.GeneralLibrary.WinformControl
         private bool _HideHeader = false; 
         #endregion
 
+        /// <summary>
+        /// 当前显示哪个窗体时触发此事件
+        /// </summary>
+        public event EventHandler FormActivated;
+
         #region 私有方法
         /// <summary>
         /// 高亮显示窗体
@@ -38,10 +43,14 @@ namespace LJH.GeneralLibrary.WinformControl
             {
                 if (object.ReferenceEquals(h, header))
                 {
-                    _ActiveHeader = h;
                     h.Active();
                     header.RenderForm.Size = new Size(this.pBody.Size.Width, this.pBody.Height);
                     SetParent(header.RenderForm.Handle, this.pBody.Handle);
+                    if (!object.ReferenceEquals(h, _ActiveHeader))
+                    {
+                        _ActiveHeader = h;
+                        if (this.FormActivated != null) this.FormActivated(header.RenderForm, EventArgs.Empty);
+                    }
                 }
                 else
                 {
@@ -126,6 +135,7 @@ namespace LJH.GeneralLibrary.WinformControl
             header.MouseHover += new EventHandler(header_MouseHover);
             header.BorderStyle = BorderStyle.None;
             header.Visible = showHeader;
+            _ActiveHeader = header;
             HighLightForm(header);
             FreshHeader();
         }

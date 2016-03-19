@@ -187,6 +187,25 @@ namespace LJH.GeneralLibrary.Core.UI
         public SearchCondition SearchCondition { get; set; }
         #endregion
 
+        #region 公共方法
+        /// <summary>
+        /// 从数据库重新获取数据并刷新数据显示
+        /// </summary>
+        public virtual void ReFreshData()
+        {
+            List<object> datasource = GetDataSource();
+            ShowItemsOnGrid(datasource);
+        }
+
+        /// <summary>
+        /// 显示操作的权限
+        /// </summary>
+        public virtual void ShowOperatorRights()
+        {
+
+        }
+        #endregion
+
         #region 保护方法
         /// <summary>
         /// 显示数据
@@ -258,14 +277,6 @@ namespace LJH.GeneralLibrary.Core.UI
                     row.DefaultCellStyle.BackColor = (count % 2 == 1) ? Color.FromArgb(230, 230, 230) : Color.White;
                 }
             }
-        }
-        /// <summary>
-        /// 从数据库重新获取数据并刷新数据显示
-        /// </summary>
-        protected virtual void ReFreshData()
-        {
-            List<object> datasource = GetDataSource();
-            ShowItemsOnGrid(datasource);
         }
         /// <summary>
         /// 导出数据
@@ -644,13 +655,6 @@ namespace LJH.GeneralLibrary.Core.UI
         protected virtual bool DeletingItem(object item)
         {
             return false;
-        }
-        /// <summary>
-        /// 显示操作的权限
-        /// </summary>
-        public virtual void ShowOperatorRights()
-        {
-
         }
         #endregion
 
