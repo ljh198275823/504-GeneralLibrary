@@ -109,6 +109,7 @@ namespace LJH.GeneralLibrary.Core.UI
                 {
                     ContextMenuStrip menu = GridView.ContextMenuStrip;
                     if (menu.Items["cMnu_Add"] != null) menu.Items["cMnu_Add"].Click += btnAdd_Click;
+                    if (menu.Items["cMnu_Edit"] != null) menu.Items["cMnu_Edit"].Click += btnEdit_Click;
                     if (menu.Items["cMnu_Delete"] != null) menu.Items["cMnu_Delete"].Click += btnDelete_Click;
                     if (menu.Items["cMnu_Export"] != null) menu.Items["cMnu_Export"].Click += btnExport_Click;
                     if (menu.Items["cMnu_Fresh"] != null) menu.Items["cMnu_Fresh"].Click += btnFresh_Click;
@@ -182,9 +183,15 @@ namespace LJH.GeneralLibrary.Core.UI
         /// </summary>
         public object SelectedItem { get; set; }
         /// <summary>
+        /// 获取或设置是否支持多选
+        /// </summary>
+        public bool MultiSelect { get; set; }
+        /// <summary>
         /// 获取或设置查询条件
         /// </summary>
         public SearchCondition SearchCondition { get; set; }
+
+        public List<object> CachedData { get; set; }
         #endregion
 
         #region 公共方法
@@ -193,10 +200,9 @@ namespace LJH.GeneralLibrary.Core.UI
         /// </summary>
         public virtual void ReFreshData()
         {
-            List<object> datasource = GetDataSource();
-            ShowItemsOnGrid(datasource);
+            CachedData = GetDataSource();
+            ShowItemsOnGrid(CachedData);
         }
-
         /// <summary>
         /// 显示操作的权限
         /// </summary>
@@ -204,6 +210,10 @@ namespace LJH.GeneralLibrary.Core.UI
         {
 
         }
+        #endregion
+
+        #region 事件
+        public event EventHandler<ItemSelectedEventArgs> ItemSelected;
         #endregion
 
         #region 保护方法
@@ -678,6 +688,11 @@ namespace LJH.GeneralLibrary.Core.UI
             PerformAddData();
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            PerformUpdateData();
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             PerformDeleteData();
@@ -707,9 +722,18 @@ namespace LJH.GeneralLibrary.Core.UI
         {
             if (e.RowIndex >= 0)
             {
-                this.SelectedItem = this.GridView.Rows[e.RowIndex].Tag;
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                if (!MultiSelect)
+                {
+                    this.SelectedItem = this.GridView.Rows[e.RowIndex].Tag;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    ItemSelectedEventArgs args = new ItemSelectedEventArgs() { SelectedItem = this.GridView.Rows[e.RowIndex].Tag };
+                    if (this.ItemSelected != null) this.ItemSelected(this, args);
+                    this.GridView.Rows.Remove(this.GridView.Rows[e.RowIndex]);
+                }
             }
         }
 
