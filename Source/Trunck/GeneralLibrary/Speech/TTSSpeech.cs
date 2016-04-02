@@ -32,12 +32,19 @@ namespace LJH.GeneralLibrary.Speech
         #endregion
 
         #region 公共方法
-        public void Speek(string msg)
+        public void Speek(string msg,bool asyc=true)
         {
             try
             {
                 _Voice.Skip("Sentence", int.MaxValue);
-                _Voice.Speak(msg, SpeechLib.SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                if (asyc)
+                {
+                    _Voice.Speak(msg, SpeechLib.SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                }
+                else
+                {
+                    _Voice.Speak(msg, SpeechLib.SpeechVoiceSpeakFlags.SVSFDefault);
+                }
             }
             catch (Exception ex)
             {
