@@ -65,6 +65,8 @@ namespace SoftDogWrite
             dog.DBName = txtDBName.Text.Trim();
             dog.DBUser = txtUser.Text.Trim();
             dog.DBPassword = txtPassword.Text.Trim();
+            dog.MAC = txtMAC.Text.Trim();
+            if (!string.IsNullOrEmpty(dog.MAC)) dog.MAC = dog.MAC.ToUpper();
             return dog;
         }
 
@@ -145,6 +147,7 @@ namespace SoftDogWrite
             sb.Append(string.Format("DBName:{0};", dog.DBName));
             sb.Append(string.Format("DBUser:{0};", dog.DBUser));
             sb.Append(string.Format("DBPassword:{0};", dog.DBPassword));
+            sb.Append(string.Format("MAC:{0}", dog.MAC));
             using (FileStream fs = new FileStream(licFile, FileMode.Create, FileAccess.ReadWrite))
             {
                 var data = System.Text.ASCIIEncoding.ASCII.GetBytes(new DTEncrypt().Encrypt(sb.ToString()));
@@ -183,6 +186,7 @@ namespace SoftDogWrite
             txtDBName.Text = info.DBName;
             txtUser.Text = info.DBUser;
             txtPassword.Text = info.DBPassword;
+            txtMAC.Text = info.MAC;
         }
 
 

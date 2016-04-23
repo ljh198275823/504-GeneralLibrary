@@ -37,6 +37,7 @@ namespace LJH.GeneralLibrary.SoftDog
                         if (dic.ContainsKey("DBName")) dog.DBName = dic["DBName"].Trim();
                         if (dic.ContainsKey("DBUser")) dog.DBUser = dic["DBUser"].Trim();
                         if (dic.ContainsKey("DBPassword")) dog.DBPassword = dic["DBPassword"].Trim();
+                        if (dic.ContainsKey("MAC")) dog.MAC = dic["MAC"].Trim();
                         return dog;
                     }
                 }

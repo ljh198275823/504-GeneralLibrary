@@ -129,6 +129,7 @@ namespace LJH.GeneralLibrary.SoftDog
             SoftDogInfo info = null;
             CheckDog();
             info = new SoftDogInfo();
+            info.DogDevice = true;
             //项目编号
             info.ProjectNo = ReadInteger(61, 4);
             //适用的软件列表

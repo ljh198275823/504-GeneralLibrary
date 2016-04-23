@@ -51,6 +51,8 @@
             this.txtProjectID = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.txtDBName = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtMAC = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -120,7 +122,7 @@
             // btnWrite
             // 
             this.btnWrite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnWrite.Location = new System.Drawing.Point(367, 212);
+            this.btnWrite.Location = new System.Drawing.Point(367, 264);
             this.btnWrite.Name = "btnWrite";
             this.btnWrite.Size = new System.Drawing.Size(101, 33);
             this.btnWrite.TabIndex = 12;
@@ -131,7 +133,7 @@
             // btnRead
             // 
             this.btnRead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRead.Location = new System.Drawing.Point(253, 212);
+            this.btnRead.Location = new System.Drawing.Point(253, 264);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(101, 33);
             this.btnRead.TabIndex = 13;
@@ -198,7 +200,7 @@
             // btnReadLic
             // 
             this.btnReadLic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnReadLic.Location = new System.Drawing.Point(13, 212);
+            this.btnReadLic.Location = new System.Drawing.Point(13, 264);
             this.btnReadLic.Name = "btnReadLic";
             this.btnReadLic.Size = new System.Drawing.Size(101, 33);
             this.btnReadLic.TabIndex = 22;
@@ -209,7 +211,7 @@
             // btnWriteLic
             // 
             this.btnWriteLic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnWriteLic.Location = new System.Drawing.Point(122, 212);
+            this.btnWriteLic.Location = new System.Drawing.Point(122, 264);
             this.btnWriteLic.Name = "btnWriteLic";
             this.btnWriteLic.Size = new System.Drawing.Size(101, 33);
             this.btnWriteLic.TabIndex = 23;
@@ -264,11 +266,31 @@
             this.txtDBName.Size = new System.Drawing.Size(140, 21);
             this.txtDBName.TabIndex = 25;
             // 
+            // txtMAC
+            // 
+            this.txtMAC.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtMAC.Location = new System.Drawing.Point(120, 201);
+            this.txtMAC.MaxLength = 50;
+            this.txtMAC.Name = "txtMAC";
+            this.txtMAC.Size = new System.Drawing.Size(331, 21);
+            this.txtMAC.TabIndex = 27;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(83, 204);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(23, 12);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "MAC";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 271);
+            this.ClientSize = new System.Drawing.Size(483, 323);
+            this.Controls.Add(this.txtMAC);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtDBName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnWriteLic);
@@ -322,6 +344,8 @@
         private System.Windows.Forms.Button btnWriteLic;
         private System.Windows.Forms.Label label7;
         private LJH.GeneralLibrary.WinformControl.DBCTextBox txtDBName;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtMAC;
+        private System.Windows.Forms.Label label8;
     }
 }
 

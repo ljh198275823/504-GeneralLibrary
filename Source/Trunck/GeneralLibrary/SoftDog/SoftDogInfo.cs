@@ -57,6 +57,14 @@ namespace LJH.GeneralLibrary.SoftDog
         /// 获取或设置数据库密码
         /// </summary>
         public string DBPassword { get; set; }
+        /// <summary>
+        /// 获取或设置授权可用的电脑的MAC,如果有多个，用逗号隔开
+        /// </summary>
+        public string MAC { get; set; }
+        /// <summary>
+        /// 获取或设置DOGINFO是否是从硬件加密狗中获取而来
+        /// </summary>
+        public bool DogDevice { get; set; }
     }
 
     /// <summary>

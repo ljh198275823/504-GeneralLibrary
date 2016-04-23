@@ -51,19 +51,30 @@ namespace LJH.GeneralLibrary.Net
         }
 
         /// <summary>
-        /// 获取本机的MAC地址,如果有多个网卡，返回第一个网卡的MAC地址
+        /// 获取本机的MAC地址,如果有多个，各个之前用逗号分开
         /// </summary>
         /// <returns></returns>
-        public static string GetLocalMac()
+        public static string GetLocalMAC()
         {
             try
             {
                 ManagementObjectSearcher query = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapterConfiguration");
                 ManagementObjectCollection queryCollection = query.Get();
+                string ret = string.Empty;
                 foreach (ManagementObject mo in queryCollection)
                 {
-                    if (mo["IPEnabled"].ToString() == "True") return mo["MacAddress"].ToString();
+                    if (mo["IPEnabled"].ToString() == "True")
+                    {
+                        var mac = mo["MacAddress"].ToString();
+                        if (!string.IsNullOrEmpty(mac))
+                        {
+                            mac = mac.Replace(":", "-").ToUpper();
+                            ret += mac + ",";
+                        }
+                    }
                 }
+                if (!string.IsNullOrEmpty(ret)) ret = ret.Substring(0, ret.Length - 1);
+                return ret;
             }
             catch (Exception ex)
             {
