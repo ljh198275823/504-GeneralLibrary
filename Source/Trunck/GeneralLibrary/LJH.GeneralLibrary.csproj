@@ -149,6 +149,7 @@
     <Compile Include="CardReader\ZSTReaderEventArgs.cs" />
     <Compile Include="CommandLineArgs.cs" />
     <Compile Include="Core\DAL\CommandResult.cs" />
+    <Compile Include="Core\DAL\DALConfig.cs" />
     <Compile Include="Core\DAL\Linq\DataContextFactory.cs" />
     <Compile Include="Core\DAL\IProvider.cs" />
     <Compile Include="Core\DAL\IUnitWork.cs" />

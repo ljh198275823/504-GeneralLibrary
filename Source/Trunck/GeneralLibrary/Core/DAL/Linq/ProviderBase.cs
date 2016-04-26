@@ -40,15 +40,15 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
         /// 创建一个数据库上下文
         /// </summary>
         /// <returns></returns>
-        public DataContext CreateDataContext()
+        public virtual DataContext CreateDataContext()
         {
-            return DataContextFactory.CreateDataContext(SqlURI, _MappingResource);
+            return DataContextFactory.CreateDataContext(SqlURI, _MappingResource, DALConfig.Default.Log);
         }
         /// <summary>
         /// 创建一个单元操作对象
         /// </summary>
         /// <returns></returns>
-        public IUnitWork CreateUnitWork()
+        public virtual IUnitWork CreateUnitWork()
         {
             return new LinqUnitWork(new SQLConnectionURI(SqlURI), _MappingResource);
         }
@@ -98,6 +98,10 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
                 List<TInfo> infoes;
                 infoes = GetingItems(dc, search);
                 result = new QueryResultList<TInfo>(ResultCode.Successful, successMsg, infoes);
+                if (DALConfig.Default.Log)
+                {
+                    LJH.GeneralLibrary.LOG.FileLog.Log("Linq", string.Format("{0} 返回数据:{1}行", this.GetType().Name + "." + "GetItems()", infoes != null ? infoes.Count : 0));
+                }
             }
             catch (Exception ex)
             {
