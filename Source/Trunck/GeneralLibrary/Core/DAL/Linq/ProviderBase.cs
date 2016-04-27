@@ -76,6 +76,10 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
                 {
                     result = new QueryResult<TInfo>(ResultCode.Fail, string.Format("没有找到ID={0}的数据!", id.ToString()), info);
                 }
+                if (DALConfig.Default.Log)
+                {
+                    LJH.GeneralLibrary.LOG.FileLog.Log("Linq", string.Format("{0}", this.GetType().Name + "." + "GetByID()"));
+                }
             }
             catch (Exception ex)
             {
