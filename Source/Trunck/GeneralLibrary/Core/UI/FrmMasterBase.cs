@@ -295,26 +295,18 @@ namespace LJH.GeneralLibrary.Core.UI
         {
             try
             {
-                DataGridView view = this.GridView;
-                if (view != null)
+                if (GridView == null) return;
+                SaveFileDialog dig = new SaveFileDialog();
+                dig.Filter = "Excel文档|*.xls;*.xlsx|所有文件(*.*)|*.*";
+                dig.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                if (dig.ShowDialog() == DialogResult.OK)
                 {
-                    SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                    saveFileDialog1.Filter = "Excel文档|*.xls|所有文件(*.*)|*.*";
-                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                    {
-                        string path = saveFileDialog1.FileName;
-                        if (LJH.GeneralLibrary.WinformControl.DataGridViewExporter.Export(view, path))
-                        {
-                            MessageBox.Show("导出成功");
-                        }
-                        else
-                        {
-                            MessageBox.Show("保存到电子表格时出现错误!");
-                        }
-                    }
+                    string path = dig.FileName;
+                    NPOIExcelHelper.Export(GridView, path, true);
+                    MessageBox.Show("导出成功");
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 MessageBox.Show("保存到电子表格时出现错误!");
             }

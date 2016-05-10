@@ -107,6 +107,18 @@
       <HintPath>..\Reference\Interop.ZSTLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Reference\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Reference\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\Reference\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\Reference\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -324,6 +336,7 @@
     <Compile Include="WinformControl\IntergerTextBox.designer.cs">
       <DependentUpon>IntergerTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\UI\NPOIExcelHelper.cs" />
     <Compile Include="WinformControl\PercentageProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
