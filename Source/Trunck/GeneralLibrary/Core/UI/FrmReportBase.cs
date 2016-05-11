@@ -13,7 +13,7 @@ using LJH.GeneralLibrary.Core.UI;
 
 namespace LJH.GeneralLibrary.Core.UI
 {
-    public partial class FrmReportBase : Form
+    public partial class FrmReportBase : Form, IOperatorRender
     {
         #region 构造函数
         public FrmReportBase()
