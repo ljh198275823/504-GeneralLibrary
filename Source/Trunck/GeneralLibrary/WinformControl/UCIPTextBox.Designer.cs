@@ -67,7 +67,8 @@
             // 
             // ip2
             // 
-            this.ip2.Location = new System.Drawing.Point(56, 3);
+            this.ip2.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.ip2.Location = new System.Drawing.Point(58, 3);
             this.ip2.MaxValue = 255;
             this.ip2.MinValue = 0;
             this.ip2.Name = "ip2";
@@ -78,6 +79,7 @@
             // 
             // ip4
             // 
+            this.ip4.ImeMode = System.Windows.Forms.ImeMode.On;
             this.ip4.Location = new System.Drawing.Point(173, 3);
             this.ip4.MaxValue = 255;
             this.ip4.MinValue = 0;
@@ -89,7 +91,8 @@
             // 
             // ip3
             // 
-            this.ip3.Location = new System.Drawing.Point(115, 3);
+            this.ip3.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.ip3.Location = new System.Drawing.Point(116, 3);
             this.ip3.MaxValue = 255;
             this.ip3.MinValue = 0;
             this.ip3.Name = "ip3";
@@ -100,6 +103,7 @@
             // 
             // ip1
             // 
+            this.ip1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.ip1.Location = new System.Drawing.Point(0, 3);
             this.ip1.MaxValue = 255;
             this.ip1.MinValue = 0;
