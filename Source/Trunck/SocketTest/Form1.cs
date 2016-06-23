@@ -23,7 +23,7 @@ namespace SocketTest
         private void btnConnect_Click(object sender, EventArgs e)
         {
             if (_Socket != null) _Socket.Close();
-            _Socket = new LJHSocket(txtIP.IP, txtPort.IntergerValue, rdTCP.Checked ? ProtocolType.Tcp : ProtocolType.Udp);
+            _Socket = new LJHSocket(txtIP.IP, txtPort.IntergerValue, rdUDP.Checked);
             _Socket.Open();
             _Socket.OnDataArrivedEvent += new LJH.GeneralLibrary.DataArrivedDelegate(_Socket_OnDataArrivedEvent);
         }
@@ -68,6 +68,11 @@ namespace SocketTest
                 }
                 if (_Socket != null && _Socket.IsConnected) _Socket.SendData(data);
             }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

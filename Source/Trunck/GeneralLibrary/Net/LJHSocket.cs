@@ -12,11 +12,11 @@ namespace LJH.GeneralLibrary.Net
     public class LJHSocket
     {
         #region 构造函数
-        public LJHSocket(string ip, int port,ProtocolType pt)
+        public LJHSocket(string ip, int port, bool udp = false)
         {
             this.RemoteIP = ip;
             this.RemotePort = port;
-            this.ProtocolType = pt;
+            this.ProtocolType = udp ? ProtocolType.Udp : ProtocolType.Tcp;
         }
         #endregion
 

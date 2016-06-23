@@ -36,7 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.rdTCP = new System.Windows.Forms.RadioButton();
-            this.rcUDP = new System.Windows.Forms.RadioButton();
+            this.rdUDP = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPort = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
             this.txtIP = new LJH.GeneralLibrary.WinformControl.UCIPTextBox();
@@ -111,21 +111,21 @@
             this.rdTCP.Text = "TCP";
             this.rdTCP.UseVisualStyleBackColor = true;
             // 
-            // rcUDP
+            // rdUDP
             // 
-            this.rcUDP.AutoSize = true;
-            this.rcUDP.Checked = true;
-            this.rcUDP.Location = new System.Drawing.Point(80, 12);
-            this.rcUDP.Name = "rcUDP";
-            this.rcUDP.Size = new System.Drawing.Size(41, 16);
-            this.rcUDP.TabIndex = 9;
-            this.rcUDP.TabStop = true;
-            this.rcUDP.Text = "UDP";
-            this.rcUDP.UseVisualStyleBackColor = true;
+            this.rdUDP.AutoSize = true;
+            this.rdUDP.Checked = true;
+            this.rdUDP.Location = new System.Drawing.Point(80, 12);
+            this.rdUDP.Name = "rdUDP";
+            this.rdUDP.Size = new System.Drawing.Size(41, 16);
+            this.rdUDP.TabIndex = 9;
+            this.rdUDP.TabStop = true;
+            this.rdUDP.Text = "UDP";
+            this.rdUDP.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rcUDP);
+            this.groupBox1.Controls.Add(this.rdUDP);
             this.groupBox1.Controls.Add(this.rdTCP);
             this.groupBox1.Location = new System.Drawing.Point(184, 44);
             this.groupBox1.Name = "groupBox1";
@@ -200,6 +200,7 @@
             this.Controls.Add(this.txtIP);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -221,7 +222,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton rdTCP;
-        private System.Windows.Forms.RadioButton rcUDP;
+        private System.Windows.Forms.RadioButton rdUDP;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rdAsc;
