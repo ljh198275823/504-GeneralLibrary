@@ -12,17 +12,11 @@ namespace LJH.GeneralLibrary.Net
     public class LJHSocket
     {
         #region 构造函数
-        public LJHSocket(string ip, int port)
+        public LJHSocket(string ip, int port,ProtocolType pt)
         {
-            this.IP = ip;
-            this.Port = port;
-        }
-
-        public LJHSocket(Socket s)
-        {
-            _Client = s;
-            _ReadDataTread = new Thread(new ThreadStart(ReadDataTask));
-            _ReadDataTread.Start();
+            this.RemoteIP = ip;
+            this.RemotePort = port;
+            this.ProtocolType = pt;
         }
         #endregion
 
@@ -68,9 +62,11 @@ namespace LJH.GeneralLibrary.Net
         #endregion
 
         #region 公共属性
-        public string IP { get; set; }
+        public string RemoteIP { get; set; }
 
-        public int Port { get; set; }
+        public int RemotePort { get; set; }
+
+        public ProtocolType ProtocolType { get; set; }
 
         public bool IsConnected
         {
@@ -96,15 +92,25 @@ namespace LJH.GeneralLibrary.Net
         {
             try
             {
-                if (!string.IsNullOrEmpty(IP) && Port > 0)
+                if (!string.IsNullOrEmpty(RemoteIP) && RemotePort > 0)
                 {
-                    IPEndPoint iep = new IPEndPoint(IPAddress.Parse(IP), Port);
-                    _Client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                    _Client.Connect(iep);
-                    if (_ReadDataTread != null)
+                    IPEndPoint iep = new IPEndPoint(IPAddress.Parse(RemoteIP), RemotePort);
+                    if (ProtocolType == ProtocolType.Tcp)
                     {
-                        _ReadDataTread = new Thread(new ThreadStart(ReadDataTask));
-                        _ReadDataTread.Start();
+                        _Client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    }
+                    else if (ProtocolType == ProtocolType.Udp)
+                    {
+                        _Client = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                    }
+                    if (_Client != null)
+                    {
+                        _Client.Connect(iep);
+                        if (_ReadDataTread == null)
+                        {
+                            _ReadDataTread = new Thread(new ThreadStart(ReadDataTask));
+                            _ReadDataTread.Start();
+                        }
                     }
                 }
             }
