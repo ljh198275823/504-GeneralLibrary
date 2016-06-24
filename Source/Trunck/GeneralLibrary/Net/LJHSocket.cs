@@ -43,14 +43,11 @@ namespace LJH.GeneralLibrary.Net
                             this.OnDataArrivedEvent(this, data);
                         }
                     }
-                    Thread.Sleep(100);
+                    Thread.Sleep(20);
                     count = _Client.Receive(buffer);
                 }
                 _ReadDataTread = null;
                 Close();
-            }
-            catch (ThreadAbortException ex)
-            {
             }
             catch (Exception ex)
             {
@@ -146,11 +143,6 @@ namespace LJH.GeneralLibrary.Net
         {
             try
             {
-                if (_ReadDataTread != null)
-                {
-                    _ReadDataTread.Abort();
-                    _ReadDataTread = null;
-                }
                 if (IsConnected)
                 {
                     _Client.Shutdown(SocketShutdown.Both);

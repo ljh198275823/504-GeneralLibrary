@@ -72,7 +72,7 @@ namespace SocketTest
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Environment.Exit(0);
+            if (_Socket != null) _Socket.Close();
         }
     }
 }
