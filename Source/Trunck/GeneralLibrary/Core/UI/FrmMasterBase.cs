@@ -724,7 +724,7 @@ namespace LJH.GeneralLibrary.Core.UI
                 {
                     ItemSelectedEventArgs args = new ItemSelectedEventArgs() { SelectedItem = this.GridView.Rows[e.RowIndex].Tag };
                     if (this.ItemSelected != null) this.ItemSelected(this, args);
-                    this.GridView.Rows.Remove(this.GridView.Rows[e.RowIndex]);
+                    if(!args.Canceled )this.GridView.Rows.Remove(this.GridView.Rows[e.RowIndex]);
                 }
             }
         }

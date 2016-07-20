@@ -11,5 +11,7 @@ namespace LJH.GeneralLibrary.Core.UI
         { }
 
         public object SelectedItem { get; set; }
+
+        public bool Canceled { get; set; }
     }
 }
