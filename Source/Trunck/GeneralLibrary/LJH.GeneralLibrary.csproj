@@ -200,6 +200,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="RMBHelper.cs" />
     <Compile Include="SEBinaryConverter.cs" />
     <Compile Include="CardReader\YangChengTongPacket.cs" />
     <Compile Include="DeviceClasses.cs" />
