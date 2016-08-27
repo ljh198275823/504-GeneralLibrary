@@ -23,7 +23,7 @@ namespace SocketTest
         private void btnConnect_Click(object sender, EventArgs e)
         {
             if (_Socket != null) _Socket.Close();
-            _Socket = new LJHSocket(txtIP.IP, txtPort.IntergerValue, rdUDP.Checked);
+            _Socket = new LJHSocket(txtIP.IP, txtPort.IntergerValue, rdUDP.Checked ? ProtocolType.Udp : ProtocolType.Tcp);
             _Socket.Open();
             _Socket.OnDataArrivedEvent += new LJH.GeneralLibrary.DataArrivedDelegate(_Socket_OnDataArrivedEvent);
         }

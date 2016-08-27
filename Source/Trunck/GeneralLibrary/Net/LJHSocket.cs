@@ -12,11 +12,11 @@ namespace LJH.GeneralLibrary.Net
     public class LJHSocket
     {
         #region 构造函数
-        public LJHSocket(string ip, int port, bool udp = false)
+        public LJHSocket(string ip, int port,ProtocolType pt)
         {
             this.RemoteIP = ip;
             this.RemotePort = port;
-            this.ProtocolType = udp ? ProtocolType.Udp : ProtocolType.Tcp;
+            this.ProtocolType = pt;
         }
         #endregion
 
@@ -38,12 +38,9 @@ namespace LJH.GeneralLibrary.Net
                     {
                         byte[] data = new byte[count];
                         Array.Copy(buffer, 0, data, 0, count); //将每次收到的数据放到
-                        if (this.OnDataArrivedEvent != null)
-                        {
-                            this.OnDataArrivedEvent(this, data);
-                        }
+                        if (this.OnDataArrivedEvent != null) this.OnDataArrivedEvent(this, data);
                     }
-                    Thread.Sleep(20);
+                    Thread.Sleep(20); //这里有一点睡眠时间是希望收多一点数据再接收
                     count = _Client.Receive(buffer);
                 }
                 _ReadDataTread = null;

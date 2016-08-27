@@ -161,6 +161,7 @@
     <Compile Include="CardReader\ZSTReaderEventArgs.cs" />
     <Compile Include="CommandLineArgs.cs" />
     <Compile Include="Core\DAL\CommandResult.cs" />
+    <Compile Include="Core\DAL\ConnectionHelper.cs" />
     <Compile Include="Core\DAL\DALConfig.cs" />
     <Compile Include="Core\DAL\Linq\DataContextFactory.cs" />
     <Compile Include="Core\DAL\IProvider.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Core\DAL\IEntity.cs" />
     <Compile Include="Core\DAL\SQLConnectionURI.cs" />
     <Compile Include="Core\DAL\Linq\LinqUnitWork.cs" />
+    <Compile Include="Core\UI\CsvHelper.cs" />
     <Compile Include="Core\UI\FrmReportBase.cs">
       <SubType>Form</SubType>
     </Compile>

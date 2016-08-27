@@ -76,7 +76,7 @@ namespace LJH.GeneralLibrary.SoftDog
         /// <summary>
         /// 
         /// </summary>
-        None=0,
+        None = 0,
         /// <summary>
         /// 进销存软件
         /// </summary>
@@ -88,14 +88,18 @@ namespace LJH.GeneralLibrary.SoftDog
         /// <summary>
         /// 门禁软件
         /// </summary>
-        TYPE_ACS=0x04,
+        TYPE_ACS = 0x04,
         /// <summary>
-        /// 中考/体质测试软件
+        /// 汇海体育软件
         /// </summary>
-        TYPE_ZHONGKAO = 0x08,
+        TYPE_HHTIYU = 0x08,
+        /// <summary>
+        /// 汇海体育软件（WIFI版）
+        /// </summary>
+        TYPE_HHTIYU_WIFI = 0x10,
         /// <summary>
         /// 停车场
         /// </summary>
-        TYPE_PARK=0x10
+        TYPE_PARK = 0x20,
     }
 }

@@ -220,7 +220,7 @@ namespace LJH.GeneralLibrary.Core.UI
         /// <param name="dtSource">源DataTGridview</param>
         /// <param name="strHeaderText">表头文本</param>
         /// <param name="fileName">保存位置</param>
-        public static void Export(DataGridView myDgv, string fileName, bool forText)
+        public static void Export(DataGridView myDgv, string fileName, bool forText = false)
         {
             DataTable dt = GetData(myDgv, forText);
             Export(dt, fileName);
