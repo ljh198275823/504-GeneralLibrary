@@ -98,8 +98,13 @@ namespace LJH.GeneralLibrary.SoftDog
         /// </summary>
         TYPE_HHTIYU_WIFI = 0x10,
         /// <summary>
+        /// 汇海体育软件第三方设备如（清化同方，恒康等)
+        /// </summary>
+        TYPE_HHTIYU_ThirdDevice = 0x20,
+        /// <summary>
         /// 停车场
         /// </summary>
-        TYPE_PARK = 0x20,
+        TYPE_PARK = 0x200,
+
     }
 }

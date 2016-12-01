@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}</ProjectGuid>
+    <ProjectGuid>{3A981DCE-3E52-4C19-9C96-8416FB9D400A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SoftDogWrite</RootNamespace>
-    <AssemblyName>SoftDogWrite</AssemblyName>
+    <RootNamespace>NPOITest</RootNamespace>
+    <AssemblyName>NPOITest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Debug\HH_UKEYTool\</OutputPath>
+    <OutputPath>..\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,12 +37,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Data.SQLite">
-      <HintPath>..\Reference\System.Data.SQLite.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Management" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,14 +84,6 @@
       <Project>{B4CB506B-1C5A-493A-8437-0BCEC14A2DB4}</Project>
       <Name>LJH.GeneralLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="dt215.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="dt215L.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
