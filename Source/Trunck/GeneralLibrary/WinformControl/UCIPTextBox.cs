@@ -50,6 +50,27 @@ namespace LJH.GeneralLibrary.WinformControl
             }
         }
 
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        public void Init()
+        {
+            var ip = LJH.GeneralLibrary.Net.NetTool.GetLocalIP();
+            if (ip != null)
+            {
+                var strIP = ip.ToString();
+                if (!string.IsNullOrEmpty(strIP))
+                {
+                    string[] temp = strIP.Split('.');
+                    if (temp.Length == 4)
+                    {
+                        IP = string.Format("{0}.{1}.{2}.1", temp[0], temp[1], temp[2]);
+                        ip4.SelectAll();
+                    }
+                }
+            }
+        }
+
         private void ip1_KeyUp(object sender, KeyEventArgs e)
         {
             TextBox tb = sender as TextBox;
