@@ -184,6 +184,12 @@
     <Compile Include="Core\UI\IOperatorRender.cs" />
     <Compile Include="Core\UI\ItemSelectedEventArgs.cs" />
     <Compile Include="DecimalExtention.cs" />
+    <Compile Include="FrmSoftDogInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSoftDogInfo.designer.cs">
+      <DependentUpon>FrmSoftDogInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="LED\BX4KCRCCalculator.cs" />
     <Compile Include="HexStringConverter.cs" />
     <Compile Include="LED\BX4KDisplayMode.cs" />
@@ -221,6 +227,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SoftDog\DTEncrypt.cs" />
+    <Compile Include="FrmContactUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContactUs.designer.cs">
+      <DependentUpon>FrmContactUs.cs</DependentUpon>
+    </Compile>
     <Compile Include="SoftDog\KeyCreator.cs" />
     <Compile Include="SoftDog\LICReader.cs" />
     <Compile Include="SoftDog\SoftDogReader.cs" />
@@ -380,6 +392,9 @@
     <EmbeddedResource Include="Core\UI\FrmReportBase.resx">
       <DependentUpon>FrmReportBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSoftDogInfo.resx">
+      <DependentUpon>FrmSoftDogInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -399,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Core\UI\FrmMasterBase.resx">
       <DependentUpon>FrmMasterBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContactUs.resx">
+      <DependentUpon>FrmContactUs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinformControl\FormHeader.resx">
       <DependentUpon>FormHeader.cs</DependentUpon>
@@ -444,6 +462,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button_grey_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img15.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
