@@ -102,6 +102,10 @@ namespace LJH.GeneralLibrary.SoftDog
         /// </summary>
         TYPE_HHTIYU_ThirdDevice = 0x20,
         /// <summary>
+        /// 汇海体育软件第三方设备厂家技豪
+        /// </summary>
+        TYPE_HHTIYU_JIHAO=0x40,
+        /// <summary>
         /// 停车场
         /// </summary>
         TYPE_PARK = 0x200,

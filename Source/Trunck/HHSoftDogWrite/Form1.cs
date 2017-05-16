@@ -55,6 +55,7 @@ namespace SoftDogWrite
                 if (this.chk汇海Wifi版.Checked) sl |= SoftwareType.TYPE_HHTIYU_WIFI;
                 if (this.chk汇海普通版.Checked) sl |= SoftwareType.TYPE_HHTIYU;
                 if (this.chkThirdDevice.Checked) sl |= SoftwareType.TYPE_HHTIYU_ThirdDevice;
+                if (this.chk技豪.Checked) sl |= SoftwareType.TYPE_HHTIYU_JIHAO;
                 data = SEBinaryConverter.IntToBytes((int)sl);
                 ret = _Writer.WriteData(31, data, _Key);
             }
@@ -83,6 +84,7 @@ namespace SoftDogWrite
                 this.chk汇海普通版.Checked = (info.SoftwareList & SoftwareType.TYPE_HHTIYU) == SoftwareType.TYPE_HHTIYU;
                 this.chk汇海Wifi版.Checked = (info.SoftwareList & SoftwareType.TYPE_HHTIYU_WIFI) == SoftwareType.TYPE_HHTIYU_WIFI;
                 this.chkThirdDevice.Checked = (info.SoftwareList & SoftwareType.TYPE_HHTIYU_ThirdDevice) == SoftwareType.TYPE_HHTIYU_ThirdDevice;
+                this.chk技豪.Checked = (info.SoftwareList & SoftwareType.TYPE_HHTIYU_JIHAO) == SoftwareType.TYPE_HHTIYU_JIHAO;
                 dtStart.Value = info.StartDate;
                 dtEnd.Value = info.ExpiredDate;
                 MessageBox.Show("读狗成功");

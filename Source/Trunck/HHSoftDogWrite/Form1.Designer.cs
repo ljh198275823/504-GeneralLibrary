@@ -41,6 +41,7 @@
             this.chk汇海Wifi版 = new System.Windows.Forms.CheckBox();
             this.chk汇海普通版 = new System.Windows.Forms.CheckBox();
             this.chkThirdDevice = new System.Windows.Forms.CheckBox();
+            this.chk技豪 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -157,11 +158,22 @@
             this.chkThirdDevice.Text = "采集第三方设备";
             this.chkThirdDevice.UseVisualStyleBackColor = true;
             // 
+            // chk技豪
+            // 
+            this.chk技豪.AutoSize = true;
+            this.chk技豪.Location = new System.Drawing.Point(248, 123);
+            this.chk技豪.Name = "chk技豪";
+            this.chk技豪.Size = new System.Drawing.Size(48, 16);
+            this.chk技豪.TabIndex = 21;
+            this.chk技豪.Text = "技豪";
+            this.chk技豪.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 296);
+            this.Controls.Add(this.chk技豪);
             this.Controls.Add(this.chkThirdDevice);
             this.Controls.Add(this.chk汇海普通版);
             this.Controls.Add(this.chk汇海Wifi版);
@@ -195,6 +207,7 @@
         private System.Windows.Forms.CheckBox chk汇海Wifi版;
         private System.Windows.Forms.CheckBox chk汇海普通版;
         private System.Windows.Forms.CheckBox chkThirdDevice;
+        private System.Windows.Forms.CheckBox chk技豪;
     }
 }
 
