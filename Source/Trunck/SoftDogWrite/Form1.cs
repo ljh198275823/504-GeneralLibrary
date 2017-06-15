@@ -37,7 +37,7 @@ namespace SoftDogWrite
                 MessageBox.Show("项目编号不正确");
                 return false;
             }
-            if (!chkACS.Checked && !chkInventory.Checked && !chkTA.Checked && !chkPark.Checked)
+            if (!chkACS.Checked && !chkInventory.Checked && !chkTA.Checked && !chkPark.Checked && !chkTYPE_SteelRollInventory_COST.Checked)
             {
                 MessageBox.Show("请至少选择一种软件类型");
                 return false;
@@ -59,6 +59,7 @@ namespace SoftDogWrite
             if (chkInventory.Checked) dog.SoftwareList |= SoftwareType.TYPE_Inventory;
             if (chkTA.Checked) dog.SoftwareList |= SoftwareType.TYPE_TA;
             if (chkPark.Checked) dog.SoftwareList |= SoftwareType.TYPE_PARK;
+            if (chkTYPE_SteelRollInventory_COST.Checked) dog.SoftwareList |= SoftwareType.TYPE_SteelRollInventory_COST;
             dog.StartDate = dtStart.Value.Date;
             dog.ExpiredDate = dtEnd.Value.Date;
             dog.IsHost = chkHost.Checked;
@@ -180,6 +181,7 @@ namespace SoftDogWrite
             chkACS.Checked = (info.SoftwareList & SoftwareType.TYPE_ACS) == SoftwareType.TYPE_ACS;
             chkTA.Checked = (info.SoftwareList & SoftwareType.TYPE_TA) == SoftwareType.TYPE_TA;
             chkPark.Checked = (info.SoftwareList & SoftwareType.TYPE_PARK) == SoftwareType.TYPE_PARK;
+            chkTYPE_SteelRollInventory_COST.Checked = ((info.SoftwareList & SoftwareType.TYPE_SteelRollInventory_COST) == SoftwareType.TYPE_SteelRollInventory_COST);
             dtStart.Value = info.StartDate;
             dtEnd.Value = info.ExpiredDate;
             chkHost.Checked = info.IsHost;
@@ -188,8 +190,6 @@ namespace SoftDogWrite
             txtPassword.Text = info.DBPassword;
             txtMAC.Text = info.MAC;
         }
-
-
 
         private void btnWrite_Click(object sender, EventArgs e)
         {

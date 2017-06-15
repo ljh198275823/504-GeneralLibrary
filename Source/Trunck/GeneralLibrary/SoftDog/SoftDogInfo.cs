@@ -104,11 +104,14 @@ namespace LJH.GeneralLibrary.SoftDog
         /// <summary>
         /// 汇海体育软件第三方设备厂家技豪
         /// </summary>
-        TYPE_HHTIYU_JIHAO=0x40,
+        TYPE_HHTIYU_JIHAO = 0x40,
         /// <summary>
         /// 停车场
         /// </summary>
         TYPE_PARK = 0x200,
-
+        /// <summary>
+        /// 带成本核算的铁皮卷进销存软件
+        /// </summary>
+        TYPE_SteelRollInventory_COST = 0x400,
     }
 }
