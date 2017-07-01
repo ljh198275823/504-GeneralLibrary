@@ -66,6 +66,7 @@
             this.Text = "FrmMasterBase";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMasterBase_FormClosed);
             this.Load += new System.EventHandler(this.FrmMasterBase_Load);
+            this.Resize += new System.EventHandler(this.FrmMasterBase_Resize);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
