@@ -10,6 +10,17 @@ namespace LJH.GeneralLibrary.SoftDog
     /// </summary>
     public class SoftDogInfo
     {
+        #region 静态属性
+        public static SoftDogInfo Current { get; set; }
+        #endregion
+
+        #region 构造函数
+        public SoftDogInfo()
+        {
+        }
+        #endregion
+
+        #region 公共属性
         /// <summary>
         /// 项目编号
         /// </summary>
@@ -65,6 +76,7 @@ namespace LJH.GeneralLibrary.SoftDog
         /// 获取或设置DOGINFO是否是从硬件加密狗中获取而来
         /// </summary>
         public bool DogDevice { get; set; }
+        #endregion
     }
 
     /// <summary>
