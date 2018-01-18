@@ -54,6 +54,7 @@ namespace SoftDogWrite
         {
             SoftDogInfo dog = new SoftDogInfo();
             dog.ProjectNo = txtProjectID.IntergerValue;
+            dog.ProjectName = txtProjectName.Text.Trim();
             dog.SoftwareList = SoftwareType.None;
             if (chkACS.Checked) dog.SoftwareList |= SoftwareType.TYPE_ACS;
             if (chkInventory.Checked) dog.SoftwareList |= SoftwareType.TYPE_Inventory;
@@ -142,6 +143,11 @@ namespace SoftDogWrite
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(string.Format("ProjectNo:{0};", dog.ProjectNo));
+            if (!string.IsNullOrEmpty(dog.ProjectName))
+            {
+                var pn=Convert.ToBase64String(System.Text.ASCIIEncoding.Default.GetBytes(dog.ProjectName));
+                sb.Append(string.Format("ProjectName:{0};", pn));
+            }
             sb.Append(string.Format("SoftwareList:{0};", (int)dog.SoftwareList));
             sb.Append(string.Format("StartDate:{0};", dog.StartDate.ToString("yyyy-MM-dd")));
             sb.Append(string.Format("ExpiredDate:{0};", dog.ExpiredDate.ToString("yyyy-MM-dd")));
@@ -179,6 +185,7 @@ namespace SoftDogWrite
         private void ShowDog(SoftDogInfo info)
         {
             txtProjectID.IntergerValue = info.ProjectNo;
+            txtProjectName.Text = info.ProjectName;
             chkInventory.Checked = (info.SoftwareList & SoftwareType.TYPE_Inventory) == SoftwareType.TYPE_Inventory;
             chkACS.Checked = (info.SoftwareList & SoftwareType.TYPE_ACS) == SoftwareType.TYPE_ACS;
             chkTA.Checked = (info.SoftwareList & SoftwareType.TYPE_TA) == SoftwareType.TYPE_TA;

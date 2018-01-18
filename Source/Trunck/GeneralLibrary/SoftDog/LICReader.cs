@@ -30,6 +30,21 @@ namespace LJH.GeneralLibrary.SoftDog
                         }
                         SoftDogInfo dog = new SoftDogInfo();
                         if (dic.ContainsKey("ProjectNo")) dog.ProjectNo = int.Parse(dic["ProjectNo"]);
+                        if (dic.ContainsKey("ProjectName"))
+                        {
+                            try
+                            {
+                                var pn = dic["ProjectName"];
+                                if (!string.IsNullOrEmpty(pn))
+                                {
+                                    var pnData = Convert.FromBase64String(pn);
+                                    if (pnData != null && pnData.Length > 0) dog.ProjectName = System.Text.ASCIIEncoding.Default.GetString(pnData);
+                                }
+                            }
+                            catch
+                            {
+                            }
+                        }
                         if (dic.ContainsKey("SoftwareList")) dog.SoftwareList = (SoftwareType)(int.Parse(dic["SoftwareList"]));
                         if (dic.ContainsKey("StartDate")) dog.StartDate = DateTime.Parse(dic["StartDate"]);
                         if (dic.ContainsKey("ExpiredDate")) dog.ExpiredDate = DateTime.Parse(dic["ExpiredDate"]);

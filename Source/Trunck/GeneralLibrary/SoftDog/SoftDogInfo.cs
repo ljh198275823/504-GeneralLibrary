@@ -26,6 +26,10 @@ namespace LJH.GeneralLibrary.SoftDog
         /// </summary>
         public int ProjectNo { get; set; }
         /// <summary>
+        /// 获取或设置项目名称
+        /// </summary>
+        public string ProjectName { get; set; }
+        /// <summary>
         /// 软件列表
         /// </summary>
         public SoftwareType SoftwareList { get; set; }

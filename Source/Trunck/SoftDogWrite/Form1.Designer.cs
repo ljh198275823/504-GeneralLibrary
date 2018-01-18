@@ -56,12 +56,14 @@
             this.chkTYPE_SteelRollInventory_COST = new System.Windows.Forms.CheckBox();
             this.txtDBServer = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtProjectName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 63);
+            this.label1.Location = new System.Drawing.Point(58, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -79,7 +81,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 129);
+            this.label3.Location = new System.Drawing.Point(58, 167);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 2;
@@ -87,7 +89,7 @@
             // 
             // dtStart
             // 
-            this.dtStart.Location = new System.Drawing.Point(120, 125);
+            this.dtStart.Location = new System.Drawing.Point(120, 163);
             this.dtStart.Name = "dtStart";
             this.dtStart.Size = new System.Drawing.Size(140, 21);
             this.dtStart.TabIndex = 5;
@@ -95,7 +97,7 @@
             // chkInventory
             // 
             this.chkInventory.AutoSize = true;
-            this.chkInventory.Location = new System.Drawing.Point(120, 61);
+            this.chkInventory.Location = new System.Drawing.Point(120, 99);
             this.chkInventory.Name = "chkInventory";
             this.chkInventory.Size = new System.Drawing.Size(60, 16);
             this.chkInventory.TabIndex = 7;
@@ -105,7 +107,7 @@
             // chkACS
             // 
             this.chkACS.AutoSize = true;
-            this.chkACS.Location = new System.Drawing.Point(120, 93);
+            this.chkACS.Location = new System.Drawing.Point(120, 131);
             this.chkACS.Name = "chkACS";
             this.chkACS.Size = new System.Drawing.Size(48, 16);
             this.chkACS.TabIndex = 10;
@@ -115,7 +117,7 @@
             // chkTA
             // 
             this.chkTA.AutoSize = true;
-            this.chkTA.Location = new System.Drawing.Point(192, 93);
+            this.chkTA.Location = new System.Drawing.Point(192, 131);
             this.chkTA.Name = "chkTA";
             this.chkTA.Size = new System.Drawing.Size(48, 16);
             this.chkTA.TabIndex = 11;
@@ -125,7 +127,7 @@
             // btnWrite
             // 
             this.btnWrite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnWrite.Location = new System.Drawing.Point(367, 294);
+            this.btnWrite.Location = new System.Drawing.Point(367, 331);
             this.btnWrite.Name = "btnWrite";
             this.btnWrite.Size = new System.Drawing.Size(101, 33);
             this.btnWrite.TabIndex = 12;
@@ -136,7 +138,7 @@
             // btnRead
             // 
             this.btnRead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRead.Location = new System.Drawing.Point(253, 294);
+            this.btnRead.Location = new System.Drawing.Point(253, 331);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(101, 33);
             this.btnRead.TabIndex = 13;
@@ -146,7 +148,7 @@
             // 
             // dtEnd
             // 
-            this.dtEnd.Location = new System.Drawing.Point(311, 125);
+            this.dtEnd.Location = new System.Drawing.Point(311, 163);
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.Size = new System.Drawing.Size(140, 21);
             this.dtEnd.TabIndex = 15;
@@ -155,7 +157,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(276, 129);
+            this.label4.Location = new System.Drawing.Point(276, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(17, 12);
             this.label4.TabIndex = 14;
@@ -164,7 +166,7 @@
             // chkPark
             // 
             this.chkPark.AutoSize = true;
-            this.chkPark.Location = new System.Drawing.Point(257, 93);
+            this.chkPark.Location = new System.Drawing.Point(257, 131);
             this.chkPark.Name = "chkPark";
             this.chkPark.Size = new System.Drawing.Size(60, 16);
             this.chkPark.TabIndex = 16;
@@ -185,7 +187,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(70, 167);
+            this.label5.Location = new System.Drawing.Point(70, 205);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 20;
@@ -194,7 +196,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(278, 167);
+            this.label6.Location = new System.Drawing.Point(278, 205);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 21;
@@ -203,7 +205,7 @@
             // btnReadLic
             // 
             this.btnReadLic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnReadLic.Location = new System.Drawing.Point(13, 294);
+            this.btnReadLic.Location = new System.Drawing.Point(13, 331);
             this.btnReadLic.Name = "btnReadLic";
             this.btnReadLic.Size = new System.Drawing.Size(101, 33);
             this.btnReadLic.TabIndex = 22;
@@ -214,7 +216,7 @@
             // btnWriteLic
             // 
             this.btnWriteLic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnWriteLic.Location = new System.Drawing.Point(122, 294);
+            this.btnWriteLic.Location = new System.Drawing.Point(122, 331);
             this.btnWriteLic.Name = "btnWriteLic";
             this.btnWriteLic.Size = new System.Drawing.Size(101, 33);
             this.btnWriteLic.TabIndex = 23;
@@ -225,7 +227,7 @@
             // txtPassword
             // 
             this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtPassword.Location = new System.Drawing.Point(313, 163);
+            this.txtPassword.Location = new System.Drawing.Point(313, 201);
             this.txtPassword.MaxLength = 10;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(140, 21);
@@ -234,7 +236,7 @@
             // txtUser
             // 
             this.txtUser.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtUser.Location = new System.Drawing.Point(120, 163);
+            this.txtUser.Location = new System.Drawing.Point(120, 201);
             this.txtUser.MaxLength = 10;
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(140, 21);
@@ -254,7 +256,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(58, 197);
+            this.label7.Location = new System.Drawing.Point(58, 235);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 24;
@@ -263,7 +265,7 @@
             // txtDBName
             // 
             this.txtDBName.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtDBName.Location = new System.Drawing.Point(120, 194);
+            this.txtDBName.Location = new System.Drawing.Point(120, 232);
             this.txtDBName.MaxLength = 50;
             this.txtDBName.Name = "txtDBName";
             this.txtDBName.Size = new System.Drawing.Size(140, 21);
@@ -272,7 +274,7 @@
             // txtMAC
             // 
             this.txtMAC.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMAC.Location = new System.Drawing.Point(120, 233);
+            this.txtMAC.Location = new System.Drawing.Point(120, 271);
             this.txtMAC.MaxLength = 50;
             this.txtMAC.Name = "txtMAC";
             this.txtMAC.Size = new System.Drawing.Size(331, 21);
@@ -281,7 +283,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(88, 236);
+            this.label8.Location = new System.Drawing.Point(88, 274);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(23, 12);
             this.label8.TabIndex = 26;
@@ -290,7 +292,7 @@
             // chkTYPE_SteelRollInventory_COST
             // 
             this.chkTYPE_SteelRollInventory_COST.AutoSize = true;
-            this.chkTYPE_SteelRollInventory_COST.Location = new System.Drawing.Point(192, 61);
+            this.chkTYPE_SteelRollInventory_COST.Location = new System.Drawing.Point(192, 99);
             this.chkTYPE_SteelRollInventory_COST.Name = "chkTYPE_SteelRollInventory_COST";
             this.chkTYPE_SteelRollInventory_COST.Size = new System.Drawing.Size(180, 16);
             this.chkTYPE_SteelRollInventory_COST.TabIndex = 28;
@@ -300,7 +302,7 @@
             // txtDBServer
             // 
             this.txtDBServer.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtDBServer.Location = new System.Drawing.Point(313, 194);
+            this.txtDBServer.Location = new System.Drawing.Point(313, 232);
             this.txtDBServer.MaxLength = 50;
             this.txtDBServer.Name = "txtDBServer";
             this.txtDBServer.Size = new System.Drawing.Size(140, 21);
@@ -309,17 +311,35 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(266, 197);
+            this.label9.Location = new System.Drawing.Point(266, 235);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 12);
             this.label9.TabIndex = 29;
             this.label9.Text = "服务器";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(58, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 12);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "项目名称";
+            // 
+            // txtProjectName
+            // 
+            this.txtProjectName.Location = new System.Drawing.Point(120, 61);
+            this.txtProjectName.Name = "txtProjectName";
+            this.txtProjectName.Size = new System.Drawing.Size(333, 21);
+            this.txtProjectName.TabIndex = 32;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 353);
+            this.ClientSize = new System.Drawing.Size(483, 390);
+            this.Controls.Add(this.txtProjectName);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtDBServer);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.chkTYPE_SteelRollInventory_COST);
@@ -383,6 +403,8 @@
         private System.Windows.Forms.CheckBox chkTYPE_SteelRollInventory_COST;
         private LJH.GeneralLibrary.WinformControl.DBCTextBox txtDBServer;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtProjectName;
     }
 }
 
