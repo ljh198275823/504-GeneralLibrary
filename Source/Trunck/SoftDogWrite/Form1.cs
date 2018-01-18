@@ -63,6 +63,7 @@ namespace SoftDogWrite
             dog.StartDate = dtStart.Value.Date;
             dog.ExpiredDate = dtEnd.Value.Date;
             dog.IsHost = chkHost.Checked;
+            dog.DBServer = txtDBServer.Text.Trim();
             dog.DBName = txtDBName.Text.Trim();
             dog.DBUser = txtUser.Text.Trim();
             dog.DBPassword = txtPassword.Text.Trim();
@@ -147,6 +148,7 @@ namespace SoftDogWrite
             sb.Append(string.Format("IsHost:{0};", dog.IsHost.ToString()));
             sb.Append(string.Format("DBName:{0};", dog.DBName));
             sb.Append(string.Format("DBUser:{0};", dog.DBUser));
+            if (!string.IsNullOrEmpty(dog.DBServer)) sb.Append(string.Format("DBServer:{0};", dog.DBServer));
             sb.Append(string.Format("DBPassword:{0};", dog.DBPassword));
             sb.Append(string.Format("MAC:{0}", dog.MAC));
             using (FileStream fs = new FileStream(licFile, FileMode.Create, FileAccess.ReadWrite))
@@ -186,6 +188,7 @@ namespace SoftDogWrite
             dtEnd.Value = info.ExpiredDate;
             chkHost.Checked = info.IsHost;
             txtDBName.Text = info.DBName;
+            txtDBServer.Text = info.DBServer;
             txtUser.Text = info.DBUser;
             txtPassword.Text = info.DBPassword;
             txtMAC.Text = info.MAC;

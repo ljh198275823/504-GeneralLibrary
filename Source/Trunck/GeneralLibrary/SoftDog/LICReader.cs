@@ -34,6 +34,7 @@ namespace LJH.GeneralLibrary.SoftDog
                         if (dic.ContainsKey("StartDate")) dog.StartDate = DateTime.Parse(dic["StartDate"]);
                         if (dic.ContainsKey("ExpiredDate")) dog.ExpiredDate = DateTime.Parse(dic["ExpiredDate"]);
                         if (dic.ContainsKey("IsHost")) dog.IsHost = bool.Parse(dic["IsHost"]);
+                        if (dic.ContainsKey("DBServer")) dog.DBServer = dic["DBServer"].Trim();
                         if (dic.ContainsKey("DBName")) dog.DBName = dic["DBName"].Trim();
                         if (dic.ContainsKey("DBUser")) dog.DBUser = dic["DBUser"].Trim();
                         if (dic.ContainsKey("DBPassword")) dog.DBPassword = dic["DBPassword"].Trim();

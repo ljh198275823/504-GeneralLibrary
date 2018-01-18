@@ -54,12 +54,14 @@
             this.txtMAC = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.chkTYPE_SteelRollInventory_COST = new System.Windows.Forms.CheckBox();
+            this.txtDBServer = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 63);
+            this.label1.Location = new System.Drawing.Point(58, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -68,7 +70,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 26);
+            this.label2.Location = new System.Drawing.Point(58, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 1;
@@ -77,7 +79,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 129);
+            this.label3.Location = new System.Drawing.Point(58, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 2;
@@ -183,7 +185,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(65, 167);
+            this.label5.Location = new System.Drawing.Point(70, 167);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 20;
@@ -252,16 +254,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(65, 200);
+            this.label7.Location = new System.Drawing.Point(58, 197);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 24;
-            this.label7.Text = "数据库";
+            this.label7.Text = "数据库名";
             // 
             // txtDBName
             // 
             this.txtDBName.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtDBName.Location = new System.Drawing.Point(120, 197);
+            this.txtDBName.Location = new System.Drawing.Point(120, 194);
             this.txtDBName.MaxLength = 50;
             this.txtDBName.Name = "txtDBName";
             this.txtDBName.Size = new System.Drawing.Size(140, 21);
@@ -279,7 +281,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(83, 236);
+            this.label8.Location = new System.Drawing.Point(88, 236);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(23, 12);
             this.label8.TabIndex = 26;
@@ -295,11 +297,31 @@
             this.chkTYPE_SteelRollInventory_COST.Text = "带成本核算铁皮卷进销存软件";
             this.chkTYPE_SteelRollInventory_COST.UseVisualStyleBackColor = true;
             // 
+            // txtDBServer
+            // 
+            this.txtDBServer.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtDBServer.Location = new System.Drawing.Point(313, 194);
+            this.txtDBServer.MaxLength = 50;
+            this.txtDBServer.Name = "txtDBServer";
+            this.txtDBServer.Size = new System.Drawing.Size(140, 21);
+            this.txtDBServer.TabIndex = 30;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(266, 197);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 12);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "服务器";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 353);
+            this.Controls.Add(this.txtDBServer);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.chkTYPE_SteelRollInventory_COST);
             this.Controls.Add(this.txtMAC);
             this.Controls.Add(this.label8);
@@ -359,6 +381,8 @@
         private LJH.GeneralLibrary.WinformControl.DBCTextBox txtMAC;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox chkTYPE_SteelRollInventory_COST;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtDBServer;
+        private System.Windows.Forms.Label label9;
     }
 }
 
