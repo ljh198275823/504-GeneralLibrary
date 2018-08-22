@@ -104,6 +104,7 @@ namespace LJH.GeneralLibrary.Core.UI
                 }
                 GridView.CellMouseDown += GridView_CellMouseDown;
                 GridView.Sorted += new EventHandler(GridView_Sorted);
+                GridView.SelectionChanged += new EventHandler(GridView_SelectionChanged);
 
                 if (GridView.ContextMenuStrip != null)
                 {
@@ -114,6 +115,23 @@ namespace LJH.GeneralLibrary.Core.UI
                     if (menu.Items["cMnu_Export"] != null) menu.Items["cMnu_Export"].Click += btnExport_Click;
                     if (menu.Items["cMnu_Fresh"] != null) menu.Items["cMnu_Fresh"].Click += btnFresh_Click;
                     if (menu.Items["cMnu_SelectColumns"] != null) menu.Items["cMnu_SelectColumns"].Click += btnSelectColumns_Click;
+                }
+            }
+        }
+
+        private void GridView_SelectionChanged(object sender, EventArgs e)
+        {
+            var dgv = sender as DataGridView;
+
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                for (int j = 0; j < dgv.Columns.Count; j++)
+                {
+                    if (dgv.Rows[i].Cells[j] is DataGridViewLinkCell)
+                    {
+                        var cell = dgv.Rows[i].Cells[j] as DataGridViewLinkCell;
+                        cell.LinkColor = cell.Selected ? Color.White : Color.Blue;
+                    }
                 }
             }
         }
