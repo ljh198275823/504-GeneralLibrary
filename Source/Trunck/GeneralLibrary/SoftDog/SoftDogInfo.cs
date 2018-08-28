@@ -81,6 +81,10 @@ namespace LJH.GeneralLibrary.SoftDog
         /// </summary>
         public string MAC { get; set; }
         /// <summary>
+        /// 获取或设置API URL
+        /// </summary>
+        public string WebAPIUrl { get; set; }
+        /// <summary>
         /// 获取或设置DOGINFO是否是从硬件加密狗中获取而来
         /// </summary>
         public bool DogDevice { get; set; }

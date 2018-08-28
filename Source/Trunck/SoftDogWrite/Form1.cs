@@ -70,6 +70,7 @@ namespace SoftDogWrite
             dog.DBPassword = txtPassword.Text.Trim();
             dog.MAC = txtMAC.Text.Trim();
             if (!string.IsNullOrEmpty(dog.MAC)) dog.MAC = dog.MAC.ToUpper();
+            dog.WebAPIUrl = txtWebAPIUrl.Text.Trim();
             return dog;
         }
 
@@ -145,7 +146,7 @@ namespace SoftDogWrite
             sb.Append(string.Format("ProjectNo:{0};", dog.ProjectNo));
             if (!string.IsNullOrEmpty(dog.ProjectName))
             {
-                var pn=Convert.ToBase64String(System.Text.ASCIIEncoding.Default.GetBytes(dog.ProjectName));
+                var pn = Convert.ToBase64String(System.Text.ASCIIEncoding.Default.GetBytes(dog.ProjectName));
                 sb.Append(string.Format("ProjectName:{0};", pn));
             }
             sb.Append(string.Format("SoftwareList:{0};", (int)dog.SoftwareList));
@@ -156,7 +157,8 @@ namespace SoftDogWrite
             sb.Append(string.Format("DBUser:{0};", dog.DBUser));
             if (!string.IsNullOrEmpty(dog.DBServer)) sb.Append(string.Format("DBServer:{0};", dog.DBServer));
             sb.Append(string.Format("DBPassword:{0};", dog.DBPassword));
-            sb.Append(string.Format("MAC:{0}", dog.MAC));
+            sb.Append(string.Format("MAC:{0};", dog.MAC));
+            sb.Append(string.Format("WebAPIUrl:{0};", dog.WebAPIUrl));
             using (FileStream fs = new FileStream(licFile, FileMode.Create, FileAccess.ReadWrite))
             {
                 var data = System.Text.ASCIIEncoding.ASCII.GetBytes(new DTEncrypt().Encrypt(sb.ToString()));
@@ -199,6 +201,7 @@ namespace SoftDogWrite
             txtUser.Text = info.DBUser;
             txtPassword.Text = info.DBPassword;
             txtMAC.Text = info.MAC;
+            txtWebAPIUrl.Text = info.WebAPIUrl;
         }
 
         private void btnWrite_Click(object sender, EventArgs e)

@@ -58,6 +58,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtProjectName = new System.Windows.Forms.TextBox();
+            this.txtWebAPIUrl = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -274,7 +276,7 @@
             // txtMAC
             // 
             this.txtMAC.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.txtMAC.Location = new System.Drawing.Point(120, 271);
+            this.txtMAC.Location = new System.Drawing.Point(120, 266);
             this.txtMAC.MaxLength = 50;
             this.txtMAC.Name = "txtMAC";
             this.txtMAC.Size = new System.Drawing.Size(331, 21);
@@ -283,7 +285,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(88, 274);
+            this.label8.Location = new System.Drawing.Point(88, 269);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(23, 12);
             this.label8.TabIndex = 26;
@@ -333,11 +335,31 @@
             this.txtProjectName.Size = new System.Drawing.Size(333, 21);
             this.txtProjectName.TabIndex = 32;
             // 
+            // txtWebAPIUrl
+            // 
+            this.txtWebAPIUrl.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtWebAPIUrl.Location = new System.Drawing.Point(120, 299);
+            this.txtWebAPIUrl.MaxLength = 50;
+            this.txtWebAPIUrl.Name = "txtWebAPIUrl";
+            this.txtWebAPIUrl.Size = new System.Drawing.Size(331, 21);
+            this.txtWebAPIUrl.TabIndex = 34;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(52, 302);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 12);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "WebAPIUrl";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 390);
+            this.Controls.Add(this.txtWebAPIUrl);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.txtProjectName);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtDBServer);
@@ -405,6 +427,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtProjectName;
+        private LJH.GeneralLibrary.WinformControl.DBCTextBox txtWebAPIUrl;
+        private System.Windows.Forms.Label label11;
     }
 }
 
