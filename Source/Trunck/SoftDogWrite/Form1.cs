@@ -158,7 +158,7 @@ namespace SoftDogWrite
             if (!string.IsNullOrEmpty(dog.DBServer)) sb.Append(string.Format("DBServer:{0};", dog.DBServer));
             sb.Append(string.Format("DBPassword:{0};", dog.DBPassword));
             sb.Append(string.Format("MAC:{0};", dog.MAC));
-            sb.Append(string.Format("WebAPIUrl:{0};", dog.WebAPIUrl));
+            sb.Append(string.Format("WebAPIUrl:{0};", dog.WebAPIUrl.Replace (":","___")));
             using (FileStream fs = new FileStream(licFile, FileMode.Create, FileAccess.ReadWrite))
             {
                 var data = System.Text.ASCIIEncoding.ASCII.GetBytes(new DTEncrypt().Encrypt(sb.ToString()));

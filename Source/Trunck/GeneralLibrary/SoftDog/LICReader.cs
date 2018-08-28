@@ -54,7 +54,7 @@ namespace LJH.GeneralLibrary.SoftDog
                         if (dic.ContainsKey("DBUser")) dog.DBUser = dic["DBUser"].Trim();
                         if (dic.ContainsKey("DBPassword")) dog.DBPassword = dic["DBPassword"].Trim();
                         if (dic.ContainsKey("MAC")) dog.MAC = dic["MAC"].Trim();
-                        if (dic.ContainsKey("WebAPIUrl")) dog.WebAPIUrl = dic["WebAPIUrl"].Trim();
+                        if (dic.ContainsKey("WebAPIUrl")) dog.WebAPIUrl = dic["WebAPIUrl"].Replace("___", ":").Trim(); ;
                         return dog;
                     }
                 }
