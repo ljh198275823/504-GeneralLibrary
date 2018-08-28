@@ -8,7 +8,7 @@ namespace LJH.GeneralLibrary.Core.DAL
     /// <summary>
     /// 表示数据库查询条件
     /// </summary>
-    public class SearchCondition
+    public abstract class SearchCondition
     {
     }
 }
