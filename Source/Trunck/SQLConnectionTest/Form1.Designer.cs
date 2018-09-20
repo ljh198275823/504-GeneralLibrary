@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gpDB = new System.Windows.Forms.GroupBox();
+            this.txtPasswd = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtDataBase = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtUserID = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.txtServer = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,10 +44,7 @@
             this.btnCreateEncryptConStr = new System.Windows.Forms.Button();
             this.btnConnectionTest = new System.Windows.Forms.Button();
             this.txtConstr = new System.Windows.Forms.TextBox();
-            this.txtPasswd = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
-            this.txtDataBase = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
-            this.txtUserID = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
-            this.txtServer = new LJH.GeneralLibrary.WinformControl.DBCTextBox(this.components);
+            this.btn解密 = new System.Windows.Forms.Button();
             this.gpDB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +66,38 @@
             this.gpDB.TabIndex = 6;
             this.gpDB.TabStop = false;
             this.gpDB.Text = "数据库设置";
+            // 
+            // txtPasswd
+            // 
+            this.txtPasswd.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtPasswd.Location = new System.Drawing.Point(272, 70);
+            this.txtPasswd.Name = "txtPasswd";
+            this.txtPasswd.Size = new System.Drawing.Size(139, 21);
+            this.txtPasswd.TabIndex = 3;
+            // 
+            // txtDataBase
+            // 
+            this.txtDataBase.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtDataBase.Location = new System.Drawing.Point(272, 42);
+            this.txtDataBase.Name = "txtDataBase";
+            this.txtDataBase.Size = new System.Drawing.Size(139, 21);
+            this.txtDataBase.TabIndex = 1;
+            // 
+            // txtUserID
+            // 
+            this.txtUserID.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtUserID.Location = new System.Drawing.Point(66, 70);
+            this.txtUserID.Name = "txtUserID";
+            this.txtUserID.Size = new System.Drawing.Size(139, 21);
+            this.txtUserID.TabIndex = 2;
+            // 
+            // txtServer
+            // 
+            this.txtServer.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.txtServer.Location = new System.Drawing.Point(66, 42);
+            this.txtServer.Name = "txtServer";
+            this.txtServer.Size = new System.Drawing.Size(139, 21);
+            this.txtServer.TabIndex = 0;
             // 
             // label6
             // 
@@ -136,7 +169,7 @@
             // 
             this.btnCreatConStr.Location = new System.Drawing.Point(13, 129);
             this.btnCreatConStr.Name = "btnCreatConStr";
-            this.btnCreatConStr.Size = new System.Drawing.Size(105, 23);
+            this.btnCreatConStr.Size = new System.Drawing.Size(96, 23);
             this.btnCreatConStr.TabIndex = 6;
             this.btnCreatConStr.Text = "生成连接字符串";
             this.btnCreatConStr.UseVisualStyleBackColor = true;
@@ -144,9 +177,9 @@
             // 
             // btnCreateEncryptConStr
             // 
-            this.btnCreateEncryptConStr.Location = new System.Drawing.Point(139, 129);
+            this.btnCreateEncryptConStr.Location = new System.Drawing.Point(122, 129);
             this.btnCreateEncryptConStr.Name = "btnCreateEncryptConStr";
-            this.btnCreateEncryptConStr.Size = new System.Drawing.Size(155, 23);
+            this.btnCreateEncryptConStr.Size = new System.Drawing.Size(148, 23);
             this.btnCreateEncryptConStr.TabIndex = 7;
             this.btnCreateEncryptConStr.Text = "生成加密连接字符串";
             this.btnCreateEncryptConStr.UseVisualStyleBackColor = true;
@@ -154,9 +187,9 @@
             // 
             // btnConnectionTest
             // 
-            this.btnConnectionTest.Location = new System.Drawing.Point(313, 129);
+            this.btnConnectionTest.Location = new System.Drawing.Point(356, 129);
             this.btnConnectionTest.Name = "btnConnectionTest";
-            this.btnConnectionTest.Size = new System.Drawing.Size(124, 23);
+            this.btnConnectionTest.Size = new System.Drawing.Size(81, 23);
             this.btnConnectionTest.TabIndex = 8;
             this.btnConnectionTest.Text = "测试连接";
             this.btnConnectionTest.UseVisualStyleBackColor = true;
@@ -164,45 +197,28 @@
             // 
             // txtConstr
             // 
-            this.txtConstr.Location = new System.Drawing.Point(13, 166);
+            this.txtConstr.Location = new System.Drawing.Point(13, 161);
             this.txtConstr.Multiline = true;
             this.txtConstr.Name = "txtConstr";
-            this.txtConstr.Size = new System.Drawing.Size(435, 83);
+            this.txtConstr.Size = new System.Drawing.Size(435, 113);
             this.txtConstr.TabIndex = 9;
             // 
-            // txtPasswd
+            // btn解密
             // 
-            this.txtPasswd.Location = new System.Drawing.Point(272, 70);
-            this.txtPasswd.Name = "txtPasswd";
-            this.txtPasswd.Size = new System.Drawing.Size(139, 21);
-            this.txtPasswd.TabIndex = 3;
-            // 
-            // txtDataBase
-            // 
-            this.txtDataBase.Location = new System.Drawing.Point(272, 42);
-            this.txtDataBase.Name = "txtDataBase";
-            this.txtDataBase.Size = new System.Drawing.Size(139, 21);
-            this.txtDataBase.TabIndex = 1;
-            // 
-            // txtUserID
-            // 
-            this.txtUserID.Location = new System.Drawing.Point(66, 70);
-            this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(139, 21);
-            this.txtUserID.TabIndex = 2;
-            // 
-            // txtServer
-            // 
-            this.txtServer.Location = new System.Drawing.Point(66, 42);
-            this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(139, 21);
-            this.txtServer.TabIndex = 0;
+            this.btn解密.Location = new System.Drawing.Point(283, 129);
+            this.btn解密.Name = "btn解密";
+            this.btn解密.Size = new System.Drawing.Size(61, 23);
+            this.btn解密.TabIndex = 10;
+            this.btn解密.Text = "解密";
+            this.btn解密.UseVisualStyleBackColor = true;
+            this.btn解密.Click += new System.EventHandler(this.btn解密_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 261);
+            this.ClientSize = new System.Drawing.Size(460, 283);
+            this.Controls.Add(this.btn解密);
             this.Controls.Add(this.txtConstr);
             this.Controls.Add(this.btnConnectionTest);
             this.Controls.Add(this.btnCreateEncryptConStr);
@@ -235,6 +251,7 @@
         private System.Windows.Forms.Button btnCreateEncryptConStr;
         private System.Windows.Forms.Button btnConnectionTest;
         private System.Windows.Forms.TextBox txtConstr;
+        private System.Windows.Forms.Button btn解密;
     }
 }
 

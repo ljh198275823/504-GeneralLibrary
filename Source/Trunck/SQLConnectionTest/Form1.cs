@@ -73,7 +73,7 @@ namespace SQLConnectionTest
             this.txtServer.Focus();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn解密_Click(object sender, EventArgs e)
         {
             txtConstr.Text = (new LJH.GeneralLibrary.SoftDog.DTEncrypt()).DSEncrypt(txtConstr.Text);
         }
