@@ -113,22 +113,30 @@ namespace LJH.GeneralLibrary.SoftDog
         /// 门禁软件
         /// </summary>
         TYPE_ACS = 0x04,
-        /// <summary>
-        /// 汇海体育软件
-        /// </summary>
-        TYPE_HHTIYU = 0x08,
-        /// <summary>
-        /// 汇海体育软件（WIFI版）
-        /// </summary>
-        TYPE_HHTIYU_WIFI = 0x10,
+        ///// <summary>
+        ///// 汇海体育软件
+        ///// </summary>
+        //TYPE_HHTIYU = 0x08,
+        ///// <summary>
+        ///// 汇海体育软件（WIFI版）
+        ///// </summary>
+        //TYPE_HHTIYU_WIFI = 0x10,
         /// <summary>
         /// 汇海体育软件第三方设备如（清化同方，恒康等)
         /// </summary>
-        TYPE_HHTIYU_ThirdDevice = 0x20,
+        TYPE_汇海运动会软件 = 0x20,
         /// <summary>
-        /// 汇海体育软件第三方设备厂家技豪
+        /// 汇海中考软件
         /// </summary>
-        TYPE_HHTIYU_JIHAO = 0x40,
+        TYPE_汇海中考软件 = 0x40,
+        /// <summary>
+        /// 汇海学生体测软件
+        /// </summary>
+        TYPE_汇海学生体测软件 = 0x80,
+        /// <summary>
+        /// 汇海国民体测软件
+        /// </summary>
+        TYPE_汇海国民体测软件 = 0x100,
         /// <summary>
         /// 停车场
         /// </summary>

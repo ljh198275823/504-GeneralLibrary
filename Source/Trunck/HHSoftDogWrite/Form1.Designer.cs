@@ -38,16 +38,16 @@
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtProjectID = new LJH.GeneralLibrary.WinformControl.IntergerTextBox(this.components);
-            this.chk汇海Wifi版 = new System.Windows.Forms.CheckBox();
-            this.chk汇海普通版 = new System.Windows.Forms.CheckBox();
-            this.chkThirdDevice = new System.Windows.Forms.CheckBox();
-            this.chk技豪 = new System.Windows.Forms.CheckBox();
+            this.chk汇海中考软件 = new System.Windows.Forms.CheckBox();
+            this.chk学生体测 = new System.Windows.Forms.CheckBox();
+            this.chk国民体测 = new System.Windows.Forms.CheckBox();
+            this.chk运动会 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 63);
+            this.label1.Location = new System.Drawing.Point(53, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -126,57 +126,60 @@
             this.txtProjectID.TabIndex = 4;
             this.txtProjectID.Text = "1000";
             // 
-            // chk汇海Wifi版
+            // chk汇海中考软件
             // 
-            this.chk汇海Wifi版.AutoSize = true;
-            this.chk汇海Wifi版.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.chk汇海Wifi版.ForeColor = System.Drawing.Color.Red;
-            this.chk汇海Wifi版.Location = new System.Drawing.Point(120, 63);
-            this.chk汇海Wifi版.Name = "chk汇海Wifi版";
-            this.chk汇海Wifi版.Size = new System.Drawing.Size(91, 16);
-            this.chk汇海Wifi版.TabIndex = 18;
-            this.chk汇海Wifi版.Text = "汇海Wifi版";
-            this.chk汇海Wifi版.UseVisualStyleBackColor = true;
+            this.chk汇海中考软件.AutoSize = true;
+            this.chk汇海中考软件.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chk汇海中考软件.ForeColor = System.Drawing.Color.Black;
+            this.chk汇海中考软件.Location = new System.Drawing.Point(120, 63);
+            this.chk汇海中考软件.Name = "chk汇海中考软件";
+            this.chk汇海中考软件.Size = new System.Drawing.Size(76, 16);
+            this.chk汇海中考软件.TabIndex = 18;
+            this.chk汇海中考软件.Text = "中考软件";
+            this.chk汇海中考软件.UseVisualStyleBackColor = true;
             // 
-            // chk汇海普通版
+            // chk学生体测
             // 
-            this.chk汇海普通版.AutoSize = true;
-            this.chk汇海普通版.Location = new System.Drawing.Point(120, 92);
-            this.chk汇海普通版.Name = "chk汇海普通版";
-            this.chk汇海普通版.Size = new System.Drawing.Size(84, 16);
-            this.chk汇海普通版.TabIndex = 19;
-            this.chk汇海普通版.Text = "汇海普通版";
-            this.chk汇海普通版.UseVisualStyleBackColor = true;
+            this.chk学生体测.AutoSize = true;
+            this.chk学生体测.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chk学生体测.Location = new System.Drawing.Point(218, 63);
+            this.chk学生体测.Name = "chk学生体测";
+            this.chk学生体测.Size = new System.Drawing.Size(76, 16);
+            this.chk学生体测.TabIndex = 19;
+            this.chk学生体测.Text = "学生体测";
+            this.chk学生体测.UseVisualStyleBackColor = true;
             // 
-            // chkThirdDevice
+            // chk国民体测
             // 
-            this.chkThirdDevice.AutoSize = true;
-            this.chkThirdDevice.Location = new System.Drawing.Point(120, 123);
-            this.chkThirdDevice.Name = "chkThirdDevice";
-            this.chkThirdDevice.Size = new System.Drawing.Size(108, 16);
-            this.chkThirdDevice.TabIndex = 20;
-            this.chkThirdDevice.Text = "采集第三方设备";
-            this.chkThirdDevice.UseVisualStyleBackColor = true;
+            this.chk国民体测.AutoSize = true;
+            this.chk国民体测.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chk国民体测.Location = new System.Drawing.Point(120, 95);
+            this.chk国民体测.Name = "chk国民体测";
+            this.chk国民体测.Size = new System.Drawing.Size(76, 16);
+            this.chk国民体测.TabIndex = 20;
+            this.chk国民体测.Text = "国民体测";
+            this.chk国民体测.UseVisualStyleBackColor = true;
             // 
-            // chk技豪
+            // chk运动会
             // 
-            this.chk技豪.AutoSize = true;
-            this.chk技豪.Location = new System.Drawing.Point(248, 123);
-            this.chk技豪.Name = "chk技豪";
-            this.chk技豪.Size = new System.Drawing.Size(48, 16);
-            this.chk技豪.TabIndex = 21;
-            this.chk技豪.Text = "技豪";
-            this.chk技豪.UseVisualStyleBackColor = true;
+            this.chk运动会.AutoSize = true;
+            this.chk运动会.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chk运动会.Location = new System.Drawing.Point(218, 95);
+            this.chk运动会.Name = "chk运动会";
+            this.chk运动会.Size = new System.Drawing.Size(89, 16);
+            this.chk运动会.TabIndex = 21;
+            this.chk运动会.Text = "运动会软件";
+            this.chk运动会.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 296);
-            this.Controls.Add(this.chk技豪);
-            this.Controls.Add(this.chkThirdDevice);
-            this.Controls.Add(this.chk汇海普通版);
-            this.Controls.Add(this.chk汇海Wifi版);
+            this.Controls.Add(this.chk运动会);
+            this.Controls.Add(this.chk国民体测);
+            this.Controls.Add(this.chk学生体测);
+            this.Controls.Add(this.chk汇海中考软件);
             this.Controls.Add(this.dtEnd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnRead);
@@ -204,10 +207,10 @@
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.DateTimePicker dtEnd;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox chk汇海Wifi版;
-        private System.Windows.Forms.CheckBox chk汇海普通版;
-        private System.Windows.Forms.CheckBox chkThirdDevice;
-        private System.Windows.Forms.CheckBox chk技豪;
+        private System.Windows.Forms.CheckBox chk汇海中考软件;
+        private System.Windows.Forms.CheckBox chk学生体测;
+        private System.Windows.Forms.CheckBox chk国民体测;
+        private System.Windows.Forms.CheckBox chk运动会;
     }
 }
 

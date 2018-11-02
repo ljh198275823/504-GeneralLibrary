@@ -26,9 +26,12 @@ namespace LJH.GeneralLibrary.SoftDog
         {
             if (!string.IsNullOrEmpty(encriptFactor))
             {
-                _key = encriptFactor;
-                string temp = new DTEncrypt().DSEncrypt(encriptFactor);
-                MydsEncrypt = new DSEncrypt(temp);
+                var temp = new DTEncrypt().DSEncrypt(encriptFactor);
+                if (temp != encriptFactor)
+                {
+                    _key = encriptFactor;
+                    MydsEncrypt = new DSEncrypt(temp);
+                }
             }
         }
         #endregion
@@ -101,7 +104,6 @@ namespace LJH.GeneralLibrary.SoftDog
         {
             byte[] data = new byte[len];
             int ret = -1;
-            //if (string.IsNullOrEmpty(_SystemBits)) _SystemBits = Distinguish64or32System();
             ret = DogRead_32(len, addr, data);
             if (ret == 0)
             {
@@ -115,7 +117,6 @@ namespace LJH.GeneralLibrary.SoftDog
             int ret = -1;
             if (!string.IsNullOrEmpty(_key) && new DTEncrypt().DSEncrypt(_key) == key)
             {
-                //if (string.IsNullOrEmpty(_SystemBits)) _SystemBits = Distinguish64or32System();
                 ret = DogWrite_32(data.Length, addr, data);
             }
             return ret;
