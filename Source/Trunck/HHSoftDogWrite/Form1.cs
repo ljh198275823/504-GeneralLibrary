@@ -21,7 +21,7 @@ namespace SoftDogWrite
 
         #region 私有变量
         private const string _Key = "Ljh198275823@163.com";
-        private SoftDogReader _Writer =new SoftDogReader(_Key) ; // new SoftDogReader(new DTEncrypt().Encrypt(_Key));
+        private SoftDogReader _Writer =new SoftDogReader(new DTEncrypt().Encrypt(_Key));
         private const int CHECKPOSITON = 70;
         private const string CHECKSTRING = "Ljh198275823";
         private DSEncrypt MydsEncrypt = new DSEncrypt(_Key);
