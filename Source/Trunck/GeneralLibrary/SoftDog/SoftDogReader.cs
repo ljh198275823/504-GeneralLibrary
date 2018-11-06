@@ -45,28 +45,6 @@ namespace LJH.GeneralLibrary.SoftDog
         #endregion
 
         #region 私有方法
-        private string Distinguish64or32System()
-        {
-            try
-            {
-                string addressWidth = String.Empty;
-                ConnectionOptions mConnOption = new ConnectionOptions();
-                ManagementScope mMs = new ManagementScope("//localhost", mConnOption);
-                ObjectQuery mQuery = new ObjectQuery("select AddressWidth from Win32_Processor");
-                ManagementObjectSearcher mSearcher = new ManagementObjectSearcher(mMs, mQuery);
-                ManagementObjectCollection mObjectCollection = mSearcher.Get();
-                foreach (ManagementObject mObject in mObjectCollection)
-                {
-                    addressWidth = mObject["AddressWidth"].ToString();
-                }
-                return addressWidth;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return String.Empty;
-            }
-        }
         #endregion
 
         #region 公共方法
@@ -112,12 +90,13 @@ namespace LJH.GeneralLibrary.SoftDog
             throw new InvalidOperationException("访问加密狗错误，请插入正确的加密狗重试！");
         }
 
-        public int WriteData(int addr, byte[] data, string key)
+        public int WriteData(string strData, string key)
         {
             int ret = -1;
+            var data = HexStringConverter.StringToHex(strData);
             if (!string.IsNullOrEmpty(_key) && new DTEncrypt().DSEncrypt(_key) == key)
             {
-                ret = DogWrite_32(data.Length, addr, data);
+                ret = DogWrite_32(data.Length, 0, data);
             }
             return ret;
         }

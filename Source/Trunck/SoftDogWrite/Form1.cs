@@ -15,6 +15,9 @@ namespace SoftDogWrite
 {
     public partial class Form1 : Form
     {
+        [DllImport("dt215.dll", CharSet = CharSet.Ansi, EntryPoint = "DogWrite")]
+        private static extern int DogWrite_32(int idogBytes, int idogAddr, byte[] pdogData);
+
         public Form1()
         {
             InitializeComponent();
@@ -79,41 +82,41 @@ namespace SoftDogWrite
             int ret = -1;
             byte[] rdDate = new byte[100];
             _myRandom.NextBytes(rdDate);
-            ret = _Writer.WriteData(0, rdDate, _Key);
+            ret = DogWrite_32(rdDate.Length, 0, rdDate);
 
             byte[] data = null;
             if (ret == 0)
             {
                 data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(CHECKSTRING));
-                ret = _Writer.WriteData(CHECKPOSITON, data, _Key);
+                ret = DogWrite_32(data.Length, CHECKPOSITON, data);
             }
 
             if (ret == 0)
             {
                 data = SEBinaryConverter.IntToBytes(dog.ProjectNo);
-                ret = _Writer.WriteData(61, data, _Key);
+                ret = DogWrite_32(data.Length, 61, data);
             }
 
             if (ret == 0)
             {
                 data = SEBinaryConverter.IntToBytes((int)dog.SoftwareList);
-                ret = _Writer.WriteData(31, data, _Key);
+                ret = DogWrite_32(data.Length, 31, data);
             }
 
             if (ret == 0)
             {
                 data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(dog.StartDate.ToString("yyMMdd")));
-                ret = _Writer.WriteData(17, data, _Key);
+                ret = DogWrite_32(data.Length, 17, data);
             }
 
             if (ret == 0)
             {
                 data = System.Text.ASCIIEncoding.GetEncoding("GB2312").GetBytes(MydsEncrypt.Encrypt(dog.ExpiredDate.ToString("yyMMdd")));
-                ret = _Writer.WriteData(5, data, _Key);
+                ret = DogWrite_32(data.Length, 5, data);
             }
             if (ret == 0)
             {
-                ret = _Writer.WriteData(37, new byte[] { (byte)(dog.IsHost ? 1 : 0) }, _Key);
+                ret = DogWrite_32(1, 37, new byte[] { (byte)(dog.IsHost ? 1 : 0) });
             }
             if (ret == 0 && !string.IsNullOrEmpty(txtUser.Text.Trim()))
             {
@@ -124,7 +127,7 @@ namespace SoftDogWrite
                     if (i < data.Length) temp[i] = data[i];
                     else temp[i] = 0x20;
                 }
-                ret = _Writer.WriteData(40, temp, _Key);
+                ret = DogWrite_32(temp.Length, 40, temp);
             }
             if (ret == 0 && !string.IsNullOrEmpty(txtPassword.Text.Trim()))
             {
@@ -135,7 +138,7 @@ namespace SoftDogWrite
                     if (i < data.Length) temp[i] = data[i];
                     else temp[i] = 0x20;
                 }
-                ret = _Writer.WriteData(50, temp, _Key);
+                ret = DogWrite_32(temp.Length, 50, temp);
             }
             if (ret != 0) throw new InvalidOperationException("写狗失败 errorcode=" + ret.ToString());
         }
@@ -158,7 +161,7 @@ namespace SoftDogWrite
             if (!string.IsNullOrEmpty(dog.DBServer)) sb.Append(string.Format("DBServer:{0};", dog.DBServer));
             sb.Append(string.Format("DBPassword:{0};", dog.DBPassword));
             sb.Append(string.Format("MAC:{0};", dog.MAC));
-            sb.Append(string.Format("WebAPIUrl:{0};", dog.WebAPIUrl.Replace (":","___")));
+            sb.Append(string.Format("WebAPIUrl:{0};", dog.WebAPIUrl.Replace(":", "___")));
             using (FileStream fs = new FileStream(licFile, FileMode.Create, FileAccess.ReadWrite))
             {
                 var data = System.Text.ASCIIEncoding.ASCII.GetBytes(new DTEncrypt().Encrypt(sb.ToString()));

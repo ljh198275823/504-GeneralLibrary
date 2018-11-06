@@ -36,8 +36,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScanserTest", "ScanserTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketTest", "SocketTest\SocketTest.csproj", "{7BD9D09E-48B7-4845-A7AF-453278202EF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHSoftDogWrite", "HHSoftDogWrite\HHSoftDogWrite.csproj", "{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}"
-EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ShareLibrary.vsmdi
@@ -191,16 +189,6 @@ Global
 		{7BD9D09E-48B7-4845-A7AF-453278202EF5}.Release|Mixed Platforms.Build.0 = Release|x86
 		{7BD9D09E-48B7-4845-A7AF-453278202EF5}.Release|x86.ActiveCfg = Release|x86
 		{7BD9D09E-48B7-4845-A7AF-453278202EF5}.Release|x86.Build.0 = Release|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Debug|x86.ActiveCfg = Debug|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Debug|x86.Build.0 = Debug|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Release|Any CPU.ActiveCfg = Release|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Release|Mixed Platforms.Build.0 = Release|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Release|x86.ActiveCfg = Release|x86
-		{B83BD1EA-CB04-4FBC-8BBE-DB4164736D42}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
