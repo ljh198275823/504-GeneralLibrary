@@ -85,15 +85,12 @@ namespace LJH.GeneralLibrary.WebAPIClient
                     password = Password,
                     timestamp = ts,
                 });
-                var retBytes = client.UploadString(url, "POST", content);
-                if (!string.IsNullOrEmpty(retBytes))
+                var retBytes = client.UploadData(url, "POST", System.Text.ASCIIEncoding.UTF8.GetBytes(content));
+                var ret = JsonConvert.DeserializeObject<CommandResult<TokenInfo>>(System.Text.ASCIIEncoding.UTF8.GetString(retBytes));
+                if (ret.Result == ResultCode.Successful && ret.Value != null)
                 {
-                    var ret = JsonConvert.DeserializeObject<CommandResult<TokenInfo>>(retBytes);
-                    if (ret.Result == ResultCode.Successful && ret.Value != null)
-                    {
-                        TokenInfo.Tokens[RepoUri] = ret.Value;
-                        return true;
-                    }
+                    TokenInfo.Tokens[RepoUri] = ret.Value;
+                    return true;
                 }
                 throw new Exception("获取token失败 ");
             }
@@ -265,14 +262,10 @@ namespace LJH.GeneralLibrary.WebAPIClient
                     client.Headers.Add("accept", "application/json;charset=utf-8");
                     client.Headers.Add("content-type", "application/json;charset=utf-8;");
                     var content = JsonConvert.SerializeObject(info);
-                    var retBytes = client.UploadString(url, "POST", content);
-                    if (!string.IsNullOrEmpty(retBytes))
-                    {
-                        var ret = JsonConvert.DeserializeObject<CommandResult<TEntity>>(retBytes);
-                        if (ret.Result == ResultCode.Successful && ret.Value != null) info.ID = ret.Value.ID;
-                        return ret;
-                    }
-                    return new CommandResult<TEntity>(ResultCode.Fail, string.Empty, null);
+                    var retBytes = client.UploadData(url, "POST", System.Text.ASCIIEncoding.UTF8.GetBytes(content));
+                    var ret = JsonConvert.DeserializeObject<CommandResult<TEntity>>(System.Text.ASCIIEncoding.UTF8.GetString(retBytes));
+                    if (ret.Result == ResultCode.Successful && ret.Value != null) info.ID = ret.Value.ID;
+                    return ret;
                 }
             }
             catch (Exception ex)
@@ -308,9 +301,8 @@ namespace LJH.GeneralLibrary.WebAPIClient
                     client.Headers.Add("accept", "application/json;charset=utf-8");
                     client.Headers.Add("content-type", "application/json;charset=utf-8");
                     var content = JsonConvert.SerializeObject(info);
-                    var retBytes = client.UploadString(url, "PUT", content);
-                    if (!string.IsNullOrEmpty(retBytes)) return JsonConvert.DeserializeObject<CommandResult<TEntity>>(retBytes);
-                    return new CommandResult<TEntity>(ResultCode.Fail, string.Empty, null);
+                    var retBytes = client.UploadData(url, "PUT", System.Text.ASCIIEncoding.UTF8.GetBytes(content));
+                    return JsonConvert.DeserializeObject<CommandResult<TEntity>>(System.Text.ASCIIEncoding.UTF8.GetString(retBytes));
                 }
             }
             catch (Exception ex)
@@ -347,9 +339,8 @@ namespace LJH.GeneralLibrary.WebAPIClient
                     client.Headers.Add("accept", "application/json;charset=utf-8");
                     client.Headers.Add("content-type", "application/json;charset=utf-8;");
                     var content = JsonConvert.SerializeObject(items);
-                    var retBytes = client.UploadString(url, "PATCH", content);
-                    if (!string.IsNullOrEmpty(retBytes)) return JsonConvert.DeserializeObject<CommandResult<TEntity>>(retBytes);
-                    return new CommandResult<TEntity>(ResultCode.Fail, string.Empty, null);
+                    var retBytes = client.UploadData(url, "PATCH", System.Text.ASCIIEncoding.UTF8.GetBytes(content));
+                    return JsonConvert.DeserializeObject<CommandResult<TEntity>>(System.Text.ASCIIEncoding.UTF8.GetString(retBytes));
                 }
             }
             catch (Exception ex)

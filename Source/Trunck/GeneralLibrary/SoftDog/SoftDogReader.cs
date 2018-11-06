@@ -90,14 +90,11 @@ namespace LJH.GeneralLibrary.SoftDog
             throw new InvalidOperationException("访问加密狗错误，请插入正确的加密狗重试！");
         }
 
-        public int WriteData(string strData, string key)
+        public int WriteData(string strData)
         {
             int ret = -1;
             var data = HexStringConverter.StringToHex(strData);
-            if (!string.IsNullOrEmpty(_key) && new DTEncrypt().DSEncrypt(_key) == key)
-            {
-                ret = DogWrite_32(data.Length, 0, data);
-            }
+            ret = DogWrite_32(data.Length, 0, data);
             return ret;
         }
 
@@ -125,6 +122,7 @@ namespace LJH.GeneralLibrary.SoftDog
             if (!string.IsNullOrEmpty(temp)) info.DBUser = MydsEncrypt.Encrypt(temp);
             temp = ReadString(50, 10).Trim();
             if (!string.IsNullOrEmpty(temp)) info.DBPassword = MydsEncrypt.Encrypt(temp);
+            info.Data = HexStringConverter.HexToString(ReadData(0, 100), string.Empty);
             return info;
         }
         #endregion

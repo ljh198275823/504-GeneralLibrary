@@ -88,6 +88,8 @@ namespace LJH.GeneralLibrary.SoftDog
         /// 获取或设置DOGINFO是否是从硬件加密狗中获取而来
         /// </summary>
         public bool DogDevice { get; set; }
+
+        public string Data { get; set; }
         #endregion
     }
 
