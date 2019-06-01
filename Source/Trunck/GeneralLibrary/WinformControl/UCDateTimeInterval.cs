@@ -46,7 +46,7 @@ namespace LJH.GeneralLibrary.WinformControl
         {
             get
             {
-                return this.dtStart.Value;
+                return ShowTime ? this.dtStart.Value : this.dtStart.Value.Date;
             }
             set
             {
@@ -60,7 +60,7 @@ namespace LJH.GeneralLibrary.WinformControl
         {
             get
             {
-                return this.dtEnd.Value;
+                return ShowTime ? this.dtEnd.Value : this.dtEnd.Value.Date.AddDays(1).AddSeconds(-1);
             }
             set
             {
