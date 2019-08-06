@@ -230,7 +230,7 @@
             // 
             this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtPassword.Location = new System.Drawing.Point(313, 201);
-            this.txtPassword.MaxLength = 10;
+            this.txtPassword.MaxLength = 1000;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(140, 21);
             this.txtPassword.TabIndex = 19;
@@ -239,7 +239,7 @@
             // 
             this.txtUser.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtUser.Location = new System.Drawing.Point(120, 201);
-            this.txtUser.MaxLength = 10;
+            this.txtUser.MaxLength = 1000;
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(140, 21);
             this.txtUser.TabIndex = 18;
@@ -268,7 +268,7 @@
             // 
             this.txtDBName.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtDBName.Location = new System.Drawing.Point(120, 232);
-            this.txtDBName.MaxLength = 50;
+            this.txtDBName.MaxLength = 1000;
             this.txtDBName.Name = "txtDBName";
             this.txtDBName.Size = new System.Drawing.Size(140, 21);
             this.txtDBName.TabIndex = 25;
@@ -277,7 +277,7 @@
             // 
             this.txtMAC.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtMAC.Location = new System.Drawing.Point(120, 266);
-            this.txtMAC.MaxLength = 50;
+            this.txtMAC.MaxLength = 1000;
             this.txtMAC.Name = "txtMAC";
             this.txtMAC.Size = new System.Drawing.Size(331, 21);
             this.txtMAC.TabIndex = 27;
@@ -305,7 +305,7 @@
             // 
             this.txtDBServer.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtDBServer.Location = new System.Drawing.Point(313, 232);
-            this.txtDBServer.MaxLength = 50;
+            this.txtDBServer.MaxLength = 1000;
             this.txtDBServer.Name = "txtDBServer";
             this.txtDBServer.Size = new System.Drawing.Size(140, 21);
             this.txtDBServer.TabIndex = 30;
@@ -339,7 +339,7 @@
             // 
             this.txtWebAPIUrl.ImeMode = System.Windows.Forms.ImeMode.On;
             this.txtWebAPIUrl.Location = new System.Drawing.Point(120, 299);
-            this.txtWebAPIUrl.MaxLength = 50;
+            this.txtWebAPIUrl.MaxLength = 1000;
             this.txtWebAPIUrl.Name = "txtWebAPIUrl";
             this.txtWebAPIUrl.Size = new System.Drawing.Size(331, 21);
             this.txtWebAPIUrl.TabIndex = 34;
