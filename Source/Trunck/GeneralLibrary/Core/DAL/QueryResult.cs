@@ -10,18 +10,18 @@ namespace LJH.GeneralLibrary.Core.DAL
     /// </summary>
     public class QueryResult<T>
     {
-#region 构造函数
+        #region 构造函数
         public QueryResult()
         {
         }
 
         public QueryResult(ResultCode code, string msg, T obj)
         {
-            this.Result  = code;
-            this.Message  = msg;
+            this.Result = code;
+            this.Message = msg;
             this.QueryObject = obj;
         }
-#endregion
+        #endregion
 
         #region 公共属性
         /// <summary>

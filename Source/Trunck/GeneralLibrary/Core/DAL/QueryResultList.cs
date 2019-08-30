@@ -17,7 +17,7 @@ namespace LJH.GeneralLibrary.Core.DAL
         {
         }
 
-        public QueryResultList(ResultCode code, string msg, List<T> list)
+        public QueryResultList(ResultCode code, string msg, List<T> list, int pageSize = 0, int pageIndex = 1, int totalCount = 0)
         {
             this.Result = code;
             this.Message = msg;
@@ -39,6 +39,18 @@ namespace LJH.GeneralLibrary.Core.DAL
         /// 获取或设置返回的查询对象
         /// </summary>
         public List<T> QueryObjects { get; set; }
+        /// <summary>
+        /// 获取或设置每页数据条数,为0时表示返回所有数据
+        /// </summary>
+        public int PageSize { get; set; }
+        /// <summary>
+        /// 获取或设置当前页
+        /// </summary>
+        public int PageIndex { get; set; }
+        /// <summary>
+        /// 获取或设置查询到的总记录数
+        /// </summary>
+        public int TotalCount { get; set; }
         #endregion
     }
 }
