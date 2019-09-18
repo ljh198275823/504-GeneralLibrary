@@ -17,6 +17,7 @@ namespace LJH.GeneralLibrary.WinformControl
         }
 
         #region 公共方法
+        public event EventHandler ValueChanged;
         /// <summary>
         /// 初始化
         /// </summary>
@@ -108,6 +109,7 @@ namespace LJH.GeneralLibrary.WinformControl
             this.rdThisMonth.Checked = false;
             this.rdThisQuarter.Checked = false;
             this.rdThisYear.Checked = false;
+            if (this.ValueChanged != null) this.ValueChanged(this, EventArgs.Empty);
         }
 
         private void rdToday_CheckedChanged(object sender, EventArgs e)
@@ -120,6 +122,7 @@ namespace LJH.GeneralLibrary.WinformControl
                 this.dtEnd.Value = DateTime.Today.AddDays(1).AddSeconds(-1);
                 this.dtStart.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
                 this.dtEnd.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
+                if (this.ValueChanged != null) this.ValueChanged(this, EventArgs.Empty);
             }
         }
 
@@ -133,6 +136,7 @@ namespace LJH.GeneralLibrary.WinformControl
                 this.dtStart.Value = DateTime.Today .AddDays(1 - DateTime.Today.Day);
                 this.dtStart.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
                 this.dtEnd.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
+                if (this.ValueChanged != null) this.ValueChanged(this, EventArgs.Empty);
             }
         }
 
@@ -168,6 +172,7 @@ namespace LJH.GeneralLibrary.WinformControl
                 }
                 this.dtStart.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
                 this.dtEnd.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
+                if (this.ValueChanged != null) this.ValueChanged(this, EventArgs.Empty);
             }
         }
 
@@ -181,6 +186,7 @@ namespace LJH.GeneralLibrary.WinformControl
                 this.dtStart.Value = DateTime.Today .AddDays(1 - DateTime.Today .DayOfYear);
                 this.dtStart.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
                 this.dtEnd.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
+                if (this.ValueChanged != null) this.ValueChanged(this, EventArgs.Empty);
             }
         }
         #endregion
