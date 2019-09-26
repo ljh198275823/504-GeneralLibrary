@@ -123,9 +123,6 @@ namespace LJH.GeneralLibrary.SoftDog
         ///// 汇海体育软件（WIFI版）
         ///// </summary>
         //TYPE_HHTIYU_WIFI = 0x10,
-        /// <summary>
-        /// 汇海体育软件第三方设备如（清化同方，恒康等)
-        /// </summary>
         TYPE_汇海运动会软件 = 0x20,
         /// <summary>
         /// 汇海中考软件
@@ -147,5 +144,8 @@ namespace LJH.GeneralLibrary.SoftDog
         /// 带成本核算的铁皮卷进销存软件
         /// </summary>
         TYPE_SteelRollInventory_COST = 0x400,
+        TYPE_汇海学生体测软件_小学版 = 0x800,
+        TYPE_汇海学生体测软件_中学版 = 0x1000,
+        TYPE_汇海学生体测软件_大学版 = 0x2000,
     }
 }
