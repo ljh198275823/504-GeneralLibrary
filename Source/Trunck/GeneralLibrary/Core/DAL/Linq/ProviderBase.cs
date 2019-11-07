@@ -60,7 +60,7 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public QueryResult<TInfo> GetByID(TID id)
+        public virtual QueryResult<TInfo> GetByID(TID id)
         {
 
             QueryResult<TInfo> result;
@@ -93,7 +93,7 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
         /// </summary>
         /// <param name="search"></param>
         /// <returns></returns>
-        public QueryResultList<TInfo> GetItems(SearchCondition search)
+        public virtual QueryResultList<TInfo> GetItems(SearchCondition search)
         {
             QueryResultList<TInfo> result;
             try
@@ -119,7 +119,7 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
-        public CommandResult Insert(TInfo info)
+        public virtual CommandResult Insert(TInfo info)
         {
             CommandResult result;
             try
@@ -142,7 +142,7 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
         /// <param name="newVal"></param>
         /// <param name="original"></param>
         /// <returns></returns>
-        public CommandResult Update(TInfo newVal, TInfo original)
+        public virtual CommandResult Update(TInfo newVal, TInfo original)
         {
             CommandResult result;
             try
@@ -164,7 +164,7 @@ namespace LJH.GeneralLibrary.Core.DAL.Linq
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
-        public CommandResult Delete(TInfo info)
+        public virtual CommandResult Delete(TInfo info)
         {
             CommandResult result;
             try
