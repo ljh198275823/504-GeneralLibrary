@@ -111,7 +111,7 @@ namespace LJH.GeneralLibrary.Core.UI
                 if (ret.Result == ResultCode.Successful)
                 {
                     OnItemAdded(new ItemAddedEventArgs(item));
-                    this.Close();
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
@@ -124,7 +124,7 @@ namespace LJH.GeneralLibrary.Core.UI
                 if (ret.Result == ResultCode.Successful)
                 {
                     OnItemUpdated(new ItemUpdatedEventArgs(item));
-                    this.Close();
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
