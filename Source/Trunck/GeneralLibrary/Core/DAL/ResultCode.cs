@@ -14,10 +14,13 @@ namespace LJH.GeneralLibrary.Core.DAL
         /// 成功
         /// </summary>
         Successful = 0, 
-
         /// <summary>
         ///失败
         /// </summary>
         Fail = 1,
+        /// <summary>
+        /// 连接失败
+        /// </summary>
+        NotConnected=2,
     }
 }
