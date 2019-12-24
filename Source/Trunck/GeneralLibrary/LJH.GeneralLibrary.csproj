@@ -391,6 +391,12 @@
     <Compile Include="WinformControl\UCIPTextBox.designer.cs">
       <DependentUpon>UCIPTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinformControl\UCFormViewEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinformControl\UCFormViewEx.designer.cs">
+      <DependentUpon>UCFormViewEx.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="stdole">
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinformControl\UCIPTextBox.resx">
       <DependentUpon>UCIPTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinformControl\UCFormViewEx.resx">
+      <DependentUpon>UCFormViewEx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
