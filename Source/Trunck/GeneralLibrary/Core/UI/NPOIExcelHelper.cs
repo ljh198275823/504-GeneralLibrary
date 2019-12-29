@@ -49,7 +49,7 @@ namespace LJH.GeneralLibrary.Core.UI
             List<DataGridViewColumn> cols = new List<DataGridViewColumn>();
             foreach (DataGridViewColumn col in view.Columns)
             {
-                if (col.Visible) cols.Add(col);
+                if (col.Visible && !string.IsNullOrEmpty(col.HeaderText)) cols.Add(col);
             }
             List<string> ret = (from col in cols
                                 where col.Visible
