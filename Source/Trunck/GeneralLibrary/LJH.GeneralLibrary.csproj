@@ -107,10 +107,6 @@
       <HintPath>..\Reference\Interop.ZSTLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Reference\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="NPOI">
       <HintPath>..\Reference\NPOI.dll</HintPath>
     </Reference>
@@ -297,13 +293,6 @@
     <Compile Include="CardReader\YangChengTongOperationResult.cs" />
     <Compile Include="CardReader\YangChengTongCardInfo.cs" />
     <Compile Include="CardReader\YangChengTongReader.cs" />
-    <Compile Include="WebAPIClient\APIClientBase.cs" />
-    <Compile Include="WebAPIClient\FileParameter.cs" />
-    <Compile Include="WebAPIClient\GZipHelper.cs" />
-    <Compile Include="WebAPIClient\GZipWebClient.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WebAPIClient\TokenInfo.cs" />
     <Compile Include="WinformControl\FrmProcessing.cs">
       <SubType>Form</SubType>
     </Compile>
