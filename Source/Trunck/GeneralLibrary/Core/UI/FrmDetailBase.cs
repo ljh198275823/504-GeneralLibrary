@@ -10,7 +10,7 @@ using LJH.GeneralLibrary.Core.DAL;
 
 namespace LJH.GeneralLibrary.Core.UI
 {
-    public partial class FrmDetailBase : Form, IOperatorRender
+    public partial class FrmDetailBase : Form
     {
         public FrmDetailBase()
         {

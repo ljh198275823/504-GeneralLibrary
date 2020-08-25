@@ -13,7 +13,7 @@ using LJH.GeneralLibrary.Core.DAL;
 
 namespace LJH.GeneralLibrary.Core.UI
 {
-    public partial class FrmMasterBase : Form, IOperatorRender
+    public partial class FrmMasterBase : Form, IFormMaster
     {
         public FrmMasterBase()
         {
@@ -122,14 +122,13 @@ namespace LJH.GeneralLibrary.Core.UI
         private void GridView_SelectionChanged(object sender, EventArgs e)
         {
             var dgv = sender as DataGridView;
-
-            for (int i = 0; i < dgv.RowCount; i++)
+            foreach (DataGridViewRow r in dgv.Rows)
             {
-                for (int j = 0; j < dgv.Columns.Count; j++)
+                foreach (DataGridViewCell c in r.Cells)
                 {
-                    if (dgv.Rows[i].Cells[j] is DataGridViewLinkCell)
+                    if (c is DataGridViewLinkCell)
                     {
-                        var cell = dgv.Rows[i].Cells[j] as DataGridViewLinkCell;
+                        var cell = c as DataGridViewLinkCell;
                         cell.LinkColor = cell.Selected ? Color.White : Color.Blue;
                     }
                 }

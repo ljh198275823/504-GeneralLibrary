@@ -183,7 +183,7 @@
     <Compile Include="Core\UI\FrmReportBase.designer.cs">
       <DependentUpon>FrmReportBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\UI\IOperatorRender.cs" />
+    <Compile Include="Core\UI\IFormMaster.cs" />
     <Compile Include="Core\UI\ItemSelectedEventArgs.cs" />
     <Compile Include="DecimalExtention.cs" />
     <Compile Include="FrmSoftDogInfo.cs">

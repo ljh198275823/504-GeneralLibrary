@@ -5,8 +5,12 @@ using System.Text;
 
 namespace LJH.GeneralLibrary.Core.UI
 {
-    public interface IOperatorRender
+    /// <summary>
+    ///
+    /// </summary>
+    public interface IFormMaster
     {
         void ShowOperatorRights();
+        void ReFreshData();
     }
 }
