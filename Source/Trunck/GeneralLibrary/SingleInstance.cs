@@ -52,7 +52,8 @@ namespace LJH.GeneralLibrary
         /// <returns></returns>
         public static bool ExistsProcess()
         {
-            return !CreateMutex(Assembly.GetEntryAssembly().FullName);
+            var name = Convert.ToBase64String(Encoding.UTF8.GetBytes(Assembly.GetEntryAssembly().Location));
+            return !CreateMutex(name);
         }
 
         /// <summary>
