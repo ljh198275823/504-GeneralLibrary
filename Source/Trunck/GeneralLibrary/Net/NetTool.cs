@@ -49,12 +49,42 @@ namespace LJH.GeneralLibrary.Net
             }
             return null;
         }
+        /// <summary>
+        /// 获取系统MAC，如果有多个，返回第一个
+        /// </summary>
+        /// <returns></returns>
+        public static string GetLocalMAC()
+        {
+            try
+            {
+                ManagementObjectSearcher query = new ManagementObjectSearcher("SELECT * FROM Win32_NetworkAdapterConfiguration");
+                ManagementObjectCollection queryCollection = query.Get();
+                string ret = string.Empty;
+                foreach (ManagementObject mo in queryCollection)
+                {
+                    if (mo["IPEnabled"].ToString() == "True")
+                    {
+                        var mac = mo["MacAddress"].ToString();
+                        if (!string.IsNullOrEmpty(mac))
+                        {
+                            mac = mac.Replace(":", "-").ToUpper();
+                            return mac;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+            }
+            return null;
+        }
 
         /// <summary>
         /// 获取本机的MAC地址,如果有多个，各个之前用逗号分开
         /// </summary>
         /// <returns></returns>
-        public static string GetLocalMAC()
+        public static string GetLocalMACs()
         {
             try
             {
