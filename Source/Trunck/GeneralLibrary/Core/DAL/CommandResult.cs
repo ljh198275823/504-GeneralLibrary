@@ -38,7 +38,7 @@ namespace LJH.GeneralLibrary.Core.DAL
     /// <summary>
     /// 表示数据操作返回值
     /// </summary>
-    public class CommandResult<T> : CommandResult where T : class
+    public class CommandResult<T> : CommandResult
     {
         #region 构造函数
         public CommandResult(ResultCode code, string msg, T t)
