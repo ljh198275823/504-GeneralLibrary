@@ -8,7 +8,7 @@ namespace LJH.GeneralLibrary.Core.DAL
     /// <summary>
     /// 表示数据库查询条件
     /// </summary>
-    public abstract class SearchCondition
+    public class SearchCondition
     {
         /// <summary>
         /// 获取或设置每页数据条数
