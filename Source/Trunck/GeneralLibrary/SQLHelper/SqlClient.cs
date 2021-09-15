@@ -62,6 +62,7 @@ namespace LJH.GeneralLibrary.SQLHelper
             _ConnectString = b.ToString();
             _Con = new SqlConnection(_ConnectString);
         }
+
         #region 公共属性
         /// <summary>
         /// 获取当前连接的数据库
@@ -143,6 +144,21 @@ namespace LJH.GeneralLibrary.SQLHelper
             }
             ChangeDataBase(curDb);
             return result;
+        }
+
+        /// <summary>
+        /// 获取或设置是否存在指定名称的数据库
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool HasDataBase(string name)
+        {
+            List<string> result = new List<string>();
+            string curDb = DataBase;
+            if (DataBase != "master") ChangeDataBase("master");
+            string sql = string.Format("SELECT count(name) FROM SYSDATABASES where name='{0}'", name);
+            var count = Convert.ToInt32(ExecuteScalar(sql));
+            return count > 0;
         }
 
         /// <summary>
