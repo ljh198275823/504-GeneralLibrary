@@ -275,7 +275,7 @@ namespace LJH.GeneralLibrary.SQLHelper
         #endregion
 
         #region 私有方法
-        private DataTable Query(string sql)
+        public DataTable Query(string sql)
         {
             using (SqlDataAdapter adp = new SqlDataAdapter(sql, _Con))
             {
@@ -285,7 +285,7 @@ namespace LJH.GeneralLibrary.SQLHelper
             }
         }
 
-        private object ExecuteScalar(string sql)
+        public object ExecuteScalar(string sql)
         {
             using (SqlCommand cmd = new SqlCommand(sql, _Con))
             {
@@ -298,7 +298,7 @@ namespace LJH.GeneralLibrary.SQLHelper
             }
         }
 
-        private int ExecuteNoQuery(string sql)
+        public int ExecuteNoQuery(string sql)
         {
             using (SqlCommand cmd = new SqlCommand(sql, _Con))
             {
@@ -310,7 +310,6 @@ namespace LJH.GeneralLibrary.SQLHelper
                 return cmd.ExecuteNonQuery();
             }
         }
-
         #endregion
     }
 }
