@@ -12,11 +12,12 @@ namespace LJH.GeneralLibrary.Net
     public class LJHSocket
     {
         #region 构造函数
-        public LJHSocket(string ip, int port,ProtocolType pt)
+        public LJHSocket(string ip, int port, ProtocolType pt, string localIP = null)
         {
             this.RemoteIP = ip;
             this.RemotePort = port;
             this.ProtocolType = pt;
+            this.LocalIP = localIP;
         }
         #endregion
 
@@ -60,6 +61,8 @@ namespace LJH.GeneralLibrary.Net
 
         public int RemotePort { get; set; }
 
+        public string LocalIP { get; set; }
+
         public ProtocolType ProtocolType { get; set; }
 
         public bool IsConnected
@@ -99,6 +102,7 @@ namespace LJH.GeneralLibrary.Net
                     }
                     if (_Client != null)
                     {
+                        if (!string.IsNullOrEmpty(LocalIP)) _Client.Bind(new IPEndPoint(IPAddress.Parse(LocalIP), 0)); //指定了本地地址的，绑定到本地地址
                         _Client.Connect(iep);
                         if (_ReadDataTread == null)
                         {
