@@ -76,7 +76,7 @@ namespace LJH.GeneralLibrary.CardReader
             }
             catch (Exception err)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(err);
+                ExceptionPolicy.HandleException(err);
             }
         }
 

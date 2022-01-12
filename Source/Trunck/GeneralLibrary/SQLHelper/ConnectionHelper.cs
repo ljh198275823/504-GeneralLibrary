@@ -5,7 +5,7 @@ using System.Threading;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace LJH.GeneralLibrary.Core.DAL
+namespace LJH.GeneralLibrary.SQLHelper
 {
     public class ConnectionHelper
     {

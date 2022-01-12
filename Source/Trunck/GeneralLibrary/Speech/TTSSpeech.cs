@@ -48,7 +48,7 @@ namespace LJH.GeneralLibrary.Speech
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
 

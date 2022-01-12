@@ -51,7 +51,7 @@ namespace LJH.GeneralLibrary.Net
             {
                 _ReadDataTread = null;
                 Close();
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
         #endregion
@@ -114,7 +114,7 @@ namespace LJH.GeneralLibrary.Net
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
 
@@ -133,7 +133,7 @@ namespace LJH.GeneralLibrary.Net
             catch (SocketException ex)
             {
                 Close();
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
 
@@ -153,7 +153,7 @@ namespace LJH.GeneralLibrary.Net
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
         #endregion 公开方法

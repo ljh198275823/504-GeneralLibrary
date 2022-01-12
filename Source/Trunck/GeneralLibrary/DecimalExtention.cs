@@ -30,7 +30,7 @@ namespace LJH.GeneralLibrary
         /// 将一个实数按指定的舍入方式转换成指定小数点位数的实数
         /// </summary>
         /// <param name="value">要转换的实数</param>
-        /// <param name="mode">指定的舍入方式 0表示非零进一，1表示四舍五入 2表示直接截取</param>
+        /// <param name="mode">指定的舍入方式 0表示非零进一，1表示银行家算法四舍五入 2表示直接截取</param>
         /// <param name="pointCount"></param>
         /// <returns></returns>
         public static decimal Convert(this decimal value, int mode, int pointCount)

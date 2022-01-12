@@ -76,7 +76,7 @@ namespace LJH.GeneralLibrary
                                     }
                                     catch (Exception ex)
                                     {
-                                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                                        ExceptionPolicy.HandleException(ex);
                                     }
                                 }
                             }
@@ -86,7 +86,7 @@ namespace LJH.GeneralLibrary
                         }
                         catch (Exception ex)
                         {
-                            LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                            ExceptionPolicy.HandleException(ex);
                         }
                     }
                 }
@@ -95,7 +95,7 @@ namespace LJH.GeneralLibrary
                 }
                 catch (Exception ex)
                 {
-                    LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                    ExceptionPolicy.HandleException(ex);
                 }
                 Thread.Sleep(60 * 60 * 1000);
             }

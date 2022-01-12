@@ -66,7 +66,7 @@ namespace LJH.GeneralLibrary.CardReader
                     }
                     catch (Exception err)
                     {
-                        LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(err);
+                        ExceptionPolicy.HandleException(err);
                     }
                 }
             }
@@ -89,7 +89,7 @@ namespace LJH.GeneralLibrary.CardReader
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             return result;
         }
@@ -123,7 +123,7 @@ namespace LJH.GeneralLibrary.CardReader
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             _Reading = false;
         }
@@ -261,7 +261,7 @@ namespace LJH.GeneralLibrary.CardReader
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             if (originalStarted) BeginReadCard();//恢复读卡
 
@@ -313,7 +313,7 @@ namespace LJH.GeneralLibrary.CardReader
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             if (originalStarted) BeginReadCard();//恢复读卡
 
@@ -372,7 +372,7 @@ namespace LJH.GeneralLibrary.CardReader
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             if (originalStarted) BeginReadCard();//恢复读卡
 
@@ -469,7 +469,7 @@ namespace LJH.GeneralLibrary.CardReader
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             if (originalStarted) BeginReadCard();//恢复读卡
 
@@ -564,7 +564,7 @@ namespace LJH.GeneralLibrary.CardReader
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             if (originalStarted) BeginReadCard();//恢复读卡
         }
@@ -604,7 +604,7 @@ namespace LJH.GeneralLibrary.CardReader
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             if (originalStarted) BeginReadCard();//恢复读卡
         }

@@ -110,7 +110,7 @@ namespace LJH.GeneralLibrary
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
 
@@ -130,7 +130,7 @@ namespace LJH.GeneralLibrary
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
 
@@ -157,7 +157,7 @@ namespace LJH.GeneralLibrary
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
         #endregion 私有方法
@@ -184,7 +184,7 @@ namespace LJH.GeneralLibrary
             }
             catch(Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
 
@@ -204,7 +204,7 @@ namespace LJH.GeneralLibrary
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
 
@@ -222,7 +222,7 @@ namespace LJH.GeneralLibrary
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
         }
         #endregion 公开方法

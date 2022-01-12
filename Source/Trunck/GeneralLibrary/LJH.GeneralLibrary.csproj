@@ -177,56 +177,80 @@
     <Compile Include="CardReader\IDR210Reader.cs" />
     <Compile Include="CardReader\MUR200CardReader.cs" />
     <Compile Include="CardReader\ReadCardResult.cs" />
-    <Compile Include="CardReader\ZSTReader.cs" />
-    <Compile Include="CardReader\ZSTReaderEventArgs.cs" />
     <Compile Include="CommandLineArgs.cs" />
-    <Compile Include="Core\DAL\BatchOptResult.cs" />
-    <Compile Include="Core\DAL\CommandResult.cs" />
-    <Compile Include="Core\DAL\ConnectionHelper.cs" />
-    <Compile Include="Core\DAL\DALConfig.cs" />
-    <Compile Include="Core\DAL\ImportOption.cs" />
-    <Compile Include="Core\DAL\UpdateItem.cs" />
+    <Compile Include="BatchOptResult.cs" />
+    <Compile Include="CommandResult.cs" />
+    <Compile Include="SQLHelper\ConnectionHelper.cs" />
+    <Compile Include="DAL\DALConfig.cs" />
+    <Compile Include="ImportOption.cs" />
+    <Compile Include="UpdateItem.cs" />
     <Compile Include="DateTimeRange.cs" />
-    <Compile Include="Core\DAL\Linq\DataContextFactory.cs" />
-    <Compile Include="Core\DAL\IProvider.cs" />
-    <Compile Include="Core\DAL\IUnitWork.cs" />
-    <Compile Include="Core\DAL\Linq\ProviderBase.cs" />
-    <Compile Include="Core\DAL\QueryResult.cs" />
-    <Compile Include="Core\DAL\QueryResultList.cs" />
-    <Compile Include="Core\DAL\ResultCode.cs" />
-    <Compile Include="Core\DAL\SearchCondition.cs" />
-    <Compile Include="Core\DAL\IEntity.cs" />
-    <Compile Include="Core\DAL\SQLConnectionURI.cs" />
-    <Compile Include="Core\DAL\Linq\LinqUnitWork.cs" />
-    <Compile Include="Core\UI\CsvHelper.cs" />
-    <Compile Include="Core\UI\FrmReportBase.cs">
+    <Compile Include="DAL\Linq\DataContextFactory.cs" />
+    <Compile Include="DAL\IProvider.cs" />
+    <Compile Include="DAL\IUnitWork.cs" />
+    <Compile Include="DAL\Linq\ProviderBase.cs" />
+    <Compile Include="QueryResult.cs" />
+    <Compile Include="QueryResultList.cs" />
+    <Compile Include="ResultCode.cs" />
+    <Compile Include="SearchCondition.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="DAL\SQLConnectionURI.cs" />
+    <Compile Include="DAL\Linq\LinqUnitWork.cs" />
+    <Compile Include="WinForm\Controls\UCPaging.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForm\Controls\UCPaging.designer.cs">
+      <DependentUpon>UCPaging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\CsvHelper.cs" />
+    <Compile Include="WinForm\FrmGenericDetailBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Core\UI\FrmReportBase.designer.cs">
-      <DependentUpon>FrmReportBase.cs</DependentUpon>
+    <Compile Include="WinForm\FrmGenericDetailBase.designer.cs">
+      <DependentUpon>FrmGenericDetailBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\UI\IFormMaster.cs" />
-    <Compile Include="Core\UI\ItemSelectedEventArgs.cs" />
+    <Compile Include="WinForm\FrmGenericMasterBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FrmGenericMasterBase.designer.cs">
+      <DependentUpon>FrmGenericMasterBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\FrmGenericReportBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FrmGenericReportBase.designer.cs">
+      <DependentUpon>FrmGenericReportBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\FrmGenericViewBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FrmGenericViewBase.designer.cs">
+      <DependentUpon>FrmGenericViewBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\FrmPagingMasterBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FrmPagingMasterBase.designer.cs">
+      <DependentUpon>FrmPagingMasterBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\FrmPagingReportBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm\FrmPagingReportBase.designer.cs">
+      <DependentUpon>FrmPagingReportBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm\IFormMaster.cs" />
+    <Compile Include="WinForm\ItemSelectedEventArgs.cs" />
     <Compile Include="DecimalExtention.cs" />
-    <Compile Include="FrmSoftDogInfo.cs">
+    <Compile Include="WinForm\FrmSoftDogInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSoftDogInfo.designer.cs">
+    <Compile Include="WinForm\FrmSoftDogInfo.designer.cs">
       <DependentUpon>FrmSoftDogInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\BX4KCRCCalculator.cs" />
     <Compile Include="HexStringConverter.cs" />
-    <Compile Include="LED\BX4KDisplayMode.cs" />
-    <Compile Include="LED\BX4KDynamicArea.cs" />
-    <Compile Include="LED\BX4KLEDControler.cs" />
-    <Compile Include="LED\BX4KLEDPacket.cs" />
-    <Compile Include="LOG\FileLog.cs" />
+    <Compile Include="FileLog.cs" />
     <Compile Include="Net\LJHSocket.cs" />
-    <Compile Include="Printer\BarCodePrinter.cs" />
-    <Compile Include="Printer\EpsonMT532.cs" />
-    <Compile Include="Printer\APMBillInfo.cs" />
-    <Compile Include="Printer\PrinterStatusChangedEventArgs.cs" />
-    <Compile Include="Printer\X56TicketPrinter.cs" />
     <Compile Include="Resources\Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,50 +259,34 @@
     <Compile Include="RMBHelper.cs" />
     <Compile Include="RSASignHelper.cs" />
     <Compile Include="SEBinaryConverter.cs" />
-    <Compile Include="CardReader\YangChengTongPacket.cs" />
-    <Compile Include="DeviceClasses.cs" />
-    <Compile Include="DeviceInfo.cs" />
     <Compile Include="Net\IPConverter.cs" />
-    <Compile Include="LED\IParkingLed.cs" />
-    <Compile Include="LED\YanseDesktopLed.cs" />
-    <Compile Include="LED\ZhongZhiLed.cs" />
-    <Compile Include="Printer\BillInfo.cs" />
-    <Compile Include="Printer\EpsonmodePrinter.cs" />
-    <Compile Include="LED\ParkFullLed.cs" />
-    <Compile Include="Printer\PrintMode.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SoftDog\DTEncrypt.cs" />
-    <Compile Include="FrmContactUs.cs">
+    <Compile Include="DTEncrypt.cs" />
+    <Compile Include="WinForm\FrmContactUs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmContactUs.designer.cs">
+    <Compile Include="WinForm\FrmContactUs.designer.cs">
       <DependentUpon>FrmContactUs.cs</DependentUpon>
     </Compile>
-    <Compile Include="SoftDog\KeyCreator.cs" />
     <Compile Include="SoftDog\LICReader.cs" />
     <Compile Include="SoftDog\SoftDogReader.cs" />
     <Compile Include="Speech\TTSSpeech.cs" />
-    <Compile Include="Printer\KPM150BarCodePrinter.cs" />
     <Compile Include="CardReader\BarCodeReader.cs" />
-    <Compile Include="Printer\Justification.cs" />
-    <Compile Include="Printer\PrinterStatus.cs" />
     <Compile Include="CardReader\CardReaderManager.cs" />
     <Compile Include="CardReader\ICardReader.cs" />
     <Compile Include="CardReader\MUR100CardReader.cs" />
     <Compile Include="CardReader\ReaderState.cs" />
     <Compile Include="CardReader\WengenCardReader.cs" />
     <Compile Include="CommPort.cs" />
-    <Compile Include="LED\ZhongKuangLed.cs" />
-    <Compile Include="SoftDog\DSEncrypt.cs" />
-    <Compile Include="ExceptionHandling\ExceptionPolicy.cs" />
+    <Compile Include="DSEncrypt.cs" />
+    <Compile Include="ExceptionPolicy.cs" />
     <Compile Include="ImageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoftDog\SoftDogInfo.cs" />
-    <Compile Include="SoftDog\SoftDogReader_RLD.cs" />
     <Compile Include="SQLHelper\DatabaseColumn.cs" />
     <Compile Include="SQLHelper\DatabaseObject.cs" />
     <Compile Include="SQLHelper\DatabaseTable.cs" />
@@ -286,126 +294,115 @@
     <Compile Include="SQLHelper\SqlClient.cs" />
     <Compile Include="SQLHelper\SQLStringExtractor.cs" />
     <Compile Include="StringHelper.cs" />
-    <Compile Include="Printer\TicketInfo.cs" />
     <Compile Include="TempFolderManager.cs" />
-    <Compile Include="Core\UI\FrmColumnSelection.cs">
+    <Compile Include="WinForm\FrmColumnSelection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Core\UI\FrmColumnSelection.designer.cs">
+    <Compile Include="WinForm\FrmColumnSelection.designer.cs">
       <DependentUpon>FrmColumnSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\UI\FrmDetailBase.cs">
+    <Compile Include="WinForm\FrmDetailBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Core\UI\FrmDetailBase.designer.cs">
+    <Compile Include="WinForm\FrmDetailBase.designer.cs">
       <DependentUpon>FrmDetailBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\UI\FrmMasterBase.cs">
+    <Compile Include="WinForm\FrmMasterBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Core\UI\FrmMasterBase.designer.cs">
+    <Compile Include="WinForm\FrmMasterBase.designer.cs">
       <DependentUpon>FrmMasterBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\UI\ItemAddedEventArgs.cs" />
-    <Compile Include="Core\UI\ItemUpdatedEventArgs.cs" />
-    <Compile Include="Core\UI\RowChangeEventArgs.cs" />
-    <Compile Include="WCF\BindingFactory.cs" />
+    <Compile Include="WinForm\ItemAddedEventArgs.cs" />
+    <Compile Include="WinForm\ItemUpdatedEventArgs.cs" />
+    <Compile Include="WinForm\MyKeyValuePair.cs" />
+    <Compile Include="WinForm\RowChangeEventArgs.cs" />
     <Compile Include="SingleInstance.cs" />
     <Compile Include="Net\NetTool.cs" />
-    <Compile Include="CardReader\YangChengTongOperationResult.cs" />
-    <Compile Include="CardReader\YangChengTongCardInfo.cs" />
-    <Compile Include="CardReader\YangChengTongReader.cs" />
-    <Compile Include="WinformControl\FrmProcessing.cs">
+    <Compile Include="WinForm\FrmProcessing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinformControl\FrmProcessing.designer.cs">
+    <Compile Include="WinForm\FrmProcessing.designer.cs">
       <DependentUpon>FrmProcessing.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\HexTextBox.cs">
+    <Compile Include="WinForm\Controls\HexTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinformControl\HexTextBox.Designer.cs">
+    <Compile Include="WinForm\Controls\HexTextBox.Designer.cs">
       <DependentUpon>HexTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\MyToolStrip.cs">
+    <Compile Include="WinForm\Controls\MyToolStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinformControl\MyToolStrip.Designer.cs">
+    <Compile Include="WinForm\Controls\MyToolStrip.Designer.cs">
       <DependentUpon>MyToolStrip.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\ComPortCombobox.cs">
+    <Compile Include="WinForm\Controls\ComPortCombobox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinformControl\ComPortCombobox.designer.cs">
+    <Compile Include="WinForm\Controls\ComPortCombobox.designer.cs">
       <DependentUpon>ComPortCombobox.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\CustomDataGridview.cs">
+    <Compile Include="WinForm\Controls\CustomDataGridview.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinformControl\CustomDataGridview.designer.cs">
+    <Compile Include="WinForm\Controls\CustomDataGridview.designer.cs">
       <DependentUpon>CustomDataGridview.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\DataGridViewExporter.cs" />
-    <Compile Include="WinformControl\DBCTextBox.cs">
+    <Compile Include="WinForm\DataGridViewExporter.cs" />
+    <Compile Include="WinForm\Controls\DBCTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinformControl\DBCTextBox.Designer.cs">
+    <Compile Include="WinForm\Controls\DBCTextBox.Designer.cs">
       <DependentUpon>DBCTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\DecimalTextBox.cs">
+    <Compile Include="WinForm\Controls\DecimalTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinformControl\DecimalTextBox.designer.cs">
+    <Compile Include="WinForm\Controls\DecimalTextBox.designer.cs">
       <DependentUpon>DecimalTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\AddressCombobox.cs">
+    <Compile Include="WinForm\Controls\AddressCombobox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinformControl\AddressCombobox.designer.cs">
+    <Compile Include="WinForm\Controls\AddressCombobox.designer.cs">
       <DependentUpon>AddressCombobox.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\FormHeader.cs">
+    <Compile Include="WinForm\Controls\FormHeader.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WinformControl\FormHeader.Designer.cs">
+    <Compile Include="WinForm\Controls\FormHeader.Designer.cs">
       <DependentUpon>FormHeader.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\IntergerTextBox.cs">
+    <Compile Include="WinForm\Controls\IntergerTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinformControl\IntergerTextBox.designer.cs">
+    <Compile Include="WinForm\Controls\IntergerTextBox.designer.cs">
       <DependentUpon>IntergerTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\UI\NPOIExcelHelper.cs" />
-    <Compile Include="WinformControl\PercentageProgressBar.cs">
+    <Compile Include="WinForm\NPOIExcelHelper.cs" />
+    <Compile Include="WinForm\Controls\PercentageProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WinformControl\PercentageProgressBar.designer.cs">
+    <Compile Include="WinForm\Controls\PercentageProgressBar.designer.cs">
       <DependentUpon>PercentageProgressBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\Scaner.cs" />
-    <Compile Include="WinformControl\UCDateTimeInterval.cs">
+    <Compile Include="WinForm\Controls\UCDateTimeInterval.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WinformControl\UCDateTimeInterval.designer.cs">
+    <Compile Include="WinForm\Controls\UCDateTimeInterval.designer.cs">
       <DependentUpon>UCDateTimeInterval.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\UCFormView.cs">
+    <Compile Include="WinForm\Controls\UCIPTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WinformControl\UCFormView.designer.cs">
-      <DependentUpon>UCFormView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinformControl\UCIPTextBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WinformControl\UCIPTextBox.designer.cs">
+    <Compile Include="WinForm\Controls\UCIPTextBox.designer.cs">
       <DependentUpon>UCIPTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinformControl\UCFormViewEx.cs">
+    <Compile Include="WinForm\Controls\UCFormViewEx.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WinformControl\UCFormViewEx.designer.cs">
+    <Compile Include="WinForm\Controls\UCFormViewEx.designer.cs">
       <DependentUpon>UCFormViewEx.cs</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -420,10 +417,28 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Core\UI\FrmReportBase.resx">
-      <DependentUpon>FrmReportBase.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\Controls\UCPaging.resx">
+      <DependentUpon>UCPaging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSoftDogInfo.resx">
+    <EmbeddedResource Include="WinForm\FrmGenericDetailBase.resx">
+      <DependentUpon>FrmGenericDetailBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\FrmGenericMasterBase.resx">
+      <DependentUpon>FrmGenericMasterBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\FrmGenericReportBase.resx">
+      <DependentUpon>FrmGenericReportBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\FrmGenericViewBase.resx">
+      <DependentUpon>FrmGenericViewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\FrmPagingMasterBase.resx">
+      <DependentUpon>FrmPagingMasterBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\FrmPagingReportBase.resx">
+      <DependentUpon>FrmPagingReportBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm\FrmSoftDogInfo.resx">
       <DependentUpon>FrmSoftDogInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -437,34 +452,31 @@
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource1.zh-Hant.resx" />
-    <EmbeddedResource Include="Core\UI\FrmColumnSelection.resx">
+    <EmbeddedResource Include="WinForm\FrmColumnSelection.resx">
       <DependentUpon>FrmColumnSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Core\UI\FrmDetailBase.resx">
+    <EmbeddedResource Include="WinForm\FrmDetailBase.resx">
       <DependentUpon>FrmDetailBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Core\UI\FrmMasterBase.resx">
+    <EmbeddedResource Include="WinForm\FrmMasterBase.resx">
       <DependentUpon>FrmMasterBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmContactUs.resx">
+    <EmbeddedResource Include="WinForm\FrmContactUs.resx">
       <DependentUpon>FrmContactUs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinformControl\FormHeader.resx">
+    <EmbeddedResource Include="WinForm\Controls\FormHeader.resx">
       <DependentUpon>FormHeader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinformControl\FrmProcessing.resx">
+    <EmbeddedResource Include="WinForm\FrmProcessing.resx">
       <DependentUpon>FrmProcessing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinformControl\UCDateTimeInterval.resx">
+    <EmbeddedResource Include="WinForm\Controls\UCDateTimeInterval.resx">
       <DependentUpon>UCDateTimeInterval.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinformControl\UCFormView.resx">
-      <DependentUpon>UCFormView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinformControl\UCIPTextBox.resx">
+    <EmbeddedResource Include="WinForm\Controls\UCIPTextBox.resx">
       <DependentUpon>UCIPTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinformControl\UCFormViewEx.resx">
+    <EmbeddedResource Include="WinForm\Controls\UCFormViewEx.resx">
       <DependentUpon>UCFormViewEx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

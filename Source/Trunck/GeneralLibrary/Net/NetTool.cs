@@ -28,7 +28,7 @@ namespace LJH.GeneralLibrary.Net
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             return null;
         }
@@ -45,7 +45,7 @@ namespace LJH.GeneralLibrary.Net
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             return null;
         }
@@ -75,7 +75,7 @@ namespace LJH.GeneralLibrary.Net
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             return null;
         }
@@ -108,7 +108,7 @@ namespace LJH.GeneralLibrary.Net
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             return null;
         }
@@ -125,7 +125,7 @@ namespace LJH.GeneralLibrary.Net
             }
             catch (Exception ex)
             {
-                LJH.GeneralLibrary.ExceptionHandling.ExceptionPolicy.HandleException(ex);
+                ExceptionPolicy.HandleException(ex);
             }
             return null;
         }
