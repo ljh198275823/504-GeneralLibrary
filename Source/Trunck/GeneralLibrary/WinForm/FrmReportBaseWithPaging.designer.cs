@@ -1,6 +1,6 @@
 ﻿namespace LJH.GeneralLibrary.WinForm
 {
-    partial class FrmPagingReportBase<T>
+    partial class FrmReportBaseWithPaging<TID, TEntity>
     {
         /// <summary>
         /// Required designer variable.

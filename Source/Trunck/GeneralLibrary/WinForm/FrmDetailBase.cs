@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using LJH.GeneralLibrary.Core.DAL;
+using LJH.GeneralLibrary;
 
 namespace LJH.GeneralLibrary.WinForm
 {
-    public partial class FrmDetailBase : Form
+    public partial class FrmDetailBase<TID, TEntity> : Form where TEntity :class, IEntity<TID>
     {
         public FrmDetailBase()
         {
@@ -29,7 +29,7 @@ namespace LJH.GeneralLibrary.WinForm
         /// <summary>
         /// 获取或设置要查看项的明细
         /// </summary>
-        public object UpdatingItem { get; set; }
+        public TEntity UpdatingItem { get; set; }
         #endregion
 
         #region 事件
@@ -38,11 +38,6 @@ namespace LJH.GeneralLibrary.WinForm
         #endregion
 
         #region 模板方法
-        protected virtual bool CheckInput()
-        {
-            throw new NotImplementedException("子类没有重写CheckInput方法");
-        }
-
         protected virtual void InitControls()
         {
             if (IsForView)
@@ -52,66 +47,78 @@ namespace LJH.GeneralLibrary.WinForm
             ShowOperatorRights();
         }
 
-        protected virtual void ItemShowing()
-        {
-
-        }
-
-        protected virtual Object GetItemFromInput()
-        {
-            throw new NotImplementedException("子类没有重写GetItemFromInput方法");
-        }
-
-        protected virtual CommandResult AddItem(object addingItem)
-        {
-            throw new NotImplementedException("子类没有重写AddItem方法");
-        }
-
-        protected virtual CommandResult UpdateItem(object updatingItem)
-        {
-            throw new NotImplementedException("子类没有重写UpdateItem方法");
-        }
-
-        protected virtual void OnItemUpdated(ItemUpdatedEventArgs e)
-        {
-            if (this.ItemUpdated != null) this.ItemUpdated(this, e);
-        }
-
-        protected virtual void OnItemAdded(ItemAddedEventArgs e)
-        {
-            if (this.ItemAdded != null) ItemAdded(this, e);
-        }
         /// <summary>
         /// 显示操作的权限
         /// </summary>
         public virtual void ShowOperatorRights()
         {
-            
+
         }
+
+        protected virtual void ItemShowing(TEntity info)
+        {
+
+        }
+
+        protected virtual bool CheckInput()
+        {
+            throw new NotImplementedException("子类没有重写CheckInput方法");
+        }
+
+        protected virtual TEntity GetItemFromInput()
+        {
+            throw new NotImplementedException("子类没有重写GetItemFromInput方法");
+        }
+        /// <summary>
+        /// 清空上一次保存后的输入数据
+        /// </summary>
+        protected virtual void ClearInput()
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        protected virtual CommandResult<TEntity> AddItem(TEntity addingItem)
+        {
+            throw new NotImplementedException("子类没有重写AddItem方法");
+        }
+
+        protected virtual CommandResult<TEntity> UpdateItem(TEntity updatingItem)
+        {
+            throw new NotImplementedException("子类没有重写UpdateItem方法");
+        }
+
+        protected void OnItemUpdated(ItemUpdatedEventArgs e)
+        {
+            if (this.ItemUpdated != null) this.ItemUpdated(this, e);
+        }
+
+        protected void OnItemAdded(ItemAddedEventArgs e)
+        {
+            if (this.ItemAdded != null) ItemAdded(this, e);
+        }
+        
         #endregion
 
         #region 事件处理程序
         private void FrmDetailBase_Load(object sender, EventArgs e)
         {
             InitControls();
-            if (!IsAdding)
-            {
-                ItemShowing();
-            }
+            if (!IsAdding && UpdatingItem != null) ItemShowing(UpdatingItem);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (!CheckInput()) return;
-            object item = GetItemFromInput();
-            CommandResult ret = null;
+            var item = GetItemFromInput();
+            if (item == null) return;
+            CommandResult<TEntity> ret = null;
             if (IsAdding)
             {
                 ret = AddItem(item);
                 if (ret.Result == ResultCode.Successful)
                 {
-                    OnItemAdded(new ItemAddedEventArgs(item));
-                    this.DialogResult = DialogResult.OK;
+                    OnItemAdded(new ItemAddedEventArgs(ret.Value != null ? ret.Value : item));
+                    ClearInput();
                 }
                 else
                 {
@@ -123,7 +130,7 @@ namespace LJH.GeneralLibrary.WinForm
                 ret = UpdateItem(item);
                 if (ret.Result == ResultCode.Successful)
                 {
-                    OnItemUpdated(new ItemUpdatedEventArgs(item));
+                    OnItemUpdated(new ItemUpdatedEventArgs(ret.Value != null ? ret.Value : item));
                     this.DialogResult = DialogResult.OK;
                 }
                 else

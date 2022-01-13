@@ -1,6 +1,6 @@
 ﻿namespace LJH.GeneralLibrary.WinForm
 {
-    partial class FrmDetailBase
+    partial class FrmDetailBase<TID, TEntity>
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetailBase));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -67,7 +66,6 @@
             this.ClientSize = new System.Drawing.Size(404, 273);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnOk);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDetailBase";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

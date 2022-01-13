@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace LJH.GeneralLibrary.WinForm
 {
-    public partial class FrmPagingReportBase<T> : Form, IFormMaster
+    public partial class FrmReportBaseWithPaging<TID, TEntity> : Form, IFormMaster where TEntity :class, IEntity<TID>
     {
         #region 构造函数
-        public FrmPagingReportBase()
+        public FrmReportBaseWithPaging()
         {
             InitializeComponent();
         }
@@ -98,11 +98,22 @@ namespace LJH.GeneralLibrary.WinForm
         }
         #endregion
 
-        #region 保护方法
-        public virtual void ReFreshData()
-        {
-        }
+        #region 实现IFormMaster接口
+        /// <summary>
+        /// 此方法暂时不用，只是为了实现接口用
+        /// </summary>
+        public void ReFreshData() { }
 
+        /// <summary>
+        /// 显示操作的权限
+        /// </summary>
+        public virtual void ShowOperatorRights()
+        {
+
+        }
+        #endregion
+
+        #region 保护方法
         /// <summary>
         /// 显示数据行的颜色
         /// </summary>
@@ -164,9 +175,8 @@ namespace LJH.GeneralLibrary.WinForm
         /// <summary>
         /// 显示数据
         /// </summary>
-        /// <param name="items">要显示的数据</param>
-        /// <param name="reload">是否重新加载数据，如果为真，则表示先会清空之前的数据，否则保留旧有数据</param>
-        protected virtual void ShowItemsOnGrid(QueryResultList<T> resultList)
+        /// <param name="resultList">要显示的数据</param>
+        protected virtual void ShowItemsOnGrid(QueryResultList<TEntity> resultList)
         {
             GridView.Rows.Clear();
             if (resultList != null)
@@ -197,6 +207,14 @@ namespace LJH.GeneralLibrary.WinForm
             {
                 this.ucPaging1.Init();
             }
+        }
+        /// <summary>
+        /// 获取指定行的Tag实体数据
+        /// </summary>
+        protected virtual TEntity GetRowTag(DataGridViewRow r)
+        {
+            if (r.Tag != null) return r.Tag as TEntity;
+            return null;
         }
         /// <summary>
         /// 从某个配置文件中读取键为key的项的值
@@ -272,6 +290,9 @@ namespace LJH.GeneralLibrary.WinForm
         #endregion
 
         #region 子类要重写的方法
+        /// <summary>
+        /// 获取窗体的表格控件
+        /// </summary>
         protected virtual DataGridView GridView
         {
             get
@@ -289,7 +310,9 @@ namespace LJH.GeneralLibrary.WinForm
                 return _gridView;
             }
         }
-
+        /// <summary>
+        /// 获取窗体的左侧边栏
+        /// </summary>
         protected virtual Control PnlLeft
         {
             get
@@ -308,7 +331,6 @@ namespace LJH.GeneralLibrary.WinForm
                 return _PnlLeft;
             }
         }
-
         /// <summary>
         /// 初始化
         /// </summary>
@@ -320,18 +342,11 @@ namespace LJH.GeneralLibrary.WinForm
             InitPnlLeft();
         }
         /// <summary>
-        /// 显示操作的权限
-        /// </summary>
-        public virtual void ShowOperatorRights()
-        {
-
-        }
-        /// <summary>
         /// 在网格行中显示单个数据
         /// </summary>
         /// <param name="row"></param>
         /// <param name="item"></param>
-        protected virtual void ShowItemInGridViewRow(DataGridViewRow row, T item)
+        protected virtual void ShowItemInGridViewRow(DataGridViewRow row, TEntity item)
         {
 
         }
@@ -339,7 +354,7 @@ namespace LJH.GeneralLibrary.WinForm
         /// 获取数据
         /// </summary>
         /// <returns></returns>
-        protected virtual QueryResultList<T> GetDataSource(int pageSize, int pageIndex)
+        protected virtual QueryResultList<TEntity> GetDataSource(int pageSize, int pageIndex)
         {
             return null;
         }

@@ -203,23 +203,23 @@
       <DependentUpon>UCPaging.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\CsvHelper.cs" />
-    <Compile Include="WinForm\FrmGenericDetailBase.cs">
+    <Compile Include="WinForm\FrmDetailBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\FrmGenericDetailBase.designer.cs">
-      <DependentUpon>FrmGenericDetailBase.cs</DependentUpon>
+    <Compile Include="WinForm\FrmDetailBase.designer.cs">
+      <DependentUpon>FrmDetailBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\FrmGenericMasterBase.cs">
+    <Compile Include="WinForm\FrmMasterBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\FrmGenericMasterBase.designer.cs">
-      <DependentUpon>FrmGenericMasterBase.cs</DependentUpon>
+    <Compile Include="WinForm\FrmMasterBase.designer.cs">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\FrmGenericReportBase.cs">
+    <Compile Include="WinForm\FrmReportBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\FrmGenericReportBase.designer.cs">
-      <DependentUpon>FrmGenericReportBase.cs</DependentUpon>
+    <Compile Include="WinForm\FrmReportBase.designer.cs">
+      <DependentUpon>FrmReportBase.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\FrmGenericViewBase.cs">
       <SubType>Form</SubType>
@@ -227,17 +227,11 @@
     <Compile Include="WinForm\FrmGenericViewBase.designer.cs">
       <DependentUpon>FrmGenericViewBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForm\FrmPagingMasterBase.cs">
+    <Compile Include="WinForm\FrmReportBaseWithPaging.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForm\FrmPagingMasterBase.designer.cs">
-      <DependentUpon>FrmPagingMasterBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForm\FrmPagingReportBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForm\FrmPagingReportBase.designer.cs">
-      <DependentUpon>FrmPagingReportBase.cs</DependentUpon>
+    <Compile Include="WinForm\FrmReportBaseWithPaging.designer.cs">
+      <DependentUpon>FrmReportBaseWithPaging.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\IFormMaster.cs" />
     <Compile Include="WinForm\ItemSelectedEventArgs.cs" />
@@ -300,18 +294,6 @@
     </Compile>
     <Compile Include="WinForm\FrmColumnSelection.designer.cs">
       <DependentUpon>FrmColumnSelection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForm\FrmDetailBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForm\FrmDetailBase.designer.cs">
-      <DependentUpon>FrmDetailBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForm\FrmMasterBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForm\FrmMasterBase.designer.cs">
-      <DependentUpon>FrmMasterBase.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\ItemAddedEventArgs.cs" />
     <Compile Include="WinForm\ItemUpdatedEventArgs.cs" />
@@ -420,23 +402,20 @@
     <EmbeddedResource Include="WinForm\Controls\UCPaging.resx">
       <DependentUpon>UCPaging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\FrmGenericDetailBase.resx">
-      <DependentUpon>FrmGenericDetailBase.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\FrmDetailBase.resx">
+      <DependentUpon>FrmDetailBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\FrmGenericMasterBase.resx">
-      <DependentUpon>FrmGenericMasterBase.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\FrmMasterBase.resx">
+      <DependentUpon>FrmMasterBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\FrmGenericReportBase.resx">
-      <DependentUpon>FrmGenericReportBase.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\FrmReportBase.resx">
+      <DependentUpon>FrmReportBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\FrmGenericViewBase.resx">
       <DependentUpon>FrmGenericViewBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\FrmPagingMasterBase.resx">
-      <DependentUpon>FrmPagingMasterBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\FrmPagingReportBase.resx">
-      <DependentUpon>FrmPagingReportBase.cs</DependentUpon>
+    <EmbeddedResource Include="WinForm\FrmReportBaseWithPaging.resx">
+      <DependentUpon>FrmReportBaseWithPaging.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\FrmSoftDogInfo.resx">
       <DependentUpon>FrmSoftDogInfo.cs</DependentUpon>
@@ -454,12 +433,6 @@
     <EmbeddedResource Include="Resources\Resource1.zh-Hant.resx" />
     <EmbeddedResource Include="WinForm\FrmColumnSelection.resx">
       <DependentUpon>FrmColumnSelection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\FrmDetailBase.resx">
-      <DependentUpon>FrmDetailBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForm\FrmMasterBase.resx">
-      <DependentUpon>FrmMasterBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\FrmContactUs.resx">
       <DependentUpon>FrmContactUs.cs</DependentUpon>

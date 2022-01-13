@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace LJH.GeneralLibrary.WinForm
 {
-    public partial class FrmGenericReportBase<TID, TEntity> : Form where TEntity : IEntity<TID>
+    public partial class FrmGenericReportBase<TID, TEntity> : Form, IFormMaster where TEntity :class , IEntity<TID>
     {
         #region 构造函数
         public FrmGenericReportBase()
@@ -22,7 +22,9 @@ namespace LJH.GeneralLibrary.WinForm
 
         #region 私有变量
         private DataGridView _gridView;
+        private Control _PnlLeft;
         private string _ColumnsConfig = System.IO.Path.Combine(Application.StartupPath, "ColumnsConf.xml");
+        private string _PnlLeftWidthConfig = System.IO.Path.Combine(Application.StartupPath, "PnlLeftWidthConf.xml");
         #endregion.
 
         #region 私有方法
@@ -82,6 +84,34 @@ namespace LJH.GeneralLibrary.WinForm
                 return cols.ToArray();
             }
             return null;
+        }
+
+        private void InitPnlLeft()
+        {
+            if (PnlLeft != null)
+            {
+                if (File.Exists(_PnlLeftWidthConfig))
+                {
+                    int temp = 0;
+                    string value = GetConfig(_PnlLeftWidthConfig, string.Format("{0}_PnlLeftWidth", this.GetType().Name));
+                    if (!string.IsNullOrEmpty(value) && int.TryParse(value, out temp) && temp > 0) PnlLeft.Width = temp;
+                }
+            }
+        }
+        #endregion
+
+        #region 实现IFormMaster接口
+        /// <summary>
+        /// 此方法暂时不用，只是为了实现接口用
+        /// </summary>
+        public void ReFreshData() { }
+
+        /// <summary>
+        /// 显示操作的权限
+        /// </summary>
+        public virtual void ShowOperatorRights()
+        {
+
         }
         #endregion
 
@@ -183,6 +213,14 @@ namespace LJH.GeneralLibrary.WinForm
             FreshStatusBar();
         }
         /// <summary>
+        /// 获取指定行的Tag实体数据
+        /// </summary>
+        protected virtual TEntity GetRowTag(DataGridViewRow r)
+        {
+            if (r.Tag != null) return r.Tag as TEntity;
+            return null;
+        }
+        /// <summary>
         /// 从某个配置文件中读取键为key的项的值
         /// </summary>
         /// <param name="file"></param>
@@ -255,6 +293,9 @@ namespace LJH.GeneralLibrary.WinForm
         #endregion
 
         #region 子类要重写的方法
+        /// <summary>
+        /// 获取窗体的表格控件
+        /// </summary>
         protected virtual DataGridView GridView
         {
             get
@@ -273,6 +314,27 @@ namespace LJH.GeneralLibrary.WinForm
             }
         }
         /// <summary>
+        /// 获取窗体的左侧边栏
+        /// </summary>
+        protected virtual Control PnlLeft
+        {
+            get
+            {
+                if (_PnlLeft == null)
+                {
+                    foreach (Control ctrl in this.Controls)
+                    {
+                        if (ctrl.Name == "pnlLeft")
+                        {
+                            _PnlLeft = ctrl;
+                            break;
+                        }
+                    }
+                }
+                return _PnlLeft;
+            }
+        }
+        /// <summary>
         /// 初始化
         /// </summary>
         protected virtual void Init()
@@ -282,14 +344,6 @@ namespace LJH.GeneralLibrary.WinForm
             InitGridViewColumns();
         }
         /// <summary>
-        /// 显示操作的权限
-        /// </summary>
-        public virtual void ShowOperatorRights()
-        {
-
-        }
-
-        /// <summary>
         /// 在网格行中显示单个数据
         /// </summary>
         /// <param name="row"></param>
@@ -298,7 +352,6 @@ namespace LJH.GeneralLibrary.WinForm
         {
 
         }
-
         /// <summary>
         /// 获取数据
         /// </summary>
@@ -307,7 +360,9 @@ namespace LJH.GeneralLibrary.WinForm
         {
             return null;
         }
-
+        /// <summary>
+        /// 筛选数据
+        /// </summary>
         protected virtual List<TEntity> FilterData(List<TEntity> items)
         {
             return items;
