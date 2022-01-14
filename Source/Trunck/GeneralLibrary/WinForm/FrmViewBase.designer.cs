@@ -1,6 +1,6 @@
 ﻿namespace LJH.GeneralLibrary.WinForm
 {
-    partial class FrmGenericViewBase<TID, TEntity>
+    partial class FrmViewBase<TID, TEntity>
     {
         /// <summary>
         /// Required designer variable.
@@ -47,20 +47,21 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(746, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(777, 17);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "总共 0 项";
             // 
-            // FrmViewBaseEx
+            // FrmViewBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 343);
             this.Controls.Add(this.statusStrip1);
-            this.Name = "FrmViewBaseEx";
+            this.Name = "FrmViewBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmViewBase";
             this.Load += new System.EventHandler(this.FrmViewBase_Load);
+            this.Resize += new System.EventHandler(this.FrmViewBase_Resize);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

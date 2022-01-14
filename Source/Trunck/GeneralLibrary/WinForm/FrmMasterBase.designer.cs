@@ -47,23 +47,24 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(501, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(532, 17);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "总共 0 项";
             // 
-            // FrmGenericMasterBase
+            // FrmMasterBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(547, 281);
             this.Controls.Add(this.statusStrip1);
-            this.Name = "FrmGenericMasterBase";
+            this.Name = "FrmMasterBase";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMasterBase";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMasterBase_FormClosed);
             this.Load += new System.EventHandler(this.FrmMasterBase_Load);
+            this.Resize += new System.EventHandler(this.FrmMasterBase_Resize);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

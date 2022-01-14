@@ -84,7 +84,7 @@
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "总共 0 项";
             // 
-            // FrmReportBase
+            // FrmGenericReportBase
             // 
             this.AcceptButton = this.btnSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -94,10 +94,12 @@
             this.Controls.Add(this.btnColumn);
             this.Controls.Add(this.btnSaveAs);
             this.Controls.Add(this.btnSearch);
-            this.Name = "FrmReportBase";
+            this.Name = "FrmGenericReportBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmReportBase";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmReportBase_FormClosed);
             this.Load += new System.EventHandler(this.FrmReportBase_Load);
+            this.Resize += new System.EventHandler(this.FrmReportBase_Resize);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

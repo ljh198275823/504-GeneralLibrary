@@ -31,7 +31,7 @@
             this.btnColumn = new System.Windows.Forms.Button();
             this.btnSaveAs = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.ucPaging1 = new WinformControl.UCPaging();
+            this.ucPaging1 = new LJH.GeneralLibrary.WinformControl.UCPaging();
             this.SuspendLayout();
             // 
             // btnColumn
@@ -72,7 +72,7 @@
             this.ucPaging1.Size = new System.Drawing.Size(913, 30);
             this.ucPaging1.TabIndex = 21;
             // 
-            // FrmPagingReportBase
+            // FrmReportBaseWithPaging
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -81,10 +81,11 @@
             this.Controls.Add(this.btnColumn);
             this.Controls.Add(this.btnSaveAs);
             this.Controls.Add(this.btnSearch);
-            this.Name = "FrmPagingReportBase";
+            this.Name = "FrmReportBaseWithPaging";
             this.Text = "FrmReportBase";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPagingReportBase_FormClosed);
             this.Load += new System.EventHandler(this.FrmReportBase_Load);
+            this.Resize += new System.EventHandler(this.FrmReportBase_Resize);
             this.ResumeLayout(false);
 
         }

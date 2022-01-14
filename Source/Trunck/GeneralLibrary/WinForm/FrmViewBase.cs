@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace LJH.GeneralLibrary.WinForm
 {
-    public partial class FrmGenericViewBase<TID, TEntity> : Form where TEntity : IEntity<TID>
+    public partial class FrmViewBase<TID, TEntity> : Form where TEntity : IEntity<TID>
     {
         #region 构造函数
-        public FrmGenericViewBase()
+        public FrmViewBase()
         {
             InitializeComponent();
         }
@@ -311,7 +311,6 @@ namespace LJH.GeneralLibrary.WinForm
             {
                 var items = FilterData(_Items.ToList());
                 ShowItemsOnGrid(items);
-
             }
             else
             {
@@ -383,6 +382,26 @@ namespace LJH.GeneralLibrary.WinForm
         private void btnSelectColumns_Click(object sender, EventArgs e)
         {
             SelectColumns();
+        }
+
+        private void FrmViewBase_Resize(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GridView != null)
+                {
+                    foreach (DataGridViewColumn col in GridView.Columns)
+                    {
+                        if (col.Visible && col.AutoSizeMode != DataGridViewAutoSizeColumnMode.None && col.AutoSizeMode != DataGridViewAutoSizeColumnMode.NotSet)
+                        {
+                            GridView.AutoResizeColumn(col.Index, col.AutoSizeMode);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+            }
         }
         #endregion
     }

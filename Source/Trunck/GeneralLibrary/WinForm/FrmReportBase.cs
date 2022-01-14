@@ -430,6 +430,34 @@ namespace LJH.GeneralLibrary.WinForm
         {
             SelectColumns();
         }
+
+        private void FrmReportBase_Resize(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GridView != null)
+                {
+                    foreach (DataGridViewColumn col in GridView.Columns)
+                    {
+                        if (col.Visible && col.AutoSizeMode != DataGridViewAutoSizeColumnMode.None && col.AutoSizeMode != DataGridViewAutoSizeColumnMode.NotSet)
+                        {
+                            GridView.AutoResizeColumn(col.Index, col.AutoSizeMode);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void FrmReportBase_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (PnlLeft != null)
+            {
+                SaveConfig(_PnlLeftWidthConfig, string.Format("{0}_PnlLeftWidth", this.GetType().Name), PnlLeft.Width.ToString());
+            }
+        }
         #endregion
     }
 }
