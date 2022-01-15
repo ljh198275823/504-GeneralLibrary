@@ -141,26 +141,6 @@ namespace LJH.GeneralLibrary.WinForm
                 }
             }
         }
-
-        protected virtual List<TEntity> FullTextSearch(List<TEntity> data, string keyword)
-        {
-            if (string.IsNullOrEmpty(keyword)) return data;
-            if (this.GridView == null) return data;
-            if (data == null) return data;
-            data = data.Where(item =>
-            {
-                foreach (DataGridViewColumn col in GridView.Columns)
-                {
-                    if (col.Visible)
-                    {
-                        object o = GetCellValue(item, col.Name);
-                        if (o != null && o.ToString().Contains(keyword)) return true;
-                    }
-                }
-                return false;
-            }).ToList();
-            return data;
-        }
         #endregion
 
         #region 公共属性
@@ -211,6 +191,20 @@ namespace LJH.GeneralLibrary.WinForm
 
         #region 保护方法
         /// <summary>
+        /// 获取选择的表格里面的数据
+        /// </summary>
+        /// <returns></returns>
+        protected List<TEntity> GetSelectedItems()
+        {
+            var dic = new Dictionary<int, TEntity>();
+            foreach (DataGridViewCell cell in GridView.SelectedCells)
+            {
+                if (dic.ContainsKey(cell.RowIndex) == false) dic.Add(cell.RowIndex, GetRowTag(GridView.Rows[cell.RowIndex]));
+            }
+            return dic.Values.ToList();
+        }
+
+        /// <summary>
         /// 导出数据
         /// </summary>
         protected virtual void ExportData()
@@ -260,22 +254,17 @@ namespace LJH.GeneralLibrary.WinForm
             try
             {
                 if (GridView == null) return;
-                if (this.GridView.SelectedRows.Count > 0)
+                var items = GetSelectedItems();
+                if (items != null && items.Count > 0)
                 {
                     DialogResult result = MessageBox.Show("确实要删除所选项吗?", "确定", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        var items = new List<TEntity>();
-                        foreach (DataGridViewRow row in this.GridView.SelectedRows)
-                        {
-                            items.Add(GetRowTag(row));
-                            row.Selected = false;
-                        }
                         foreach (var item in items)
                         {
                             if (item == null) continue;
                             var ret = DeletingItem(item);
-                            if(ret.Result ==ResultCode.Successful )
+                            if (ret.Result == ResultCode.Successful)
                             {
                                 _ShowingItems.Remove(item);
                                 _Items.Remove(item);
@@ -287,6 +276,10 @@ namespace LJH.GeneralLibrary.WinForm
                         }
                         GridView.RowCount = _ShowingItems.Count;
                         GridView.Invalidate();
+                        foreach (DataGridViewCell cell in GridView.SelectedCells)
+                        {
+                            cell.Selected = false;
+                        }
                         FreshStatusBar();
                     }
                 }
@@ -334,7 +327,7 @@ namespace LJH.GeneralLibrary.WinForm
                 GridView.RowCount++;
                 FreshStatusBar();
                 GridView.FirstDisplayedScrollingRowIndex = 0;
-                foreach (DataGridViewRow r in GridView.SelectedRows)
+                foreach (DataGridViewCell r in GridView.SelectedCells)
                 {
                     r.Selected = false;
                 }
@@ -347,10 +340,10 @@ namespace LJH.GeneralLibrary.WinForm
         /// </summary>
         protected virtual void PerformUpdateData()
         {
-            if (this.GridView != null && this.GridView.SelectedRows != null && this.GridView.SelectedRows.Count > 0)
+            var items = GetSelectedItems();
+            if (items != null && items.Count > 0)
             {
-                var row = this.GridView.SelectedRows[0];
-                var pre = GetRowTag(row);
+                var pre = items[0];
                 if (pre != null)
                 {
                     var detailForm = GetDetailForm();
@@ -557,6 +550,27 @@ namespace LJH.GeneralLibrary.WinForm
             }
         }
 
+
+        protected virtual List<TEntity> FullTextSearch(List<TEntity> data, string keyword)
+        {
+            if (string.IsNullOrEmpty(keyword)) return data;
+            if (this.GridView == null) return data;
+            if (data == null) return data;
+            data = data.Where(item =>
+            {
+                foreach (DataGridViewColumn col in GridView.Columns)
+                {
+                    if (col.Visible)
+                    {
+                        object o = GetCellValue(item, col.Name);
+                        if (o != null && o.ToString().Contains(keyword)) return true;
+                    }
+                }
+                return false;
+            }).ToList();
+            return data;
+        }
+
         protected virtual List<TEntity> FilterData(List<TEntity> items)
         {
             return items;
@@ -564,6 +578,7 @@ namespace LJH.GeneralLibrary.WinForm
 
         protected virtual object GetCellValue(TEntity item, string colName)
         {
+            if (colName == "col序号") return _ShowingItems.IndexOf(item) + 1;
             return null;
         }
         /// <summary>
@@ -638,15 +653,21 @@ namespace LJH.GeneralLibrary.WinForm
         private void cMnu_SelectRows_Click(object sender, EventArgs e)
         {
             if (GridView == null) return;
-            foreach (DataGridViewRow row in GridView.SelectedRows)
+            var items = GetSelectedItems();
+            if (items != null && items.Count > 0)
             {
-                var o = GetRowTag(row);
-                if (o != null)
+                foreach (var item in items)
                 {
-                    ItemSelectedEventArgs args = new ItemSelectedEventArgs() { SelectedItem = o };
+                    ItemSelectedEventArgs args = new ItemSelectedEventArgs() { SelectedItem = item };
                     if (this.ItemSelected != null) this.ItemSelected(this, args);
-                    row.Visible = false;
+                    _ShowingItems.Remove(item);  //选择完之后从表格里面删除
+                    _Items.Remove(item);
                 }
+            }
+            this.GridView.Invalidate();
+            foreach (DataGridViewCell cell in GridView.SelectedCells)
+            {
+                cell.Selected = false;
             }
         }
 

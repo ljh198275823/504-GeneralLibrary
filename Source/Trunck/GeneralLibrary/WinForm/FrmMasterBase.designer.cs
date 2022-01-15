@@ -47,7 +47,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(532, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(501, 17);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "总共 0 项";
             // 
@@ -73,9 +73,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-
+        protected System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

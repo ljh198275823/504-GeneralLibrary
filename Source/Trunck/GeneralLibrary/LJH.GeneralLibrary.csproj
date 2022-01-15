@@ -196,6 +196,12 @@
     <Compile Include="IEntity.cs" />
     <Compile Include="DAL\SQLConnectionURI.cs" />
     <Compile Include="DAL\Linq\LinqUnitWork.cs" />
+    <Compile Include="WinForm\Controls\MyTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForm\Controls\MyTree.designer.cs">
+      <DependentUpon>MyTree.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForm\Controls\UCPaging.cs">
       <SubType>UserControl</SubType>
     </Compile>
