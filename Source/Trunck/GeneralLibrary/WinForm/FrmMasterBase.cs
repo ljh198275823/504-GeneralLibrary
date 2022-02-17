@@ -673,7 +673,7 @@ namespace LJH.GeneralLibrary.WinForm
 
         private void GridView_DoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            PerformUpdateData();
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) PerformUpdateData();
         }
 
         private void GridView_DoubleClick1(object sender, DataGridViewCellEventArgs e)
