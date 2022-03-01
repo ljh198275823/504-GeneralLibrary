@@ -91,12 +91,13 @@ namespace LJH.GeneralLibrary.WinForm
         #endregion
 
         #region 公共方法
-        /// <summary>读取excel
-        /// 默认第一行为表头
+        /// <summary>
+        /// 从EXCEL读取数据
         /// </summary>
-        /// <param name="strFileName">excel文档路径</param>
+        /// <param name="strFileName">文件名称</param>
+        /// <param name="headerRow">表头在哪一行，默认为第一行</param>
         /// <returns></returns>
-        public static DataTable Import(string strFileName)
+        public static DataTable Import(string strFileName, int headerRow = 1)
         {
             DataTable dt = new DataTable();
             string fileType = Path.GetExtension(strFileName.ToLower()).Trim();
@@ -105,7 +106,8 @@ namespace LJH.GeneralLibrary.WinForm
                 IWorkbook hssfworkbook = WorkbookFactory.Create(fs);
                 ISheet sheet = hssfworkbook.GetSheetAt(0);
                 //表头
-                IRow header = sheet.GetRow(sheet.FirstRowNum);
+                IRow header = sheet.GetRow(headerRow - 1);
+                if (header == null) return dt;
                 List<int> columns = new List<int>();
                 for (int i = 0; i < header.LastCellNum; i++)
                 {
@@ -122,7 +124,7 @@ namespace LJH.GeneralLibrary.WinForm
                     columns.Add(i);
                 }
                 //数据
-                for (int i = sheet.FirstRowNum + 1; i <= sheet.LastRowNum; i++)
+                for (int i = headerRow; i <= sheet.LastRowNum; i++)
                 {
                     IRow r = sheet.GetRow(i);
                     try
